@@ -1,0 +1,3991 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>امیر سایت | ساخت سایت اختصاصی</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Vazirmatn,sans-serif;
+    background:#07070d;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+button,
+a{
+    font-family:inherit;
+}
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+
+/* ================= BACKGROUND ================= */
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-10;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,40,150,.14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(100,60,255,.14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(0,210,255,.08),
+            transparent 35%
+        );
+}
+
+.grid{
+    position:fixed;
+    inset:0;
+    z-index:-8;
+    opacity:.17;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        );
+
+    background-size:55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+}
+
+.orb{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:.2;
+    z-index:-7;
+    pointer-events:none;
+}
+
+.orb.one{
+    width:320px;
+    height:320px;
+    background:#ff2290;
+    top:-100px;
+    left:-100px;
+    animation:orb1 10s infinite alternate ease-in-out;
+}
+
+.orb.two{
+    width:300px;
+    height:300px;
+    background:#6845ff;
+    right:-120px;
+    top:35%;
+    animation:orb2 12s infinite alternate ease-in-out;
+}
+
+.orb.three{
+    width:280px;
+    height:280px;
+    background:#00d9ff;
+    left:30%;
+    bottom:-150px;
+    animation:orb3 11s infinite alternate ease-in-out;
+}
+
+@keyframes orb1{
+    to{
+        transform:
+            translate(130px,130px)
+            scale(1.3);
+    }
+}
+
+@keyframes orb2{
+    to{
+        transform:
+            translate(-120px,80px)
+            scale(1.2);
+    }
+}
+
+@keyframes orb3{
+    to{
+        transform:
+            translate(100px,-100px)
+            scale(1.3);
+    }
+}
+
+
+/* ================= LOADER ================= */
+
+.loader{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+
+    background:#06060b;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+
+    transition:.7s;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-logo{
+    font-size:
+        clamp(40px,7vw,75px);
+
+    font-weight:900;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff2b9a,
+            #794dff,
+            #00d9ff,
+            #ff2b9a
+        );
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+    animation:
+        gradient 3s linear infinite;
+}
+
+.loader-sub{
+    color:#77798c;
+    margin-top:10px;
+    font-size:13px;
+}
+
+.loader-line{
+    width:min(300px,70%);
+    height:5px;
+    margin-top:25px;
+
+    background:#171722;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.loader-line span{
+    display:block;
+    height:100%;
+    width:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff2b9a,
+            #794dff,
+            #00d9ff
+        );
+
+    animation:
+        load 3.8s linear forwards;
+}
+
+@keyframes load{
+    to{
+        width:100%;
+    }
+}
+
+@keyframes gradient{
+    to{
+        background-position:300%;
+    }
+}
+
+
+/* ================= HEADER ================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+
+    z-index:2000;
+
+    padding:
+        12px 4%;
+
+    background:
+        rgba(7,7,13,.62);
+
+    backdrop-filter:
+        blur(20px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
+}
+
+.nav{
+    max-width:1400px;
+    margin:auto;
+
+    min-height:55px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.logo{
+    cursor:pointer;
+
+    font-size:21px;
+    font-weight:900;
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff2495,
+            #7047ff
+        );
+
+    box-shadow:
+        0 0 30px
+        rgba(255,36,149,.25);
+
+    animation:
+        logoFloat 3s infinite ease-in-out;
+}
+
+@keyframes logoFloat{
+
+    50%{
+        transform:
+            translateY(-4px)
+            rotate(4deg);
+    }
+
+}
+
+.nav-links{
+    display:flex;
+    gap:3px;
+}
+
+.nav-links a{
+    color:#a9abbc;
+    text-decoration:none;
+
+    padding:
+        9px 12px;
+
+    border-radius:11px;
+
+    font-size:12px;
+
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+
+    background:
+        rgba(255,255,255,.07);
+
+    transform:
+        translateY(-2px);
+}
+
+.nav-order{
+    border:0;
+
+    color:white;
+
+    cursor:pointer;
+
+    padding:
+        11px 17px;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff2495,
+            #7047ff
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(255,36,149,.18);
+
+    transition:.3s;
+}
+
+.nav-order:hover{
+    transform:
+        translateY(-3px);
+}
+
+
+/* ================= GLOBAL ================= */
+
+.container{
+    width:min(1300px,92%);
+    margin:auto;
+}
+
+section{
+    padding:100px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-title .small{
+    color:#ff5bad;
+    font-size:12px;
+    font-weight:800;
+}
+
+.section-title h2{
+    font-size:
+        clamp(30px,5vw,52px);
+
+    font-weight:900;
+
+    margin-top:10px;
+}
+
+.section-title p{
+    color:#818394;
+
+    margin-top:10px;
+
+    font-size:14px;
+}
+
+.gradient{
+    background:
+        linear-gradient(
+            90deg,
+            #ff2b9a,
+            #814cff,
+            #00d9ff,
+            #ff2b9a
+        );
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+    animation:
+        gradient 4s linear infinite;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+
+    padding-top:160px;
+
+    display:grid;
+
+    grid-template-columns:
+        1.1fr .9fr;
+
+    align-items:center;
+
+    gap:60px;
+}
+
+.hero-badge{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+        8px 14px;
+
+    border-radius:50px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    color:#c7c8d5;
+
+    font-size:12px;
+}
+
+.live{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#52ff9b;
+
+    box-shadow:
+        0 0 15px #52ff9b;
+
+    animation:
+        blink 1s infinite alternate;
+}
+
+@keyframes blink{
+
+    to{
+        opacity:.3;
+        transform:scale(.7);
+    }
+
+}
+
+.hero h1{
+    font-size:
+        clamp(45px,7vw,82px);
+
+    line-height:1.08;
+
+    font-weight:900;
+
+    margin-top:22px;
+}
+
+.hero-text{
+    max-width:650px;
+
+    color:#a4a6b5;
+
+    line-height:2;
+
+    margin-top:25px;
+
+    font-size:16px;
+}
+
+.hero-buttons{
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-top:30px;
+}
+
+.btn{
+    border:0;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+        14px 22px;
+
+    border-radius:15px;
+
+    font-weight:900;
+
+    transition:.35s;
+}
+
+.btn-primary{
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff2495,
+            #7047ff
+        );
+
+    box-shadow:
+        0 15px 40px
+        rgba(255,36,149,.18);
+}
+
+.btn-secondary{
+    color:white;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+}
+
+.btn:hover{
+    transform:
+        translateY(-5px);
+}
+
+
+/* ================= HERO VISUAL ================= */
+
+.hero-visual{
+    min-height:500px;
+
+    position:relative;
+
+    display:grid;
+
+    place-items:center;
+}
+
+.site-window{
+    width:min(470px,100%);
+    height:320px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    background:#11121d;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    box-shadow:
+        0 40px 100px
+        rgba(0,0,0,.5),
+
+        0 0 70px
+        rgba(111,70,255,.13);
+
+    transform:
+        perspective(900px)
+        rotateY(-8deg)
+        rotateX(4deg);
+
+    animation:
+        windowFloat 5s infinite ease-in-out;
+}
+
+@keyframes windowFloat{
+
+    50%{
+
+        transform:
+            perspective(900px)
+            rotateY(-4deg)
+            rotateX(1deg)
+            translateY(-15px);
+
+    }
+
+}
+
+.window-top{
+    height:42px;
+
+    background:#171824;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:
+        0 14px;
+}
+
+.dot{
+    width:9px;
+    height:9px;
+
+    border-radius:50%;
+
+    background:#454757;
+}
+
+.window-content{
+    padding:22px;
+}
+
+.fake-nav{
+    height:35px;
+
+    border-radius:9px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    margin-bottom:18px;
+}
+
+.fake-hero{
+    height:100px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255,36,149,.45),
+            rgba(111,70,255,.4)
+        );
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.fake-hero:after{
+
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.12);
+
+    right:-40px;
+    top:-60px;
+}
+
+.fake-cards{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:10px;
+
+    margin-top:14px;
+}
+
+.fake-card{
+
+    height:75px;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1px solid
+        rgba(255,255,255,.05);
+}
+
+.float-card{
+
+    position:absolute;
+
+    padding:
+        14px 17px;
+
+    border-radius:16px;
+
+    background:
+        rgba(15,15,25,.85);
+
+    backdrop-filter:
+        blur(15px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.3);
+
+    font-size:12px;
+
+    animation:
+        floatCard 4s infinite ease-in-out;
+}
+
+.float1{
+    top:60px;
+    right:-15px;
+}
+
+.float2{
+    bottom:60px;
+    left:-15px;
+
+    animation-delay:1s;
+}
+
+.float3{
+    bottom:130px;
+    right:-35px;
+
+    animation-delay:2s;
+}
+
+@keyframes floatCard{
+
+    50%{
+        transform:
+            translateY(-12px);
+    }
+
+}
+
+
+/* ================= STATS ================= */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+}
+
+.stat{
+
+    text-align:center;
+
+    padding:25px 15px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    transition:.35s;
+}
+
+.stat:hover{
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(255,36,149,.3);
+}
+
+.stat strong{
+
+    display:block;
+
+    font-size:28px;
+}
+
+.stat span{
+
+    color:#777a8d;
+
+    font-size:11px;
+}
+
+
+/* ================= FEATURES ================= */
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.feature{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:30px;
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.025)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition:.4s;
+}
+
+.feature:before{
+
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+    height:130px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,36,149,.08);
+
+    filter:blur(30px);
+
+    top:-70px;
+    left:-60px;
+}
+
+.feature:hover{
+
+    transform:
+        translateY(-9px);
+
+    border-color:
+        rgba(112,71,255,.4);
+}
+
+.feature-icon{
+
+    width:60px;
+    height:60px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:18px;
+
+    font-size:28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff2495,
+            #7047ff
+        );
+
+    margin-bottom:20px;
+}
+
+.feature h3{
+
+    font-size:19px;
+}
+
+.feature p{
+
+    color:#858797;
+
+    line-height:1.9;
+
+    font-size:13px;
+
+    margin-top:8px;
+}
+
+
+/* ================= PLANS ================= */
+
+.plans{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:25px;
+
+    max-width:1000px;
+
+    margin:auto;
+}
+
+.plan{
+
+    position:relative;
+
+    padding:35px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    overflow:hidden;
+
+    transition:.45s;
+}
+
+.plan:hover{
+
+    transform:
+        translateY(-10px);
+
+    border-color:
+        rgba(255,36,149,.4);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.35);
+}
+
+.plan.featured{
+
+    border-color:#ff2b9a;
+
+    box-shadow:
+        0 0 50px
+        rgba(255,43,154,.1);
+}
+
+.ribbon{
+
+    position:absolute;
+
+    top:18px;
+    left:-37px;
+
+    transform:
+        rotate(-45deg);
+
+    width:145px;
+
+    padding:6px;
+
+    text-align:center;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    background:#ff2b9a;
+}
+
+.plan-icon{
+
+    font-size:42px;
+}
+
+.plan h3{
+
+    font-size:25px;
+
+    margin-top:10px;
+}
+
+.plan-desc{
+
+    color:#858797;
+
+    font-size:13px;
+
+    margin-top:6px;
+}
+
+.plan-price{
+
+    margin-top:25px;
+
+    font-size:35px;
+
+    font-weight:900;
+}
+
+.plan-price small{
+
+    font-size:12px;
+
+    color:#777a8c;
+
+    font-weight:500;
+}
+
+.plan ul{
+
+    list-style:none;
+
+    margin-top:25px;
+}
+
+.plan li{
+
+    color:#a5a7b7;
+
+    font-size:13px;
+
+    padding:8px 0;
+}
+
+.plan li:before{
+
+    content:"✓";
+
+    color:#55ff9e;
+
+    font-weight:900;
+
+    margin-left:8px;
+}
+
+.plan .btn{
+
+    width:100%;
+
+    margin-top:22px;
+}
+
+
+/* ================= SAMPLES ================= */
+
+.samples{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:22px;
+}
+
+.sample{
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:290px;
+
+    border-radius:25px;
+
+    background:#10111b;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition:.45s;
+}
+
+.sample:hover{
+
+    transform:
+        translateY(-9px);
+
+    box-shadow:
+        0 30px 70px
+        rgba(0,0,0,.4);
+}
+
+.sample-preview{
+
+    height:210px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(255,36,149,.5),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #19152c,
+            #0e1724
+        );
+}
+
+.sample-preview.second{
+
+    background:
+        radial-gradient(
+            circle at 30% 40%,
+            rgba(0,210,255,.35),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #101d29,
+            #18122b
+        );
+}
+
+.sample-preview:before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:20px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    border-radius:18px;
+}
+
+.preview-text{
+
+    position:absolute;
+
+    inset:0;
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:34px;
+
+    font-weight:900;
+}
+
+.sample-info{
+
+    padding:17px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+.sample-info h3{
+
+    font-size:16px;
+}
+
+.sample-info p{
+
+    color:#7e8191;
+
+    font-size:11px;
+
+    margin-top:5px;
+}
+
+.sample-link{
+
+    flex-shrink:0;
+
+    padding:9px 13px;
+
+    border-radius:11px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    transition:.3s;
+}
+
+.sample-link:hover{
+
+    background:#ff2b9a;
+}
+
+
+/* ================= PROCESS ================= */
+
+.process{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:16px;
+}
+
+.step{
+
+    text-align:center;
+
+    padding:25px 15px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    transition:.35s;
+}
+
+.step:hover{
+
+    transform:
+        translateY(-7px);
+}
+
+.step-number{
+
+    width:55px;
+    height:55px;
+
+    display:grid;
+
+    place-items:center;
+
+    margin:auto;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff2495,
+            #7047ff
+        );
+
+    font-size:20px;
+
+    font-weight:900;
+}
+
+.step h3{
+
+    margin-top:14px;
+}
+
+.step p{
+
+    color:#818394;
+
+    font-size:12px;
+
+    line-height:1.8;
+
+    margin-top:6px;
+}
+
+
+/* ================= SPECIAL ================= */
+
+.special{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:55px;
+
+    border-radius:35px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255,36,149,.11),
+            rgba(112,71,255,.1),
+            rgba(0,210,255,.06)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+}
+
+.special:after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,36,149,.09);
+
+    filter:blur(70px);
+
+    left:-150px;
+    bottom:-200px;
+
+    animation:
+        moveGlow 7s infinite alternate;
+}
+
+@keyframes moveGlow{
+
+    to{
+
+        transform:
+            translate(160px,-70px)
+            scale(1.3);
+
+    }
+
+}
+
+.special-content{
+
+    position:relative;
+
+    z-index:2;
+}
+
+.special h2{
+
+    font-size:
+        clamp(30px,5vw,48px);
+
+    margin-top:15px;
+}
+
+.special p{
+
+    max-width:800px;
+
+    color:#a3a6b7;
+
+    line-height:2;
+
+    margin-top:12px;
+}
+
+.special-list{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:10px;
+
+    margin-top:25px;
+}
+
+.special-item{
+
+    padding:13px;
+
+    border-radius:13px;
+
+    background:
+        rgba(0,0,0,.2);
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    color:#a7a9b8;
+
+    font-size:12px;
+}
+
+
+/* ================= FAQ ================= */
+
+.faq{
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+.faq-item{
+
+    margin-bottom:10px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:17px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    overflow:hidden;
+}
+
+.faq-question{
+
+    width:100%;
+
+    padding:18px;
+
+    background:transparent;
+
+    color:white;
+
+    border:0;
+
+    text-align:right;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    font-weight:800;
+}
+
+.faq-answer{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.faq-answer p{
+
+    color:#858797;
+
+    font-size:12px;
+
+    line-height:2;
+
+    padding:
+        0 18px 18px;
+}
+
+.faq-item.open
+.faq-answer{
+
+    max-height:180px;
+}
+
+
+/* ================= CTA ================= */
+
+.cta{
+
+    text-align:center;
+
+    padding:
+        90px 20px;
+}
+
+.cta-box{
+
+    position:relative;
+
+    overflow:hidden;
+
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:
+        65px 30px;
+
+    border-radius:35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,36,149,.12),
+            rgba(112,71,255,.12)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+}
+
+.cta-box h2{
+
+    font-size:
+        clamp(30px,5vw,52px);
+
+    font-weight:900;
+}
+
+.cta-box p{
+
+    color:#8e91a1;
+
+    margin-top:10px;
+}
+
+.cta-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-top:25px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    padding:
+        50px 5%;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+
+    text-align:center;
+}
+
+.footer-logo{
+
+    font-size:32px;
+
+    font-weight:900;
+}
+
+footer p{
+
+    color:#777a8d;
+
+    font-size:12px;
+
+    margin-top:9px;
+}
+
+.rubika{
+
+    display:inline-block;
+
+    margin-top:18px;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:
+        12px 20px;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff2495,
+            #7047ff
+        );
+
+    font-weight:900;
+
+    transition:.3s;
+}
+
+.rubika:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+}
+
+
+/* ================= MODAL ================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px;
+
+    background:
+        rgba(0,0,0,.75);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+.modal.show{
+
+    display:flex;
+}
+
+.modal-box{
+
+    width:min(560px,100%);
+
+    padding:28px;
+
+    border-radius:25px;
+
+    background:#11121c;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    box-shadow:
+        0 40px 100px
+        rgba(0,0,0,.5);
+
+    animation:
+        modalIn .35s;
+}
+
+@keyframes modalIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(30px)
+            scale(.94);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+.modal-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.close{
+
+    width:40px;
+    height:40px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    color:white;
+
+    cursor:pointer;
+}
+
+.modal-box p{
+
+    color:#9699a9;
+
+    font-size:13px;
+
+    line-height:2;
+
+    margin-top:15px;
+}
+
+.contact-card{
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    text-align:center;
+}
+
+.contact-id{
+
+    display:block;
+
+    font-size:23px;
+
+    font-weight:900;
+
+    margin-top:8px;
+
+    color:#ff68b5;
+}
+
+.modal-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.modal-actions .btn{
+
+    flex:1;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .hero{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .hero-content{
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .hero-visual{
+
+        min-height:420px;
+    }
+
+    .stats{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .features{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .process{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    header{
+
+        padding:
+            9px 3%;
+    }
+
+    .nav{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+    .logo{
+
+        width:100%;
+
+        justify-content:center;
+    }
+
+    .nav-links{
+
+        width:100%;
+
+        overflow-x:auto;
+
+        scrollbar-width:none;
+    }
+
+    .nav-links::-webkit-scrollbar{
+
+        display:none;
+    }
+
+    .nav-links a{
+
+        white-space:nowrap;
+
+        flex-shrink:0;
+
+        font-size:10px;
+
+        padding:
+            7px 9px;
+    }
+
+    .nav-order{
+
+        display:none;
+    }
+
+    .hero{
+
+        padding-top:190px;
+    }
+
+    .hero h1{
+
+        font-size:45px;
+    }
+
+    .hero-text{
+
+        font-size:13px;
+    }
+
+    .hero-visual{
+
+        min-height:330px;
+    }
+
+    .site-window{
+
+        height:250px;
+    }
+
+    .float3{
+
+        display:none;
+    }
+
+    .stats{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .features{
+
+        grid-template-columns:1fr;
+    }
+
+    .plans{
+
+        grid-template-columns:1fr;
+    }
+
+    .samples{
+
+        grid-template-columns:1fr;
+    }
+
+    .process{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .special{
+
+        padding:
+            30px 20px;
+    }
+
+    .special-list{
+
+        grid-template-columns:1fr;
+    }
+
+    section{
+
+        padding:
+            75px 0;
+    }
+
+}
+
+
+@media(max-width:430px){
+
+    .hero h1{
+
+        font-size:38px;
+    }
+
+    .site-window{
+
+        width:95%;
+
+        height:220px;
+    }
+
+    .float1,
+    .float2{
+
+        display:none;
+    }
+
+    .process{
+
+        grid-template-columns:1fr;
+    }
+
+    .plan{
+
+        padding:
+            27px 22px;
+    }
+
+}
+
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#08080e;
+}
+
+::-webkit-scrollbar-thumb{
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            #ff2495,
+            #7047ff
+        );
+}
+
+
+/* ================= SELECTION ================= */
+
+::selection{
+
+    background:#ff2495;
+
+    color:white;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= LOADER ================= -->
+
+<div class="loader" id="loader">
+
+    <div class="loader-logo">
+        امیر سایت
+    </div>
+
+    <div class="loader-sub">
+        در حال آماده‌سازی سایت...
+    </div>
+
+    <div class="loader-line">
+        <span></span>
+    </div>
+
+</div>
+
+
+<div class="grid"></div>
+
+<div class="orb one"></div>
+<div class="orb two"></div>
+<div class="orb three"></div>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="nav">
+
+    <div
+        class="logo"
+        onclick="scrollToId('home')">
+
+        <div class="logo-icon">
+            🌐
+        </div>
+
+        <span>
+            امیر
+            <span class="gradient">
+                سایت
+            </span>
+        </span>
+
+    </div>
+
+
+    <nav class="nav-links">
+
+        <a href="#home">
+            خانه
+        </a>
+
+        <a href="#features">
+            امکانات
+        </a>
+
+        <a href="#plans">
+            پلن‌ها
+        </a>
+
+        <a href="#samples">
+            نمونه‌کارها
+        </a>
+
+        <a href="#process">
+            مراحل
+        </a>
+
+        <a href="#faq">
+            سؤالات
+        </a>
+
+    </nav>
+
+
+    <button
+        class="nav-order"
+        onclick="openOrder()">
+
+        سفارش سایت 🚀
+
+    </button>
+
+</div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home">
+
+<div class="container hero">
+
+
+<div class="hero-content">
+
+    <div class="hero-badge">
+
+        <span class="live"></span>
+
+        ساخت سایت اختصاصی
+
+    </div>
+
+
+    <h1>
+
+        سایتت را
+
+        <br>
+
+        <span class="gradient">
+            حرفه‌ای بساز.
+        </span>
+
+    </h1>
+
+
+    <p class="hero-text">
+
+        با «امیر سایت» یک سایت اختصاصی،
+        مدرن و ریسپانسیو برای کسب‌وکار،
+        پروژه شخصی یا ایده خودت بساز.
+        طراحی اختصاصی، انیمیشن‌های جذاب،
+        افکت‌های حرفه‌ای و امکان استفاده
+        از دامنه .io.
+
+    </p>
+
+
+    <div class="hero-buttons">
+
+        <button
+            class="btn btn-primary"
+            onclick="scrollToId('plans')">
+
+            مشاهده پلن‌ها ✨
+
+        </button>
+
+
+        <button
+            class="btn btn-secondary"
+            onclick="scrollToId('samples')">
+
+            دیدن نمونه‌کارها 👀
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- VISUAL -->
+
+<div class="hero-visual">
+
+    <div class="site-window">
+
+        <div class="window-top">
+
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+        </div>
+
+
+        <div class="window-content">
+
+            <div class="fake-nav"></div>
+
+            <div class="fake-hero"></div>
+
+            <div class="fake-cards">
+
+                <div class="fake-card"></div>
+                <div class="fake-card"></div>
+                <div class="fake-card"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="float-card float1">
+        ⚡ سریع و ریسپانسیو
+    </div>
+
+    <div class="float-card float2">
+        🎨 طراحی اختصاصی
+    </div>
+
+    <div class="float-card float3">
+        ✨ انیمیشن حرفه‌ای
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="stats">
+
+
+<div class="stat">
+
+    <strong>
+        ۱۰۰٪
+    </strong>
+
+    <span>
+        طراحی اختصاصی
+    </span>
+
+</div>
+
+
+<div class="stat">
+
+    <strong>
+        📱
+    </strong>
+
+    <span>
+        سازگار با موبایل
+    </span>
+
+</div>
+
+
+<div class="stat">
+
+    <strong>
+        ⚡
+    </strong>
+
+    <span>
+        طراحی سریع و بهینه
+    </span>
+
+</div>
+
+
+<div class="stat">
+
+    <strong>
+        ∞
+    </strong>
+
+    <span>
+        امکان ویرایش
+    </span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section id="features">
+
+<div class="container">
+
+
+<div class="section-title">
+
+    <div class="small">
+        امکانات
+    </div>
+
+    <h2>
+        یک سایت متفاوت بساز
+    </h2>
+
+    <p>
+        امکاناتی برای ساخت یک سایت خاص و حرفه‌ای
+    </p>
+
+</div>
+
+
+<div class="features">
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        🎨
+    </div>
+
+    <h3>
+        طراحی اختصاصی
+    </h3>
+
+    <p>
+        ظاهر سایت بر اساس ایده و نیاز
+        پروژه شما طراحی می‌شود.
+    </p>
+
+</div>
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        📱
+    </div>
+
+    <h3>
+        کاملاً ریسپانسیو
+    </h3>
+
+    <p>
+        سایت برای موبایل، تبلت،
+        لپ‌تاپ و کامپیوتر طراحی می‌شود.
+    </p>
+
+</div>
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        ✨
+    </div>
+
+    <h3>
+        انیمیشن و افکت
+    </h3>
+
+    <p>
+        انیمیشن‌های جذاب، افکت‌های هاور،
+        ترنزیشن و جلوه‌های بصری.
+    </p>
+
+</div>
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        🖼️
+    </div>
+
+    <h3>
+        افزودن تصاویر
+    </h3>
+
+    <p>
+        تصاویر موردنیاز پروژه در صفحات
+        مختلف سایت قرار می‌گیرند.
+    </p>
+
+</div>
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        🤖
+    </div>
+
+    <h3>
+        تصاویر هوش مصنوعی
+    </h3>
+
+    <p>
+        امکان ساخت تصاویر اختصاصی
+        برای ظاهر سایت با هوش مصنوعی.
+    </p>
+
+</div>
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        🌐
+    </div>
+
+    <h3>
+        دامنه .io
+    </h3>
+
+    <p>
+        امکان استفاده از دامنه اختصاصی
+        .io برای پروژه.
+    </p>
+
+</div>
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        ✏️
+    </div>
+
+    <h3>
+        امکان ویرایش
+    </h3>
+
+    <p>
+        تغییرات موردنیاز سایت توسط
+        همکاران مجموعه انجام می‌شود.
+    </p>
+
+</div>
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        🚀
+    </div>
+
+    <h3>
+        انتشار آنلاین
+    </h3>
+
+    <p>
+        سایت آماده انتشار و استفاده
+        آنلاین خواهد بود.
+    </p>
+
+</div>
+
+
+<div class="feature">
+
+    <div class="feature-icon">
+        🔒
+    </div>
+
+    <h3>
+        بدون پنل مدیریت
+    </h3>
+
+    <p>
+        سایت پنل مدیریت عمومی ندارد
+        و تغییرات توسط همکاران انجام می‌شود.
+    </p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PLANS ================= -->
+
+<section id="plans">
+
+<div class="container">
+
+
+<div class="section-title">
+
+    <div class="small">
+        قیمت‌گذاری
+    </div>
+
+    <h2>
+        پلن‌های امیر سایت
+    </h2>
+
+    <p>
+        یکی از دو روش ساخت سایت را انتخاب کن
+    </p>
+
+</div>
+
+
+<div class="plans">
+
+
+<!-- PLAN 1 -->
+
+<div class="plan featured">
+
+    <div class="ribbon">
+        محبوب
+    </div>
+
+
+    <div class="plan-icon">
+        🔄
+    </div>
+
+
+    <h3>
+        پلن تمدیدی
+    </h3>
+
+
+    <div class="plan-desc">
+        پرداخت سالانه
+    </div>
+
+
+    <div class="plan-price">
+
+        ۵٬۰۰۰٬۰۰۰
+
+        <small>
+            تومان / سالانه
+        </small>
+
+    </div>
+
+
+    <ul>
+
+        <li>
+            ساخت سایت اختصاصی
+        </li>
+
+        <li>
+            طراحی ریسپانسیو
+        </li>
+
+        <li>
+            انیمیشن و افکت
+        </li>
+
+        <li>
+            افزودن تصاویر
+        </li>
+
+        <li>
+            امکان ویرایش
+        </li>
+
+        <li>
+            دامنه .io طبق شرایط سرویس
+        </li>
+
+        <li>
+            پشتیبانی و تغییرات توسط تیم
+        </li>
+
+    </ul>
+
+
+    <button
+        class="btn btn-primary"
+        onclick="openOrder('پلن تمدیدی')">
+
+        انتخاب پلن
+
+    </button>
+
+</div>
+
+
+<!-- PLAN 2 -->
+
+<div class="plan">
+
+
+    <div class="plan-icon">
+        💎
+    </div>
+
+
+    <h3>
+        بدون تمدید مجدد
+    </h3>
+
+
+    <div class="plan-desc">
+        پرداخت یک‌باره
+    </div>
+
+
+    <div class="plan-price">
+
+        ۱۰٬۰۰۰٬۰۰۰
+
+        <small>
+            تومان
+        </small>
+
+    </div>
+
+
+    <ul>
+
+        <li>
+            ساخت سایت اختصاصی
+        </li>
+
+        <li>
+            طراحی ریسپانسیو
+        </li>
+
+        <li>
+            انیمیشن و افکت
+        </li>
+
+        <li>
+            افزودن تصاویر
+        </li>
+
+        <li>
+            امکان ویرایش
+        </li>
+
+        <li>
+            دامنه .io طبق شرایط سرویس
+        </li>
+
+        <li>
+            بدون پرداخت تمدید سالانه
+        </li>
+
+    </ul>
+
+
+    <button
+        class="btn btn-primary"
+        onclick="openOrder('پلن بدون تمدید مجدد')">
+
+        انتخاب پلن
+
+    </button>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SAMPLES ================= -->
+
+<section id="samples">
+
+<div class="container">
+
+
+<div class="section-title">
+
+    <div class="small">
+        نمونه‌کارها
+    </div>
+
+    <h2>
+        پروژه‌های ساخته‌شده
+    </h2>
+
+    <p>
+        برای مشاهده نمونه‌ها روی دکمه کلیک کنید.
+    </p>
+
+</div>
+
+
+<div class="samples">
+
+
+<!-- SAMPLE 1 -->
+
+<div class="sample">
+
+    <div class="sample-preview">
+
+        <div class="preview-text">
+            AMIR SHOP
+        </div>
+
+    </div>
+
+
+    <div class="sample-info">
+
+        <div>
+
+            <h3>
+                Amir Shop
+            </h3>
+
+            <p>
+                نمونه فروشگاه آنلاین
+            </p>
+
+        </div>
+
+
+        <a
+            class="sample-link"
+            href="https://amirhosseinjabarfar-art.github.io/Amirshop/"
+            target="_blank">
+
+            مشاهده سایت ↗
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- SAMPLE 2 -->
+
+<div class="sample">
+
+    <div class="sample-preview second">
+
+        <div class="preview-text">
+            MAHIGIR
+        </div>
+
+    </div>
+
+
+    <div class="sample-info">
+
+        <div>
+
+            <h3>
+                Mahigir
+            </h3>
+
+            <p>
+                نمونه پروژه اختصاصی
+            </p>
+
+        </div>
+
+
+        <a
+            class="sample-link"
+            href="https://amirhosseinjabarfar-art.github.io/Mahigir/"
+            target="_blank">
+
+            مشاهده سایت ↗
+
+        </a>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROCESS ================= -->
+
+<section id="process">
+
+<div class="container">
+
+
+<div class="section-title">
+
+    <div class="small">
+        روند ساخت
+    </div>
+
+    <h2>
+        از ایده تا سایت
+    </h2>
+
+</div>
+
+
+<div class="process">
+
+
+<div class="step">
+
+    <div class="step-number">
+        ۱
+    </div>
+
+    <h3>
+        ثبت سفارش
+    </h3>
+
+    <p>
+        پلن موردنظر را انتخاب کرده
+        و برای سفارش پیام می‌دهید.
+    </p>
+
+</div>
+
+
+<div class="step">
+
+    <div class="step-number">
+        ۲
+    </div>
+
+    <h3>
+        بررسی ایده
+    </h3>
+
+    <p>
+        امکانات، ظاهر و ساختار
+        پروژه مشخص می‌شود.
+    </p>
+
+</div>
+
+
+<div class="step">
+
+    <div class="step-number">
+        ۳
+    </div>
+
+    <h3>
+        طراحی
+    </h3>
+
+    <p>
+        سایت با طراحی اختصاصی،
+        انیمیشن و افکت ساخته می‌شود.
+    </p>
+
+</div>
+
+
+<div class="step">
+
+    <div class="step-number">
+        ۴
+    </div>
+
+    <h3>
+        تحویل
+    </h3>
+
+    <p>
+        سایت آماده استفاده و انتشار
+        در اختیار شما قرار می‌گیرد.
+    </p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SPECIAL ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="special">
+
+<div class="special-content">
+
+
+<div class="hero-badge">
+    🚀 سرویس ویژه
+</div>
+
+
+<h2>
+
+    ایده‌ای خاص داری؟
+
+    <br>
+
+    <span class="gradient">
+        سایتش را بساز.
+    </span>
+
+</h2>
+
+
+<p>
+
+    اگر ایده خاصی داری، امکانات موردنظرت
+    را توضیح بده تا ساختار سایت متناسب
+    با پروژه تو طراحی شود.
+
+</p>
+
+
+<div class="special-list">
+
+
+<div class="special-item">
+    🖼️ افزودن تصاویر
+</div>
+
+
+<div class="special-item">
+    🤖 ساخت تصویر با هوش مصنوعی
+</div>
+
+
+<div class="special-item">
+    🌐 دامنه .io
+</div>
+
+
+<div class="special-item">
+    📱 نسخه موبایل و تبلت
+</div>
+
+
+<div class="special-item">
+    ✨ انیمیشن‌های حرفه‌ای
+</div>
+
+
+<div class="special-item">
+    ✏️ امکان ویرایش
+</div>
+
+
+<div class="special-item">
+    👨‍💻 تغییرات توسط همکاران
+</div>
+
+
+<div class="special-item">
+    🚫 بدون قابلیت آپلود ویدیو
+</div>
+
+
+</div>
+
+
+<button
+    class="btn btn-primary"
+    style="margin-top:25px"
+    onclick="openOrder()">
+
+    شروع ساخت سایت 🚀
+
+</button>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FAQ ================= -->
+
+<section id="faq">
+
+<div class="container">
+
+
+<div class="section-title">
+
+    <div class="small">
+        سوالات متداول
+    </div>
+
+    <h2>
+        قبل از سفارش
+    </h2>
+
+</div>
+
+
+<div class="faq">
+
+
+<div class="faq-item">
+
+    <button
+        class="faq-question"
+        onclick="toggleFaq(this)">
+
+        آیا سایت برای موبایل هم ساخته می‌شود؟
+
+        <span>
+            ＋
+        </span>
+
+    </button>
+
+
+    <div class="faq-answer">
+
+        <p>
+            بله. سایت به صورت ریسپانسیو
+            طراحی می‌شود تا روی موبایل،
+            تبلت و کامپیوتر ظاهر مناسبی داشته باشد.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="faq-item">
+
+    <button
+        class="faq-question"
+        onclick="toggleFaq(this)">
+
+        آیا سایت پنل مدیریت دارد؟
+
+        <span>
+            ＋
+        </span>
+
+    </button>
+
+
+    <div class="faq-answer">
+
+        <p>
+            خیر. این سرویس پنل مدیریت عمومی
+            ندارد و تغییرات توسط همکاران ما
+            انجام می‌شود.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="faq-item">
+
+    <button
+        class="faq-question"
+        onclick="toggleFaq(this)">
+
+        آیا امکان افزودن تصویر وجود دارد؟
+
+        <span>
+            ＋
+        </span>
+
+    </button>
+
+
+    <div class="faq-answer">
+
+        <p>
+            بله. تصاویر موردنیاز پروژه
+            می‌توانند در صفحات مختلف
+            سایت قرار بگیرند.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="faq-item">
+
+    <button
+        class="faq-question"
+        onclick="toggleFaq(this)">
+
+        آیا امکان آپلود ویدیو وجود دارد؟
+
+        <span>
+            ＋
+        </span>
+
+    </button>
+
+
+    <div class="faq-answer">
+
+        <p>
+            خیر. این سرویس امکان آپلود
+            مستقیم ویدیو داخل سایت را ندارد.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="faq-item">
+
+    <button
+        class="faq-question"
+        onclick="toggleFaq(this)">
+
+        تفاوت دو پلن چیست؟
+
+        <span>
+            ＋
+        </span>
+
+    </button>
+
+
+    <div class="faq-answer">
+
+        <p>
+            پلن تمدیدی سالانه ۵ میلیون تومان
+            است و پلن بدون تمدید مجدد
+            ۱۰ میلیون تومان هزینه دارد.
+        </p>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+<div class="cta-box">
+
+
+<h2>
+    آماده‌ای سایت خودت را بسازی؟
+</h2>
+
+
+<p>
+    برای شروع فقط یک پیام در روبیکا ارسال کن.
+</p>
+
+
+<div class="cta-buttons">
+
+
+<button
+    class="btn btn-primary"
+    onclick="openOrder()">
+
+    سفارش سایت 🚀
+
+</button>
+
+
+<a
+    class="btn btn-secondary"
+    href="https://rubika.ir/amirtbpedit"
+    target="_blank">
+
+    روبیکا 📩
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+
+<div class="footer-logo">
+
+    امیر
+    <span class="gradient">
+        سایت
+    </span>
+
+</div>
+
+
+<p>
+    طراحی و ساخت سایت اختصاصی
+</p>
+
+
+<a
+    class="rubika"
+    href="https://rubika.ir/amirtbpedit"
+    target="_blank">
+
+    آیدی سفارش: @amirtbpedit
+
+</a>
+
+
+<p style="margin-top:25px">
+
+    © 2026 امیر سایت
+
+</p>
+
+
+</footer>
+
+
+<!-- ================= ORDER MODAL ================= -->
+
+<div
+    class="modal"
+    id="orderModal">
+
+
+<div class="modal-box">
+
+
+<div class="modal-head">
+
+    <h2 id="modalTitle">
+        🚀 شروع سفارش
+    </h2>
+
+
+    <button
+        class="close"
+        onclick="closeOrder()">
+
+        ✕
+
+    </button>
+
+</div>
+
+
+<p>
+
+    برای ثبت سفارش، انتخاب پلن و توضیح
+    ایده سایت خود، از طریق آیدی زیر
+    در روبیکا پیام دهید.
+
+</p>
+
+
+<div class="contact-card">
+
+    📩 آیدی سفارش
+
+    <span class="contact-id">
+        @amirtbpedit
+    </span>
+
+</div>
+
+
+<div class="modal-actions">
+
+
+<button
+    class="btn btn-primary"
+    onclick="copyID()">
+
+    کپی آیدی
+
+</button>
+
+
+<a
+    class="btn btn-secondary"
+    href="https://rubika.ir/amirtbpedit"
+    target="_blank">
+
+    باز کردن روبیکا ↗
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+
+/* ================= LOADER ================= */
+
+window.addEventListener(
+    "load",
+    ()=>{
+
+        setTimeout(
+            ()=>{
+
+                document
+                    .getElementById("loader")
+                    .classList.add("hide");
+
+            },
+            900
+        );
+
+    }
+);
+
+
+setTimeout(
+    ()=>{
+
+        document
+            .getElementById("loader")
+            .classList.add("hide");
+
+    },
+    5000
+);
+
+
+/* ================= SCROLL ================= */
+
+function scrollToId(id){
+
+    const el=
+        document.getElementById(id);
+
+    if(!el) return;
+
+    el.scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ================= ORDER ================= */
+
+function openOrder(plan){
+
+    const modal=
+        document.getElementById(
+            "orderModal"
+        );
+
+    const title=
+        document.getElementById(
+            "modalTitle"
+        );
+
+    if(plan){
+
+        title.textContent=
+            "🚀 سفارش "+plan;
+
+    }else{
+
+        title.textContent=
+            "🚀 شروع سفارش";
+
+    }
+
+    modal.classList.add("show");
+
+}
+
+
+function closeOrder(){
+
+    document
+        .getElementById(
+            "orderModal"
+        )
+        .classList.remove("show");
+
+}
+
+
+document
+    .getElementById("orderModal")
+    .addEventListener(
+        "click",
+        (e)=>{
+
+            if(
+                e.target ===
+                document.getElementById(
+                    "orderModal"
+                )
+            ){
+
+                closeOrder();
+
+            }
+
+        }
+    );
+
+
+/* ================= COPY ================= */
+
+function copyID(){
+
+    navigator.clipboard
+        .writeText(
+            "@amirtbpedit"
+        )
+        .then(
+            ()=>{
+
+                alert(
+                    "آیدی @amirtbpedit کپی شد ✨"
+                );
+
+            }
+        )
+        .catch(
+            ()=>{
+
+                alert(
+                    "آیدی سفارش: @amirtbpedit"
+                );
+
+            }
+        );
+
+}
+
+
+/* ================= FAQ ================= */
+
+function toggleFaq(button){
+
+    const item=
+        button.parentElement;
+
+
+    document
+        .querySelectorAll(
+            ".faq-item"
+        )
+        .forEach(
+            other=>{
+
+                if(
+                    other !== item
+                ){
+
+                    other.classList
+                        .remove("open");
+
+                    const span=
+                        other.querySelector(
+                            ".faq-question span"
+                        );
+
+                    if(span){
+
+                        span.textContent=
+                            "＋";
+
+                    }
+
+                }
+
+            }
+        );
+
+
+    item.classList.toggle(
+        "open"
+    );
+
+
+    const span=
+        button.querySelector(
+            "span"
+        );
+
+
+    if(
+        item.classList.contains(
+            "open"
+        )
+    ){
+
+        span.textContent=
+            "−";
+
+    }else{
+
+        span.textContent=
+            "＋";
+
+    }
+
+}
+
+
+/* ================= ESC ================= */
+
+document.addEventListener(
+    "keydown",
+    (e)=>{
+
+        if(
+            e.key === "Escape"
+        ){
+
+            closeOrder();
+
+        }
+
+    }
+);
+
+
+/* ================= PARTICLES ================= */
+
+function createParticle(){
+
+    const p=
+        document.createElement(
+            "div"
+        );
+
+
+    p.style.position=
+        "fixed";
+
+    p.style.left=
+        Math.random()*100+"vw";
+
+    p.style.top=
+        Math.random()*100+"vh";
+
+
+    const size=
+        Math.random()*3+1;
+
+
+    p.style.width=
+        size+"px";
+
+    p.style.height=
+        size+"px";
+
+
+    p.style.borderRadius=
+        "50%";
+
+
+    p.style.background=
+        "white";
+
+
+    p.style.boxShadow=
+        "0 0 12px rgba(255,255,255,.8)";
+
+
+    p.style.pointerEvents=
+        "none";
+
+
+    p.style.zIndex=
+        "-1";
+
+
+    document.body.appendChild(
+        p
+    );
+
+
+    const animation=
+        p.animate(
+
+            [
+
+                {
+                    opacity:0,
+                    transform:"scale(0)"
+                },
+
+                {
+                    opacity:.7,
+                    transform:"scale(1.4)"
+                },
+
+                {
+                    opacity:0,
+                    transform:"scale(0)"
+                }
+
+            ],
+
+            {
+
+                duration:
+                    1200+
+                    Math.random()*1800
+
+            }
+
+        );
+
+
+    animation.onfinish=
+        ()=>{
+            p.remove();
+        };
+
+}
+
+
+/* particles */
+
+setInterval(
+    createParticle,
+    450
+);
+
+
+/* ================= MOUSE GLOW ================= */
+
+const glow=
+    document.createElement(
+        "div"
+    );
+
+
+glow.style.position=
+    "fixed";
+
+glow.style.width=
+    "180px";
+
+glow.style.height=
+    "180px";
+
+glow.style.borderRadius=
+    "50%";
+
+glow.style.pointerEvents=
+    "none";
+
+glow.style.zIndex=
+    "-1";
+
+glow.style.background=
+    "radial-gradient(circle,rgba(255,40,150,.09),transparent 70%)";
+
+glow.style.transform=
+    "translate(-50%,-50%)";
+
+
+document.body.appendChild(
+    glow
+);
+
+
+document.addEventListener(
+    "mousemove",
+    (e)=>{
+
+        glow.style.left=
+            e.clientX+"px";
+
+        glow.style.top=
+            e.clientY+"px";
+
+    }
+);
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const revealObserver=
+    new IntersectionObserver(
+
+        entries=>{
+
+            entries.forEach(
+                entry=>{
+
+                    if(
+                        entry.isIntersecting
+                    ){
+
+                        entry.target
+                            .style.opacity="1";
+
+                        entry.target
+                            .style.transform=
+                            "translateY(0)";
+
+                        revealObserver
+                            .unobserve(
+                                entry.target
+                            );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold:.08
+        }
+
+    );
+
+
+document
+    .querySelectorAll(
+        ".feature,"+
+        ".plan,"+
+        ".sample,"+
+        ".step,"+
+        ".stat,"+
+        ".faq-item"
+    )
+    .forEach(
+        el=>{
+
+            el.style.opacity="0";
+
+            el.style.transform=
+                "translateY(25px)";
+
+            el.style.transition=
+                "opacity .7s ease,"+
+                "transform .7s ease";
+
+            revealObserver
+                .observe(el);
+
+        }
+    );
+
+
+/* ================= BUTTON RIPPLE ================= */
+
+document
+    .querySelectorAll(
+        ".btn,.nav-order,.sample-link"
+    )
+    .forEach(
+        button=>{
+
+            button.addEventListener(
+                "click",
+                function(e){
+
+                    const ripple=
+                        document.createElement(
+                            "span"
+                        );
+
+                    ripple.style.position=
+                        "absolute";
+
+                    ripple.style.width=
+                        "10px";
+
+                    ripple.style.height=
+                        "10px";
+
+                    ripple.style.borderRadius=
+                        "50%";
+
+                    ripple.style.background=
+                        "rgba(255,255,255,.4)";
+
+                    ripple.style.left=
+                        e.offsetX+"px";
+
+                    ripple.style.top=
+                        e.offsetY+"px";
+
+                    ripple.style.pointerEvents=
+                        "none";
+
+                    ripple.style.transform=
+                        "translate(-50%,-50%)";
+
+                    this.style.position=
+                        "relative";
+
+                    this.style.overflow=
+                        "hidden";
+
+                    this.appendChild(
+                        ripple
+                    );
+
+
+                    ripple.animate(
+
+                        [
+
+                            {
+                                width:"10px",
+                                height:"10px",
+                                opacity:.7
+                            },
+
+                            {
+                                width:"300px",
+                                height:"300px",
+                                opacity:0
+                            }
+
+                        ],
+
+                        {
+                            duration:600,
+                            easing:"ease-out"
+                        }
+
+                    ).onfinish=
+                        ()=>{
+                            ripple.remove();
+                        };
+
+                }
+            );
+
+        }
+    );
+
+
+</script>
+
+</body>
+</html>
+```
