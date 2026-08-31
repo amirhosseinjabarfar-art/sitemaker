@@ -4,2132 +4,1389 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
 <title>امیر سایت | ساخت سایت اختصاصی</title>
 
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
-html{
-    scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
     font-family:Vazirmatn,sans-serif;
-    background:#07070d;
-    color:#fff;
+    background:#fffdf3;
+    color:#292400;
     overflow-x:hidden;
 }
 
-button,
-a{
-    font-family:inherit;
-}
+button,a{font-family:inherit}
 
-button,
-a{
-    -webkit-tap-highlight-color:transparent;
-}
+/* ================= LOADING ================= */
 
-
-/* ================= BACKGROUND ================= */
-
-body:before{
-    content:"";
+#loader{
     position:fixed;
     inset:0;
-    z-index:-10;
-
-    background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(255,40,150,.14),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 85% 30%,
-            rgba(100,60,255,.14),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(0,210,255,.08),
-            transparent 35%
-        );
+    z-index:999999;
+    background:#fffdf3;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    transition:opacity .8s ease,visibility .8s ease;
 }
 
-.grid{
-    position:fixed;
-    inset:0;
-    z-index:-8;
-    opacity:.17;
-
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,.035) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.035) 1px,
-            transparent 1px
-        );
-
-    background-size:55px 55px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent 90%
-        );
-}
-
-.orb{
-    position:fixed;
-    border-radius:50%;
-    filter:blur(80px);
-    opacity:.2;
-    z-index:-7;
+#loader.hide{
+    opacity:0;
+    visibility:hidden;
     pointer-events:none;
 }
 
-.orb.one{
-    width:320px;
-    height:320px;
-    background:#ff2290;
-    top:-100px;
-    left:-100px;
-    animation:orb1 10s infinite alternate ease-in-out;
-}
-
-.orb.two{
-    width:300px;
-    height:300px;
-    background:#6845ff;
-    right:-120px;
-    top:35%;
-    animation:orb2 12s infinite alternate ease-in-out;
-}
-
-.orb.three{
-    width:280px;
-    height:280px;
-    background:#00d9ff;
-    left:30%;
-    bottom:-150px;
-    animation:orb3 11s infinite alternate ease-in-out;
-}
-
-@keyframes orb1{
-    to{
-        transform:
-            translate(130px,130px)
-            scale(1.3);
-    }
-}
-
-@keyframes orb2{
-    to{
-        transform:
-            translate(-120px,80px)
-            scale(1.2);
-    }
-}
-
-@keyframes orb3{
-    to{
-        transform:
-            translate(100px,-100px)
-            scale(1.3);
-    }
-}
-
-
-/* ================= LOADER ================= */
-
-.loader{
-    position:fixed;
-    inset:0;
-    z-index:99999;
-
-    background:#06060b;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-
-    transition:.7s;
-}
-
-.loader.hide{
-    opacity:0;
-    visibility:hidden;
-}
-
 .loader-logo{
-    font-size:
-        clamp(40px,7vw,75px);
-
+    font-size:48px;
     font-weight:900;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff2b9a,
-            #794dff,
-            #00d9ff,
-            #ff2b9a
-        );
-
-    background-size:300%;
-
-    -webkit-background-clip:text;
-    color:transparent;
-
-    animation:
-        gradient 3s linear infinite;
+    animation:pulse 1s infinite alternate;
 }
 
-.loader-sub{
-    color:#77798c;
-    margin-top:10px;
-    font-size:13px;
-}
+.loader-logo span{color:#ffb800}
 
-.loader-line{
-    width:min(300px,70%);
-    height:5px;
+.loader-ring{
+    width:65px;
+    height:65px;
+    border:5px solid #ffe99b;
+    border-top-color:#ffb800;
+    border-radius:50%;
     margin-top:25px;
-
-    background:#171722;
-    border-radius:30px;
-    overflow:hidden;
+    animation:spin 1s linear infinite;
 }
 
-.loader-line span{
-    display:block;
+.loader-text{
+    margin-top:18px;
+    font-size:13px;
+    color:#80764b;
+}
+
+.loader-progress{
+    width:230px;
+    height:7px;
+    background:#ffedaf;
+    border-radius:50px;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+.loader-progress div{
     height:100%;
     width:0;
+    background:linear-gradient(90deg,#ffd500,#ff9d00);
+    animation:progress 5s linear forwards;
+}
 
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes progress{to{width:100%}}
+@keyframes pulse{
+    from{transform:scale(.95)}
+    to{transform:scale(1.05)}
+}
+
+/* ================= BACKGROUND ================= */
+
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-5;
     background:
-        linear-gradient(
-            90deg,
-            #ff2b9a,
-            #794dff,
-            #00d9ff
-        );
-
-    animation:
-        load 3.8s linear forwards;
+    radial-gradient(circle at 10% 10%,#fff0a0 0,transparent 23%),
+    radial-gradient(circle at 90% 20%,#fff5c9 0,transparent 25%),
+    #fffdf3;
 }
 
-@keyframes load{
-    to{
-        width:100%;
-    }
+.bg-dots{
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    opacity:.35;
+    background-image:radial-gradient(#d5bd50 1px,transparent 1px);
+    background-size:28px 28px;
 }
 
-@keyframes gradient{
-    to{
-        background-position:300%;
-    }
+.ball{
+    position:fixed;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:-3;
 }
 
+.ball1{
+    width:180px;height:180px;
+    background:#ffe263;
+    top:170px;right:-80px;
+    animation:float1 7s ease-in-out infinite;
+}
+
+.ball2{
+    width:130px;height:130px;
+    background:#fff0a9;
+    bottom:100px;left:-55px;
+    animation:float2 8s ease-in-out infinite;
+}
+
+.ball3{
+    width:55px;height:55px;
+    background:#ffc400;
+    opacity:.25;
+    top:25%;left:20%;
+    animation:float3 5s ease-in-out infinite;
+}
+
+@keyframes float1{50%{transform:translate(-20px,-35px)}}
+@keyframes float2{50%{transform:translate(25px,-25px)}}
+@keyframes float3{50%{transform:translateY(-30px) rotate(180deg)}}
 
 /* ================= HEADER ================= */
 
 header{
     position:fixed;
-    top:0;
-    left:0;
-    right:0;
-
-    z-index:2000;
-
-    padding:
-        12px 4%;
-
-    background:
-        rgba(7,7,13,.62);
-
-    backdrop-filter:
-        blur(20px);
-
-    border-bottom:
-        1px solid rgba(255,255,255,.06);
+    top:0;left:0;right:0;
+    height:75px;
+    z-index:10000;
+    background:rgba(255,253,243,.88);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid #f0df99;
 }
 
 .nav{
-    max-width:1400px;
+    width:92%;
+    max-width:1200px;
+    height:100%;
     margin:auto;
-
-    min-height:55px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    gap:20px;
+    gap:15px;
 }
 
 .logo{
-    cursor:pointer;
-
+    border:0;
+    background:none;
     font-size:21px;
     font-weight:900;
-
-    display:flex;
-    align-items:center;
-
-    gap:10px;
+    cursor:pointer;
+    color:#292400;
+    white-space:nowrap;
 }
+
+.logo span{color:#ffad00}
 
 .logo-icon{
-    width:42px;
-    height:42px;
-
-    display:grid;
+    display:inline-grid;
     place-items:center;
-
+    width:42px;height:42px;
+    margin-left:6px;
     border-radius:14px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff2495,
-            #7047ff
-        );
-
-    box-shadow:
-        0 0 30px
-        rgba(255,36,149,.25);
-
-    animation:
-        logoFloat 3s infinite ease-in-out;
+    background:linear-gradient(135deg,#ffe13a,#ffad00);
+    box-shadow:0 10px 25px #ffb90035;
 }
 
-@keyframes logoFloat{
-
-    50%{
-        transform:
-            translateY(-4px)
-            rotate(4deg);
-    }
-
-}
-
-.nav-links{
+.menu{
     display:flex;
     gap:3px;
 }
 
-.nav-links a{
-    color:#a9abbc;
-    text-decoration:none;
-
-    padding:
-        9px 12px;
-
-    border-radius:11px;
-
-    font-size:12px;
-
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:white;
-
-    background:
-        rgba(255,255,255,.07);
-
-    transform:
-        translateY(-2px);
-}
-
-.nav-order{
+.menu button{
     border:0;
-
-    color:white;
-
-    cursor:pointer;
-
-    padding:
-        11px 17px;
-
-    border-radius:13px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff2495,
-            #7047ff
-        );
-
-    box-shadow:
-        0 10px 30px
-        rgba(255,36,149,.18);
-
-    transition:.3s;
-}
-
-.nav-order:hover{
-    transform:
-        translateY(-3px);
-}
-
-
-/* ================= GLOBAL ================= */
-
-.container{
-    width:min(1300px,92%);
-    margin:auto;
-}
-
-section{
-    padding:100px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:55px;
-}
-
-.section-title .small{
-    color:#ff5bad;
+    background:transparent;
     font-size:12px;
     font-weight:800;
+    color:#776f50;
+    padding:10px 12px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.section-title h2{
-    font-size:
-        clamp(30px,5vw,52px);
+.menu button:hover,
+.menu button.active{
+    background:#ffef9e;
+    color:#292400;
+    transform:translateY(-2px);
+}
 
+.order-btn{
+    border:0;
+    background:#292400;
+    color:white;
+    padding:12px 17px;
+    border-radius:14px;
     font-weight:900;
-
-    margin-top:10px;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.section-title p{
-    color:#818394;
-
-    margin-top:10px;
-
-    font-size:14px;
+.order-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px #0002;
 }
 
-.gradient{
-    background:
-        linear-gradient(
-            90deg,
-            #ff2b9a,
-            #814cff,
-            #00d9ff,
-            #ff2b9a
-        );
+/* ================= PAGES ================= */
 
-    background-size:300%;
+main{padding-top:75px}
 
-    -webkit-background-clip:text;
-
-    color:transparent;
-
-    animation:
-        gradient 4s linear infinite;
+.page{
+    display:none;
+    min-height:calc(100vh - 75px);
+    padding:70px 0;
+    animation:pageIn .5s ease;
 }
 
+.page.active{display:block}
+
+@keyframes pageIn{
+    from{opacity:0;transform:translateY(25px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.container{
+    width:92%;
+    max-width:1150px;
+    margin:auto;
+}
 
 /* ================= HERO ================= */
 
 .hero{
-    min-height:100vh;
-
-    padding-top:160px;
-
+    min-height:calc(100vh - 180px);
     display:grid;
-
-    grid-template-columns:
-        1.1fr .9fr;
-
+    grid-template-columns:1fr 1fr;
     align-items:center;
-
-    gap:60px;
+    gap:50px;
 }
 
-.hero-badge{
+.badge{
     display:inline-flex;
-
     align-items:center;
-
     gap:8px;
-
-    padding:
-        8px 14px;
-
+    padding:9px 15px;
     border-radius:50px;
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:
-        1px solid
-        rgba(255,255,255,.09);
-
-    color:#c7c8d5;
-
+    background:#fff0a0;
+    border:1px solid #eed878;
     font-size:12px;
+    font-weight:900;
 }
 
-.live{
-    width:8px;
-    height:8px;
-
+.green-dot{
+    width:8px;height:8px;
     border-radius:50%;
-
-    background:#52ff9b;
-
-    box-shadow:
-        0 0 15px #52ff9b;
-
-    animation:
-        blink 1s infinite alternate;
-}
-
-@keyframes blink{
-
-    to{
-        opacity:.3;
-        transform:scale(.7);
-    }
-
+    background:#35c866;
+    box-shadow:0 0 12px #35c866;
 }
 
 .hero h1{
-    font-size:
-        clamp(45px,7vw,82px);
-
-    line-height:1.08;
-
+    margin-top:20px;
+    font-size:clamp(44px,7vw,76px);
+    line-height:1.1;
     font-weight:900;
-
-    margin-top:22px;
 }
 
-.hero-text{
-    max-width:650px;
-
-    color:#a4a6b5;
-
-    line-height:2;
-
-    margin-top:25px;
-
-    font-size:16px;
+.yellow-text{
+    background:linear-gradient(90deg,#ff9800,#ffd000,#ffae00);
+    color:transparent;
+    background-clip:text;
+    -webkit-background-clip:text;
 }
 
-.hero-buttons{
+.hero p{
+    margin-top:20px;
+    color:#77704e;
+    line-height:2.1;
+    font-size:14px;
+}
+
+/* ================= DESIGNER ================= */
+
+.designer{
+    position:relative;
+    margin-top:32px;
+    padding:24px 28px;
+    border-radius:26px;
+    background:rgba(255,255,255,.72);
+    border:1px solid #f0df99;
+    overflow:hidden;
+    box-shadow:0 18px 50px #735d0010;
+}
+
+.designer:before,
+.designer:after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#ffe04755;
+    filter:blur(2px);
+}
+
+.designer:before{
+    right:-35px;
+    top:-55px;
+    animation:designerOrb1 4s ease-in-out infinite;
+}
+
+.designer:after{
+    left:-35px;
+    bottom:-60px;
+    background:#ffb00028;
+    animation:designerOrb2 5s ease-in-out infinite;
+}
+
+@keyframes designerOrb1{
+    50%{transform:translate(-20px,35px) scale(1.25)}
+}
+
+@keyframes designerOrb2{
+    50%{transform:translate(25px,-25px) scale(1.2)}
+}
+
+.designer-label{
+    position:relative;
+    z-index:2;
+    font-size:11px;
+    color:#8b7b3d;
+    font-weight:800;
+}
+
+.designer-name{
+    position:relative;
+    z-index:2;
+    display:inline-block;
+    margin-top:5px;
+    font-size:clamp(25px,4vw,39px);
+    font-weight:900;
+    background:linear-gradient(
+        90deg,
+        #8d6500,
+        #ffb000,
+        #ffe100,
+        #ff9c00,
+        #8d6500
+    );
+    background-size:300% auto;
+    color:transparent;
+    background-clip:text;
+    -webkit-background-clip:text;
+    animation:nameShine 4s linear infinite;
+}
+
+@keyframes nameShine{
+    to{background-position:300% center}
+}
+
+.designer-line{
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:100%;
+    height:3px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #ffd000,
+        transparent
+    );
+    animation:lineMove 2.5s infinite;
+}
+
+@keyframes lineMove{
+    0%{transform:translateX(100%)}
+    100%{transform:translateX(-100%)}
+}
+
+.buttons{
+    margin-top:27px;
     display:flex;
-
     gap:12px;
-
     flex-wrap:wrap;
-
-    margin-top:30px;
 }
 
 .btn{
     border:0;
-
-    cursor:pointer;
-
-    text-decoration:none;
-
-    display:inline-flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:8px;
-
-    padding:
-        14px 22px;
-
+    padding:14px 22px;
     border-radius:15px;
-
     font-weight:900;
-
-    transition:.35s;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.btn-primary{
-    color:white;
+.btn:hover{transform:translateY(-5px)}
 
-    background:
-        linear-gradient(
-            135deg,
-            #ff2495,
-            #7047ff
-        );
-
-    box-shadow:
-        0 15px 40px
-        rgba(255,36,149,.18);
+.primary{
+    background:linear-gradient(135deg,#ffe044,#ffac00);
+    color:#342900;
+    box-shadow:0 15px 35px #ffb90035;
 }
 
-.btn-secondary{
-    color:white;
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
+.secondary{
+    background:white;
+    color:#292400;
+    border:1px solid #efdf99;
 }
 
-.btn:hover{
-    transform:
-        translateY(-5px);
-}
+/* ================= MOCKUP ================= */
 
-
-/* ================= HERO VISUAL ================= */
-
-.hero-visual{
-    min-height:500px;
-
+.visual{
     position:relative;
-
+    min-height:440px;
     display:grid;
-
     place-items:center;
 }
 
-.site-window{
-    width:min(470px,100%);
-    height:320px;
-
-    border-radius:25px;
-
+.browser{
+    width:100%;
+    max-width:500px;
+    height:340px;
+    background:white;
+    border:1px solid #ead78b;
+    border-radius:28px;
     overflow:hidden;
-
-    background:#11121d;
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
-    box-shadow:
-        0 40px 100px
-        rgba(0,0,0,.5),
-
-        0 0 70px
-        rgba(111,70,255,.13);
-
-    transform:
-        perspective(900px)
-        rotateY(-8deg)
-        rotateX(4deg);
-
-    animation:
-        windowFloat 5s infinite ease-in-out;
+    box-shadow:0 30px 80px #7c650022;
+    transform:rotate(-3deg);
+    animation:browserFloat 5s ease-in-out infinite;
 }
 
-@keyframes windowFloat{
-
-    50%{
-
-        transform:
-            perspective(900px)
-            rotateY(-4deg)
-            rotateX(1deg)
-            translateY(-15px);
-
-    }
-
+@keyframes browserFloat{
+    50%{transform:rotate(2deg) translateY(-13px)}
 }
 
-.window-top{
-    height:42px;
-
-    background:#171824;
-
+.browser-top{
+    height:44px;
     display:flex;
-
     align-items:center;
-
-    gap:6px;
-
-    padding:
-        0 14px;
+    gap:7px;
+    padding:0 15px;
+    background:#fff9df;
+    border-bottom:1px solid #f0df99;
 }
 
-.dot{
-    width:9px;
-    height:9px;
-
+.browser-top i{
+    width:9px;height:9px;
     border-radius:50%;
-
-    background:#454757;
+    background:#d8bf4c;
 }
 
-.window-content{
-    padding:22px;
-}
+.browser-content{padding:20px}
 
 .fake-nav{
-    height:35px;
-
+    height:30px;
     border-radius:9px;
-
-    background:
-        rgba(255,255,255,.05);
-
-    margin-bottom:18px;
+    background:#fff2b1;
 }
 
 .fake-hero{
-    height:100px;
-
-    border-radius:18px;
-
-    background:
-        linear-gradient(
-            120deg,
-            rgba(255,36,149,.45),
-            rgba(111,70,255,.4)
-        );
-
     position:relative;
-
+    height:125px;
+    margin-top:13px;
+    border-radius:20px;
     overflow:hidden;
+    background:linear-gradient(135deg,#ffe53c,#ffac00);
 }
 
 .fake-hero:after{
-
-    content:"";
-
+    content:"امیر سایت";
     position:absolute;
+    top:42px;left:25px;
+    font-size:25px;
+    font-weight:900;
+}
 
-    width:150px;
-    height:150px;
-
+.fake-circle{
+    position:absolute;
+    width:210px;height:210px;
+    right:-65px;top:-100px;
     border-radius:50%;
-
-    background:
-        rgba(255,255,255,.12);
-
-    right:-40px;
-    top:-60px;
+    background:#ffffff45;
 }
 
 .fake-cards{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:10px;
-
-    margin-top:14px;
+    grid-template-columns:repeat(3,1fr);
+    gap:9px;
+    margin-top:13px;
 }
 
 .fake-card{
-
     height:75px;
-
-    border-radius:12px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    border:
-        1px solid
-        rgba(255,255,255,.05);
+    background:#fff9df;
+    border:1px solid #f0e5b7;
+    border-radius:13px;
+    animation:fakeCard 2s infinite ease-in-out;
 }
 
-.float-card{
+.fake-card:nth-child(2){animation-delay:.3s}
+.fake-card:nth-child(3){animation-delay:.6s}
 
+@keyframes fakeCard{50%{transform:translateY(-6px)}}
+
+.floating{
     position:absolute;
-
-    padding:
-        14px 17px;
-
+    background:white;
+    border:1px solid #f0df99;
     border-radius:16px;
-
-    background:
-        rgba(15,15,25,.85);
-
-    backdrop-filter:
-        blur(15px);
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
-
-    box-shadow:
-        0 15px 40px
-        rgba(0,0,0,.3);
-
-    font-size:12px;
-
-    animation:
-        floatCard 4s infinite ease-in-out;
-}
-
-.float1{
-    top:60px;
-    right:-15px;
-}
-
-.float2{
-    bottom:60px;
-    left:-15px;
-
-    animation-delay:1s;
-}
-
-.float3{
-    bottom:130px;
-    right:-35px;
-
-    animation-delay:2s;
-}
-
-@keyframes floatCard{
-
-    50%{
-        transform:
-            translateY(-12px);
-    }
-
-}
-
-
-/* ================= STATS ================= */
-
-.stats{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:15px;
-}
-
-.stat{
-
-    text-align:center;
-
-    padding:25px 15px;
-
-    border-radius:20px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    transition:.35s;
-}
-
-.stat:hover{
-
-    transform:
-        translateY(-7px);
-
-    border-color:
-        rgba(255,36,149,.3);
-}
-
-.stat strong{
-
-    display:block;
-
-    font-size:28px;
-}
-
-.stat span{
-
-    color:#777a8d;
-
+    padding:13px 15px;
     font-size:11px;
+    font-weight:900;
+    box-shadow:0 15px 40px #72590016;
+    animation:floatTag 4s infinite ease-in-out;
 }
 
+.float1{top:50px;right:-15px}
+.float2{bottom:75px;left:-10px;animation-delay:1s}
+.float3{right:-25px;bottom:150px;animation-delay:2s}
 
-/* ================= FEATURES ================= */
+@keyframes floatTag{
+    50%{transform:translateY(-10px) rotate(2deg)}
+}
 
-.features{
+/* ================= TITLES ================= */
 
+.title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.title small{
+    color:#d49300;
+    font-size:12px;
+    font-weight:900;
+}
+
+.title h2{
+    margin-top:7px;
+    font-size:clamp(32px,5vw,52px);
+    font-weight:900;
+}
+
+.title p{
+    margin-top:8px;
+    color:#77704e;
+    font-size:13px;
+}
+
+/* ================= CARDS ================= */
+
+.grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:18px;
 }
 
-.feature{
-
+.card{
     position:relative;
-
     overflow:hidden;
-
-    padding:30px;
-
-    border-radius:24px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.065),
-            rgba(255,255,255,.025)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    transition:.4s;
+    background:white;
+    border:1px solid #f0df99;
+    border-radius:25px;
+    padding:26px;
+    box-shadow:0 12px 40px #735d0010;
+    transition:.35s;
 }
 
-.feature:before{
+.card:hover{
+    transform:translateY(-9px);
+    box-shadow:0 22px 55px #735d0020;
+}
 
+.card:after{
     content:"";
-
     position:absolute;
-
-    width:130px;
-    height:130px;
-
+    width:90px;height:90px;
+    right:-35px;top:-35px;
     border-radius:50%;
-
-    background:
-        rgba(255,36,149,.08);
-
-    filter:blur(30px);
-
-    top:-70px;
-    left:-60px;
+    background:#fff2a5;
 }
 
-.feature:hover{
-
-    transform:
-        translateY(-9px);
-
-    border-color:
-        rgba(112,71,255,.4);
-}
-
-.feature-icon{
-
-    width:60px;
-    height:60px;
-
-    display:grid;
-
-    place-items:center;
-
+.icon{
+    position:relative;
+    width:57px;height:57px;
     border-radius:18px;
-
-    font-size:28px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff2495,
-            #7047ff
-        );
-
-    margin-bottom:20px;
+    background:#fff0a0;
+    display:grid;
+    place-items:center;
+    font-size:25px;
+    margin-bottom:16px;
 }
 
-.feature h3{
+.card h3{position:relative;font-size:16px}
 
-    font-size:19px;
-}
-
-.feature p{
-
-    color:#858797;
-
-    line-height:1.9;
-
-    font-size:13px;
-
+.card p{
+    position:relative;
     margin-top:8px;
+    color:#77704e;
+    font-size:12px;
+    line-height:1.9;
 }
-
 
 /* ================= PLANS ================= */
 
 .plans{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:25px;
-
-    max-width:1000px;
-
+    max-width:1100px;
     margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    align-items:stretch;
 }
 
 .plan{
-
     position:relative;
-
-    padding:35px;
-
-    border-radius:28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.07),
-            rgba(255,255,255,.025)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.09);
-
     overflow:hidden;
-
-    transition:.45s;
+    background:white;
+    border:1px solid #f0df99;
+    border-radius:30px;
+    padding:30px 25px;
+    box-shadow:0 20px 60px #735d0012;
+    transition:.35s;
 }
 
 .plan:hover{
-
-    transform:
-        translateY(-10px);
-
-    border-color:
-        rgba(255,36,149,.4);
-
-    box-shadow:
-        0 30px 80px
-        rgba(0,0,0,.35);
+    transform:translateY(-9px);
+    box-shadow:0 30px 70px #735d0020;
 }
 
-.plan.featured{
+.plan.hot{border:2px solid #ffc400}
 
-    border-color:#ff2b9a;
-
-    box-shadow:
-        0 0 50px
-        rgba(255,43,154,.1);
-}
-
-.ribbon{
-
+.hot-badge{
     position:absolute;
-
+    left:18px;
     top:18px;
-    left:-37px;
-
-    transform:
-        rotate(-45deg);
-
-    width:145px;
-
-    padding:6px;
-
-    text-align:center;
-
+    background:#292400;
+    color:white;
+    border-radius:20px;
+    padding:6px 12px;
     font-size:10px;
-
-    font-weight:900;
-
-    background:#ff2b9a;
-}
-
-.plan-icon{
-
-    font-size:42px;
-}
-
-.plan h3{
-
-    font-size:25px;
-
-    margin-top:10px;
-}
-
-.plan-desc{
-
-    color:#858797;
-
-    font-size:13px;
-
-    margin-top:6px;
-}
-
-.plan-price{
-
-    margin-top:25px;
-
-    font-size:35px;
-
     font-weight:900;
 }
 
-.plan-price small{
+.plan h3{font-size:21px}
 
-    font-size:12px;
+.price{
+    margin-top:17px;
+    font-size:31px;
+    font-weight:900;
+}
 
-    color:#777a8c;
-
-    font-weight:500;
+.price span{
+    font-size:10px;
+    color:#77704e;
 }
 
 .plan ul{
-
     list-style:none;
-
-    margin-top:25px;
+    margin:20px 0;
 }
 
 .plan li{
-
-    color:#a5a7b7;
-
-    font-size:13px;
-
     padding:8px 0;
+    color:#686044;
+    font-size:11px;
 }
 
 .plan li:before{
-
     content:"✓";
-
-    color:#55ff9e;
-
-    font-weight:900;
-
+    color:#dfa000;
     margin-left:8px;
+    font-weight:900;
 }
-
-.plan .btn{
-
-    width:100%;
-
-    margin-top:22px;
-}
-
 
 /* ================= SAMPLES ================= */
 
 .samples{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:22px;
 }
 
 .sample{
-
-    position:relative;
-
     overflow:hidden;
-
-    min-height:290px;
-
-    border-radius:25px;
-
-    background:#10111b;
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    transition:.45s;
-}
-
-.sample:hover{
-
-    transform:
-        translateY(-9px);
-
-    box-shadow:
-        0 30px 70px
-        rgba(0,0,0,.4);
-}
-
-.sample-preview{
-
-    height:210px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at 70% 30%,
-            rgba(255,36,149,.5),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            135deg,
-            #19152c,
-            #0e1724
-        );
-}
-
-.sample-preview.second{
-
-    background:
-        radial-gradient(
-            circle at 30% 40%,
-            rgba(0,210,255,.35),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            135deg,
-            #101d29,
-            #18122b
-        );
-}
-
-.sample-preview:before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:20px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
-
-    border-radius:18px;
-}
-
-.preview-text{
-
-    position:absolute;
-
-    inset:0;
-
-    display:grid;
-
-    place-items:center;
-
-    font-size:34px;
-
-    font-weight:900;
-}
-
-.sample-info{
-
-    padding:17px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:15px;
-}
-
-.sample-info h3{
-
-    font-size:16px;
-}
-
-.sample-info p{
-
-    color:#7e8191;
-
-    font-size:11px;
-
-    margin-top:5px;
-}
-
-.sample-link{
-
-    flex-shrink:0;
-
-    padding:9px 13px;
-
-    border-radius:11px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    color:white;
-
-    text-decoration:none;
-
-    font-size:11px;
-
-    transition:.3s;
-}
-
-.sample-link:hover{
-
-    background:#ff2b9a;
-}
-
-
-/* ================= PROCESS ================= */
-
-.process{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:16px;
-}
-
-.step{
-
-    text-align:center;
-
-    padding:25px 15px;
-
-    border-radius:20px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
+    background:white;
+    border:1px solid #f0df99;
+    border-radius:27px;
+    box-shadow:0 20px 60px #735d0012;
     transition:.35s;
 }
 
-.step:hover{
+.sample:hover{transform:translateY(-9px)}
 
-    transform:
-        translateY(-7px);
-}
-
-.step-number{
-
-    width:55px;
-    height:55px;
-
+.sample-image{
+    height:270px;
     display:grid;
-
     place-items:center;
-
-    margin:auto;
-
-    border-radius:18px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff2495,
-            #7047ff
-        );
-
-    font-size:20px;
-
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ffe55b,#ffae00);
+    font-size:35px;
     font-weight:900;
 }
 
-.step h3{
+.sample-image:before{
+    content:"";
+    position:absolute;
+    width:220px;height:220px;
+    border-radius:50%;
+    background:#ffffff42;
+    animation:sampleMove 5s infinite ease-in-out;
+}
 
+@keyframes sampleMove{
+    50%{transform:scale(1.4) translateX(30px)}
+}
+
+.sample-info{
+    padding:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.sample-info h3{font-size:17px}
+
+.sample-info p{
+    margin-top:5px;
+    font-size:11px;
+    color:#77704e;
+}
+
+.sample-link{
+    text-decoration:none;
+    color:#292400;
+    background:#fff0a0;
+    padding:10px 14px;
+    border-radius:12px;
+    font-size:11px;
+    font-weight:900;
+}
+
+/* ================= STEPS ================= */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.step{
+    background:white;
+    border:1px solid #f0df99;
+    border-radius:23px;
+    padding:25px;
+    text-align:center;
+    transition:.35s;
+}
+
+.step:hover{transform:translateY(-8px)}
+
+.number{
+    width:54px;height:54px;
+    margin:auto;
+    display:grid;
+    place-items:center;
+    border-radius:17px;
+    background:#ffd21a;
+    font-weight:900;
+    font-size:18px;
+}
+
+.step h3{
     margin-top:14px;
+    font-size:16px;
 }
 
 .step p{
-
-    color:#818394;
-
-    font-size:12px;
-
-    line-height:1.8;
-
-    margin-top:6px;
+    margin-top:7px;
+    color:#77704e;
+    font-size:11px;
+    line-height:1.9;
 }
-
-
-/* ================= SPECIAL ================= */
-
-.special{
-
-    position:relative;
-
-    overflow:hidden;
-
-    padding:55px;
-
-    border-radius:35px;
-
-    background:
-        linear-gradient(
-            120deg,
-            rgba(255,36,149,.11),
-            rgba(112,71,255,.1),
-            rgba(0,210,255,.06)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
-}
-
-.special:after{
-
-    content:"";
-
-    position:absolute;
-
-    width:350px;
-    height:350px;
-
-    border-radius:50%;
-
-    background:
-        rgba(255,36,149,.09);
-
-    filter:blur(70px);
-
-    left:-150px;
-    bottom:-200px;
-
-    animation:
-        moveGlow 7s infinite alternate;
-}
-
-@keyframes moveGlow{
-
-    to{
-
-        transform:
-            translate(160px,-70px)
-            scale(1.3);
-
-    }
-
-}
-
-.special-content{
-
-    position:relative;
-
-    z-index:2;
-}
-
-.special h2{
-
-    font-size:
-        clamp(30px,5vw,48px);
-
-    margin-top:15px;
-}
-
-.special p{
-
-    max-width:800px;
-
-    color:#a3a6b7;
-
-    line-height:2;
-
-    margin-top:12px;
-}
-
-.special-list{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:10px;
-
-    margin-top:25px;
-}
-
-.special-item{
-
-    padding:13px;
-
-    border-radius:13px;
-
-    background:
-        rgba(0,0,0,.2);
-
-    border:
-        1px solid
-        rgba(255,255,255,.06);
-
-    color:#a7a9b8;
-
-    font-size:12px;
-}
-
 
 /* ================= FAQ ================= */
 
 .faq{
-
-    max-width:900px;
-
+    max-width:850px;
     margin:auto;
 }
 
 .faq-item{
-
-    margin-bottom:10px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
+    overflow:hidden;
+    background:white;
+    border:1px solid #f0df99;
     border-radius:17px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    overflow:hidden;
+    margin-bottom:9px;
 }
 
-.faq-question{
-
+.question{
     width:100%;
-
-    padding:18px;
-
-    background:transparent;
-
-    color:white;
-
     border:0;
-
-    text-align:right;
-
-    cursor:pointer;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
+    background:none;
+    padding:18px;
     font-weight:800;
+    text-align:right;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-.faq-answer{
+.question span{
+    color:#d79a00;
+    font-size:20px;
+}
 
+.answer{
     max-height:0;
-
     overflow:hidden;
-
     transition:.4s;
 }
 
-.faq-answer p{
-
-    color:#858797;
-
+.answer p{
+    padding:0 18px 18px;
+    color:#77704e;
     font-size:12px;
-
     line-height:2;
-
-    padding:
-        0 18px 18px;
 }
 
-.faq-item.open
-.faq-answer{
-
-    max-height:180px;
-}
-
+.faq-item.open .answer{max-height:200px}
 
 /* ================= CTA ================= */
 
 .cta{
-
-    text-align:center;
-
-    padding:
-        90px 20px;
-}
-
-.cta-box{
-
-    position:relative;
-
-    overflow:hidden;
-
-    max-width:1000px;
-
-    margin:auto;
-
-    padding:
-        65px 30px;
-
+    padding:65px 25px;
     border-radius:35px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,36,149,.12),
-            rgba(112,71,255,.12)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
+    text-align:center;
+    background:linear-gradient(135deg,#fff0a0,#ffd21b);
+    box-shadow:0 20px 60px #735d0014;
 }
 
-.cta-box h2{
+.cta h2{font-size:clamp(30px,5vw,50px)}
 
-    font-size:
-        clamp(30px,5vw,52px);
-
-    font-weight:900;
+.cta p{
+    margin-top:8px;
+    color:#665e31;
 }
-
-.cta-box p{
-
-    color:#8e91a1;
-
-    margin-top:10px;
-}
-
-.cta-buttons{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:12px;
-
-    flex-wrap:wrap;
-
-    margin-top:25px;
-}
-
 
 /* ================= FOOTER ================= */
 
 footer{
-
-    padding:
-        50px 5%;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.07);
-
     text-align:center;
+    padding:45px 20px;
+    background:#fff8dd;
+    border-top:1px solid #f0df99;
 }
 
 .footer-logo{
-
-    font-size:32px;
-
+    font-size:30px;
     font-weight:900;
 }
 
+.footer-logo span{color:#ffae00}
+
 footer p{
-
-    color:#777a8d;
-
-    font-size:12px;
-
-    margin-top:9px;
+    margin-top:8px;
+    color:#77704e;
+    font-size:11px;
 }
 
 .rubika{
-
     display:inline-block;
-
-    margin-top:18px;
-
+    margin-top:17px;
+    padding:12px 20px;
+    border-radius:14px;
+    background:#292400;
     color:white;
-
     text-decoration:none;
-
-    padding:
-        12px 20px;
-
-    border-radius:13px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff2495,
-            #7047ff
-        );
-
+    font-size:12px;
     font-weight:900;
-
     transition:.3s;
 }
 
-.rubika:hover{
+.rubika:hover{transform:translateY(-4px)}
 
-    transform:
-        translateY(-4px)
-        scale(1.03);
-}
+/* =====================================================
+   SITE BOT
+===================================================== */
 
-
-/* ================= MODAL ================= */
-
-.modal{
-
+#bot-button{
     position:fixed;
-
-    inset:0;
-
-    z-index:9000;
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:15px;
-
-    background:
-        rgba(0,0,0,.75);
-
-    backdrop-filter:
-        blur(12px);
-}
-
-.modal.show{
-
-    display:flex;
-}
-
-.modal-box{
-
-    width:min(560px,100%);
-
-    padding:28px;
-
-    border-radius:25px;
-
-    background:#11121c;
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
-
-    box-shadow:
-        0 40px 100px
-        rgba(0,0,0,.5);
-
-    animation:
-        modalIn .35s;
-}
-
-@keyframes modalIn{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(30px)
-            scale(.94);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:none;
-
-    }
-
-}
-
-.modal-head{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-}
-
-.close{
-
-    width:40px;
-    height:40px;
-
+    left:24px;
+    bottom:24px;
+    z-index:50000;
+    width:67px;
+    height:67px;
     border:0;
-
-    border-radius:12px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    color:white;
-
+    border-radius:22px;
     cursor:pointer;
+    background:linear-gradient(135deg,#ffe33d,#ff9e00);
+    box-shadow:0 15px 40px #d991002f;
+    font-size:29px;
+    animation:botFloat 3s ease-in-out infinite;
+    transition:.3s;
 }
 
-.modal-box p{
-
-    color:#9699a9;
-
-    font-size:13px;
-
-    line-height:2;
-
-    margin-top:15px;
+#bot-button:hover{
+    transform:scale(1.1) rotate(-5deg);
 }
 
-.contact-card{
-
-    margin-top:20px;
-
-    padding:20px;
-
-    border-radius:18px;
-
-    background:
-        rgba(255,255,255,.04);
-
-    border:
-        1px solid
-        rgba(255,255,255,.06);
-
-    text-align:center;
+#bot-button .bot-notification{
+    position:absolute;
+    top:-5px;
+    right:-5px;
+    width:19px;
+    height:19px;
+    border-radius:50%;
+    background:#ff5b3d;
+    border:3px solid #fffdf3;
+    animation:notificationPulse 1.5s infinite;
 }
 
-.contact-id{
-
-    display:block;
-
-    font-size:23px;
-
-    font-weight:900;
-
-    margin-top:8px;
-
-    color:#ff68b5;
+@keyframes botFloat{
+    50%{transform:translateY(-8px) rotate(2deg)}
 }
 
-.modal-actions{
+@keyframes notificationPulse{
+    50%{box-shadow:0 0 0 7px #ff5b3d22}
+}
 
+#bot-window{
+    position:fixed;
+    left:24px;
+    bottom:103px;
+    width:370px;
+    max-width:calc(100vw - 30px);
+    height:560px;
+    z-index:49999;
+    background:rgba(255,255,255,.97);
+    backdrop-filter:blur(20px);
+    border:1px solid #f0df99;
+    border-radius:28px;
+    box-shadow:0 30px 90px #5d4b001f;
+    overflow:hidden;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(30px) scale(.92);
+    transform-origin:bottom left;
+    transition:.4s cubic-bezier(.2,.8,.2,1);
+}
+
+#bot-window.open{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0) scale(1);
+}
+
+.bot-header{
+    height:78px;
+    background:linear-gradient(135deg,#fff0a0,#ffd21b);
     display:flex;
-
-    gap:10px;
-
-    margin-top:20px;
+    align-items:center;
+    gap:12px;
+    padding:13px 16px;
+    position:relative;
+    overflow:hidden;
 }
 
-.modal-actions .btn{
+.bot-header:before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    background:#ffffff35;
+    left:-50px;
+    top:-90px;
+    animation:botHeaderCircle 5s infinite;
+}
 
+@keyframes botHeaderCircle{
+    50%{transform:translate(80px,30px)}
+}
+
+.bot-avatar{
+    position:relative;
+    width:48px;
+    height:48px;
+    border-radius:16px;
+    background:#292400;
+    color:#ffd21b;
+    display:grid;
+    place-items:center;
+    font-size:25px;
+    box-shadow:0 10px 25px #4d40001f;
+}
+
+.bot-header-text{
+    position:relative;
     flex:1;
 }
 
+.bot-header-text strong{
+    display:block;
+    font-size:16px;
+}
+
+.bot-status{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    margin-top:3px;
+    color:#665e31;
+    font-size:9px;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+    background:#28c76f;
+    border-radius:50%;
+    box-shadow:0 0 8px #28c76f;
+}
+
+.bot-close{
+    position:relative;
+    border:0;
+    background:#ffffff75;
+    width:34px;
+    height:34px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:20px;
+    transition:.3s;
+}
+
+.bot-close:hover{
+    background:white;
+    transform:rotate(90deg);
+}
+
+.bot-body{
+    height:calc(100% - 78px);
+    display:flex;
+    flex-direction:column;
+}
+
+.bot-messages{
+    flex:1;
+    overflow-y:auto;
+    padding:17px;
+    scroll-behavior:smooth;
+}
+
+.bot-message{
+    display:flex;
+    margin-bottom:12px;
+    animation:messageIn .4s ease;
+}
+
+.bot-message.bot{justify-content:flex-start}
+.bot-message.user{justify-content:flex-end}
+
+.message-bubble{
+    max-width:84%;
+    padding:11px 13px;
+    border-radius:17px;
+    font-size:11px;
+    line-height:1.9;
+}
+
+.bot-message.bot .message-bubble{
+    background:#fff5c9;
+    border:1px solid #f2df9b;
+    border-top-right-radius:5px;
+}
+
+.bot-message.user .message-bubble{
+    background:#292400;
+    color:white;
+    border-top-left-radius:5px;
+}
+
+@keyframes messageIn{
+    from{
+        opacity:0;
+        transform:translateY(12px) scale(.96);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* ================= BOT QUESTION PAGER ================= */
+
+.bot-questions{
+    padding:10px 12px 13px;
+    border-top:1px solid #f0df99;
+    background:#fffdf5;
+}
+
+.bot-questions-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-size:9px;
+    color:#9a8b54;
+    margin-bottom:8px;
+}
+
+.bot-page-number{
+    color:#d08e00;
+    font-weight:900;
+}
+
+.question-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:6px;
+    min-height:78px;
+}
+
+.bot-question{
+    width:100%;
+    min-width:0;
+    border:1px solid #efd982;
+    background:#fff4b9;
+    color:#4c420f;
+    border-radius:13px;
+    padding:9px 7px;
+    font-size:9px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.3s;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.bot-question:hover{
+    background:#ffd21b;
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px #d69f0020;
+}
+
+.bot-controls{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    margin-top:9px;
+}
+
+.bot-nav-btn{
+    border:1px solid #efd982;
+    background:#fff8d9;
+    color:#4c420f;
+    width:34px;
+    height:29px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:900;
+    transition:.3s;
+}
+
+.bot-nav-btn:hover{
+    background:#ffd21b;
+    transform:scale(1.06);
+}
+
+.bot-nav-btn:disabled{
+    opacity:.35;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.bot-dots{
+    display:flex;
+    gap:4px;
+    align-items:center;
+}
+
+.bot-dot{
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#dfcf89;
+    transition:.3s;
+}
+
+.bot-dot.active{
+    width:15px;
+    border-radius:20px;
+    background:#e8a500;
+}
+
+.typing{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    padding:11px 14px;
+    width:55px;
+    background:#fff5c9;
+    border:1px solid #f2df9b;
+    border-radius:17px;
+    border-top-right-radius:5px;
+}
+
+.typing i{
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#c19c00;
+    animation:typingDot 1s infinite;
+}
+
+.typing i:nth-child(2){animation-delay:.15s}
+.typing i:nth-child(3){animation-delay:.3s}
+
+@keyframes typingDot{
+    0%,100%{transform:translateY(0);opacity:.5}
+    50%{transform:translateY(-4px);opacity:1}
+}
 
 /* ================= RESPONSIVE ================= */
 
-@media(max-width:1000px){
+@media(max-width:900px){
 
     .hero{
-
         grid-template-columns:1fr;
-
         text-align:center;
     }
 
-    .hero-content{
-
-        display:flex;
-
-        flex-direction:column;
-
-        align-items:center;
+    .hero p{
+        max-width:700px;
+        margin-left:auto;
+        margin-right:auto;
     }
 
-    .hero-visual{
+    .buttons{justify-content:center}
 
-        min-height:420px;
+    .grid{grid-template-columns:1fr 1fr}
+
+    .steps{grid-template-columns:1fr 1fr}
+
+    .plans{
+        grid-template-columns:1fr;
+        max-width:550px;
     }
-
-    .stats{
-
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .features{
-
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-    .process{
-
-        grid-template-columns:
-            1fr 1fr;
-    }
-
 }
 
+@media(max-width:650px){
 
-@media(max-width:700px){
-
-    header{
-
-        padding:
-            9px 3%;
-    }
+    header{height:auto}
 
     .nav{
-
+        min-height:75px;
+        padding:8px 0;
         flex-wrap:wrap;
-
         justify-content:center;
     }
 
-    .logo{
+    .logo{width:100%}
 
+    .menu{
         width:100%;
-
-        justify-content:center;
-    }
-
-    .nav-links{
-
-        width:100%;
-
         overflow-x:auto;
+        scrollbar-width:none;
+        justify-content:flex-start;
+    }
 
+    .menu::-webkit-scrollbar{display:none}
+
+    .menu button{white-space:nowrap}
+
+    .order-btn{display:none}
+
+    main{padding-top:130px}
+
+    .page{
+        padding:45px 0;
+        min-height:calc(100vh - 130px);
+    }
+
+    .grid,
+    .plans,
+    .samples,
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{font-size:44px}
+
+    .visual{min-height:340px}
+
+    .browser{height:245px}
+
+    .floating{display:none}
+
+    .designer-name{font-size:26px}
+
+    #bot-button{
+        left:16px;
+        bottom:16px;
+        width:61px;
+        height:61px;
+    }
+
+    #bot-window{
+        left:15px;
+        bottom:88px;
+        width:calc(100vw - 30px);
+        height:520px;
+    }
+
+    .question-list{
+        display:flex;
+        overflow-x:auto;
         scrollbar-width:none;
     }
 
-    .nav-links::-webkit-scrollbar{
-
+    .question-list::-webkit-scrollbar{
         display:none;
     }
 
-    .nav-links a{
-
-        white-space:nowrap;
-
-        flex-shrink:0;
-
-        font-size:10px;
-
-        padding:
-            7px 9px;
+    .bot-question{
+        flex:0 0 145px;
     }
-
-    .nav-order{
-
-        display:none;
-    }
-
-    .hero{
-
-        padding-top:190px;
-    }
-
-    .hero h1{
-
-        font-size:45px;
-    }
-
-    .hero-text{
-
-        font-size:13px;
-    }
-
-    .hero-visual{
-
-        min-height:330px;
-    }
-
-    .site-window{
-
-        height:250px;
-    }
-
-    .float3{
-
-        display:none;
-    }
-
-    .stats{
-
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-    .features{
-
-        grid-template-columns:1fr;
-    }
-
-    .plans{
-
-        grid-template-columns:1fr;
-    }
-
-    .samples{
-
-        grid-template-columns:1fr;
-    }
-
-    .process{
-
-        grid-template-columns:
-            1fr 1fr;
-    }
-
-    .special{
-
-        padding:
-            30px 20px;
-    }
-
-    .special-list{
-
-        grid-template-columns:1fr;
-    }
-
-    section{
-
-        padding:
-            75px 0;
-    }
-
 }
-
-
-@media(max-width:430px){
-
-    .hero h1{
-
-        font-size:38px;
-    }
-
-    .site-window{
-
-        width:95%;
-
-        height:220px;
-    }
-
-    .float1,
-    .float2{
-
-        display:none;
-    }
-
-    .process{
-
-        grid-template-columns:1fr;
-    }
-
-    .plan{
-
-        padding:
-            27px 22px;
-    }
-
-}
-
-
-/* ================= SCROLLBAR ================= */
-
-::-webkit-scrollbar{
-    width:8px;
-}
-
-::-webkit-scrollbar-track{
-    background:#08080e;
-}
-
-::-webkit-scrollbar-thumb{
-
-    border-radius:20px;
-
-    background:
-        linear-gradient(
-            #ff2495,
-            #7047ff
-        );
-}
-
-
-/* ================= SELECTION ================= */
-
-::selection{
-
-    background:#ff2495;
-
-    color:white;
-}
-
 </style>
 </head>
 
-
 <body>
 
+<!-- ================= LOADING ================= -->
 
-<!-- ================= LOADER ================= -->
-
-<div class="loader" id="loader">
+<div id="loader">
 
     <div class="loader-logo">
-        امیر سایت
+        امیر <span>سایت</span>
     </div>
 
-    <div class="loader-sub">
+    <div class="loader-text">
         در حال آماده‌سازی سایت...
     </div>
 
-    <div class="loader-line">
-        <span></span>
+    <div class="loader-ring"></div>
+
+    <div class="loader-progress">
+        <div></div>
     </div>
 
 </div>
 
+<div class="bg"></div>
+<div class="bg-dots"></div>
 
-<div class="grid"></div>
-
-<div class="orb one"></div>
-<div class="orb two"></div>
-<div class="orb three"></div>
+<div class="ball ball1"></div>
+<div class="ball ball2"></div>
+<div class="ball ball3"></div>
 
 
 <!-- ================= HEADER ================= -->
@@ -2138,59 +1395,24 @@ footer p{
 
 <div class="nav">
 
-    <div
-        class="logo"
-        onclick="scrollToId('home')">
+    <button class="logo" onclick="go('home')">
+        <span class="logo-icon">☀️</span>
+        امیر <span>سایت</span>
+    </button>
 
-        <div class="logo-icon">
-            🌐
-        </div>
+    <nav class="menu">
 
-        <span>
-            امیر
-            <span class="gradient">
-                سایت
-            </span>
-        </span>
-
-    </div>
-
-
-    <nav class="nav-links">
-
-        <a href="#home">
-            خانه
-        </a>
-
-        <a href="#features">
-            امکانات
-        </a>
-
-        <a href="#plans">
-            پلن‌ها
-        </a>
-
-        <a href="#samples">
-            نمونه‌کارها
-        </a>
-
-        <a href="#process">
-            مراحل
-        </a>
-
-        <a href="#faq">
-            سؤالات
-        </a>
+        <button data-page="home" onclick="go('home')">خانه</button>
+        <button data-page="features" onclick="go('features')">امکانات</button>
+        <button data-page="plans" onclick="go('plans')">پلن‌ها</button>
+        <button data-page="samples" onclick="go('samples')">نمونه‌ها</button>
+        <button data-page="process" onclick="go('process')">مراحل</button>
+        <button data-page="faq" onclick="go('faq')">سوالات</button>
 
     </nav>
 
-
-    <button
-        class="nav-order"
-        onclick="openOrder()">
-
+    <button class="order-btn" onclick="order()">
         سفارش سایت 🚀
-
     </button>
 
 </div>
@@ -2198,71 +1420,60 @@ footer p{
 </header>
 
 
-<!-- ================= MAIN ================= -->
-
 <main>
 
+<!-- ================= HOME ================= -->
 
-<!-- ================= HERO ================= -->
+<section id="home" class="page active">
 
-<section id="home">
+<div class="container">
 
-<div class="container hero">
+<div class="hero">
 
+<div>
 
-<div class="hero-content">
-
-    <div class="hero-badge">
-
-        <span class="live"></span>
-
+    <div class="badge">
+        <span class="green-dot"></span>
         ساخت سایت اختصاصی
+    </div>
+
+    <h1>
+        سایتت را
+        <span class="yellow-text">متفاوت</span>
+        بساز.
+    </h1>
+
+    <p>
+        طراحی سایت‌های اختصاصی، مدرن، سریع و
+        پر از انیمیشن و افکت برای ایده‌های خاص.
+        سایت شما برای موبایل، تبلت و کامپیوتر
+        طراحی می‌شود.
+    </p>
+
+
+    <div class="designer">
+
+        <div class="designer-label">
+            طراح و سازنده
+        </div>
+
+        <div class="designer-name">
+            امیر حسین جبارفر
+        </div>
+
+        <div class="designer-line"></div>
 
     </div>
 
 
-    <h1>
+    <div class="buttons">
 
-        سایتت را
-
-        <br>
-
-        <span class="gradient">
-            حرفه‌ای بساز.
-        </span>
-
-    </h1>
-
-
-    <p class="hero-text">
-
-        با «امیر سایت» یک سایت اختصاصی،
-        مدرن و ریسپانسیو برای کسب‌وکار،
-        پروژه شخصی یا ایده خودت بساز.
-        طراحی اختصاصی، انیمیشن‌های جذاب،
-        افکت‌های حرفه‌ای و امکان استفاده
-        از دامنه .io.
-
-    </p>
-
-
-    <div class="hero-buttons">
-
-        <button
-            class="btn btn-primary"
-            onclick="scrollToId('plans')">
-
+        <button class="btn primary" onclick="go('plans')">
             مشاهده پلن‌ها ✨
-
         </button>
 
-
-        <button
-            class="btn btn-secondary"
-            onclick="scrollToId('samples')">
-
-            دیدن نمونه‌کارها 👀
-
+        <button class="btn secondary" onclick="go('samples')">
+            دیدن نمونه‌ها 👀
         </button>
 
     </div>
@@ -2270,120 +1481,39 @@ footer p{
 </div>
 
 
-<!-- VISUAL -->
+<div class="visual">
 
-<div class="hero-visual">
+    <div class="browser">
 
-    <div class="site-window">
-
-        <div class="window-top">
-
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-
+        <div class="browser-top">
+            <i></i>
+            <i></i>
+            <i></i>
         </div>
 
-
-        <div class="window-content">
+        <div class="browser-content">
 
             <div class="fake-nav"></div>
 
-            <div class="fake-hero"></div>
+            <div class="fake-hero">
+                <div class="fake-circle"></div>
+            </div>
 
             <div class="fake-cards">
-
                 <div class="fake-card"></div>
                 <div class="fake-card"></div>
                 <div class="fake-card"></div>
-
             </div>
 
         </div>
 
     </div>
 
-
-    <div class="float-card float1">
-        ⚡ سریع و ریسپانسیو
-    </div>
-
-    <div class="float-card float2">
-        🎨 طراحی اختصاصی
-    </div>
-
-    <div class="float-card float3">
-        ✨ انیمیشن حرفه‌ای
-    </div>
+    <div class="floating float1">🎨 طراحی اختصاصی</div>
+    <div class="floating float2">📱 ریسپانسیو</div>
+    <div class="floating float3">⚡ سریع</div>
 
 </div>
-
-
-</div>
-
-</section>
-
-
-<!-- ================= STATS ================= -->
-
-<section>
-
-<div class="container">
-
-<div class="stats">
-
-
-<div class="stat">
-
-    <strong>
-        ۱۰۰٪
-    </strong>
-
-    <span>
-        طراحی اختصاصی
-    </span>
-
-</div>
-
-
-<div class="stat">
-
-    <strong>
-        📱
-    </strong>
-
-    <span>
-        سازگار با موبایل
-    </span>
-
-</div>
-
-
-<div class="stat">
-
-    <strong>
-        ⚡
-    </strong>
-
-    <span>
-        طراحی سریع و بهینه
-    </span>
-
-</div>
-
-
-<div class="stat">
-
-    <strong>
-        ∞
-    </strong>
-
-    <span>
-        امکان ویرایش
-    </span>
-
-</div>
-
 
 </div>
 
@@ -2394,192 +1524,89 @@ footer p{
 
 <!-- ================= FEATURES ================= -->
 
-<section id="features">
+<section id="features" class="page">
 
 <div class="container">
 
-
-<div class="section-title">
-
-    <div class="small">
-        امکانات
-    </div>
-
-    <h2>
-        یک سایت متفاوت بساز
-    </h2>
-
-    <p>
-        امکاناتی برای ساخت یک سایت خاص و حرفه‌ای
-    </p>
-
+<div class="title">
+    <small>امکانات</small>
+    <h2>امکانات سایت</h2>
+    <p>چیزهایی که می‌توانیم برای سایت اختصاصی شما طراحی کنیم</p>
 </div>
 
+<div class="grid">
 
-<div class="features">
-
-
-<div class="feature">
-
-    <div class="feature-icon">
-        🎨
-    </div>
-
-    <h3>
-        طراحی اختصاصی
-    </h3>
-
-    <p>
-        ظاهر سایت بر اساس ایده و نیاز
-        پروژه شما طراحی می‌شود.
-    </p>
-
+<div class="card">
+    <div class="icon">🎨</div>
+    <h3>طراحی اختصاصی</h3>
+    <p>ظاهر سایت بر اساس موضوع و ایده پروژه طراحی می‌شود.</p>
 </div>
 
-
-<div class="feature">
-
-    <div class="feature-icon">
-        📱
-    </div>
-
-    <h3>
-        کاملاً ریسپانسیو
-    </h3>
-
-    <p>
-        سایت برای موبایل، تبلت،
-        لپ‌تاپ و کامپیوتر طراحی می‌شود.
-    </p>
-
+<div class="card">
+    <div class="icon">✨</div>
+    <h3>انیمیشن و افکت</h3>
+    <p>استفاده از انیمیشن، ترنزیشن و افکت‌های جذاب.</p>
 </div>
 
-
-<div class="feature">
-
-    <div class="feature-icon">
-        ✨
-    </div>
-
-    <h3>
-        انیمیشن و افکت
-    </h3>
-
-    <p>
-        انیمیشن‌های جذاب، افکت‌های هاور،
-        ترنزیشن و جلوه‌های بصری.
-    </p>
-
+<div class="card">
+    <div class="icon">📱</div>
+    <h3>ریسپانسیو</h3>
+    <p>سازگار با موبایل، تبلت، لپ‌تاپ و کامپیوتر.</p>
 </div>
 
-
-<div class="feature">
-
-    <div class="feature-icon">
-        🖼️
-    </div>
-
-    <h3>
-        افزودن تصاویر
-    </h3>
-
-    <p>
-        تصاویر موردنیاز پروژه در صفحات
-        مختلف سایت قرار می‌گیرند.
-    </p>
-
+<div class="card">
+    <div class="icon">🖥️</div>
+    <h3>کامپیوتر</h3>
+    <p>نمایش حرفه‌ای در مانیتور، لپ‌تاپ و صفحه‌های بزرگ.</p>
 </div>
 
-
-<div class="feature">
-
-    <div class="feature-icon">
-        🤖
-    </div>
-
-    <h3>
-        تصاویر هوش مصنوعی
-    </h3>
-
-    <p>
-        امکان ساخت تصاویر اختصاصی
-        برای ظاهر سایت با هوش مصنوعی.
-    </p>
-
+<div class="card">
+    <div class="icon">📲</div>
+    <h3>موبایل</h3>
+    <p>چیدمان مخصوص نمایشگرهای کوچک و لمسی.</p>
 </div>
 
-
-<div class="feature">
-
-    <div class="feature-icon">
-        🌐
-    </div>
-
-    <h3>
-        دامنه .io
-    </h3>
-
-    <p>
-        امکان استفاده از دامنه اختصاصی
-        .io برای پروژه.
-    </p>
-
+<div class="card">
+    <div class="icon">💻</div>
+    <h3>تبلت</h3>
+    <p>طراحی مناسب اندازه‌های مختلف تبلت.</p>
 </div>
 
-
-<div class="feature">
-
-    <div class="feature-icon">
-        ✏️
-    </div>
-
-    <h3>
-        امکان ویرایش
-    </h3>
-
-    <p>
-        تغییرات موردنیاز سایت توسط
-        همکاران مجموعه انجام می‌شود.
-    </p>
-
+<div class="card">
+    <div class="icon">🖼️</div>
+    <h3>افزودن تصاویر</h3>
+    <p>امکان قرار دادن تصاویر موردنیاز پروژه.</p>
 </div>
 
-
-<div class="feature">
-
-    <div class="feature-icon">
-        🚀
-    </div>
-
-    <h3>
-        انتشار آنلاین
-    </h3>
-
-    <p>
-        سایت آماده انتشار و استفاده
-        آنلاین خواهد بود.
-    </p>
-
+<div class="card">
+    <div class="icon">🤖</div>
+    <h3>تصویر با هوش مصنوعی</h3>
+    <p>امکان ساخت تصاویر اختصاصی برای طراحی سایت.</p>
 </div>
 
-
-<div class="feature">
-
-    <div class="feature-icon">
-        🔒
-    </div>
-
-    <h3>
-        بدون پنل مدیریت
-    </h3>
-
-    <p>
-        سایت پنل مدیریت عمومی ندارد
-        و تغییرات توسط همکاران انجام می‌شود.
-    </p>
-
+<div class="card">
+    <div class="icon">🌐</div>
+    <h3>دامنه .io</h3>
+    <p>امکان استفاده از دامنه اختصاصی .io طبق شرایط سفارش.</p>
 </div>
 
+<div class="card">
+    <div class="icon">✏️</div>
+    <h3>ویرایش سایت</h3>
+    <p>تغییرات توسط همکاران مجموعه انجام می‌شود.</p>
+</div>
+
+<div class="card">
+    <div class="icon">🚫</div>
+    <h3>بدون آپلود ویدیو</h3>
+    <p>امکان آپلود مستقیم ویدیو در سایت وجود ندارد.</p>
+</div>
+
+<div class="card">
+    <div class="icon">⚡</div>
+    <h3>بهینه و سبک</h3>
+    <p>طراحی بهینه برای عملکرد بهتر در دستگاه‌های مختلف.</p>
+</div>
 
 </div>
 
@@ -2590,184 +1617,106 @@ footer p{
 
 <!-- ================= PLANS ================= -->
 
-<section id="plans">
+<section id="plans" class="page">
 
 <div class="container">
 
+<div class="title">
 
-<div class="section-title">
+    <small>قیمت‌گذاری</small>
 
-    <div class="small">
-        قیمت‌گذاری
-    </div>
+    <h2>پلن‌های ساخت سایت</h2>
 
-    <h2>
-        پلن‌های امیر سایت
-    </h2>
-
-    <p>
-        یکی از دو روش ساخت سایت را انتخاب کن
-    </p>
+    <p>سه انتخاب برای ساخت سایت اختصاصی شما</p>
 
 </div>
 
 
 <div class="plans">
 
+<div class="plan">
 
-<!-- PLAN 1 -->
+    <div class="icon">🌱</div>
 
-<div class="plan featured">
+    <h3>پلن پایه</h3>
 
-    <div class="ribbon">
-        محبوب
+    <div class="price">
+        ۳٬۰۰۰٬۰۰۰
+        <span>تومان</span>
     </div>
-
-
-    <div class="plan-icon">
-        🔄
-    </div>
-
-
-    <h3>
-        پلن تمدیدی
-    </h3>
-
-
-    <div class="plan-desc">
-        پرداخت سالانه
-    </div>
-
-
-    <div class="plan-price">
-
-        ۵٬۰۰۰٬۰۰۰
-
-        <small>
-            تومان / سالانه
-        </small>
-
-    </div>
-
 
     <ul>
-
-        <li>
-            ساخت سایت اختصاصی
-        </li>
-
-        <li>
-            طراحی ریسپانسیو
-        </li>
-
-        <li>
-            انیمیشن و افکت
-        </li>
-
-        <li>
-            افزودن تصاویر
-        </li>
-
-        <li>
-            امکان ویرایش
-        </li>
-
-        <li>
-            دامنه .io طبق شرایط سرویس
-        </li>
-
-        <li>
-            پشتیبانی و تغییرات توسط تیم
-        </li>
-
+        <li>ساخت سایت اختصاصی</li>
+        <li>طراحی ریسپانسیو</li>
+        <li>انیمیشن و افکت</li>
+        <li>افزودن تصاویر</li>
+        <li>قابلیت ویرایش</li>
+        <li>بدون آپلود ویدیو</li>
     </ul>
 
-
-    <button
-        class="btn btn-primary"
-        onclick="openOrder('پلن تمدیدی')">
-
-        انتخاب پلن
-
+    <button class="btn primary" onclick="order('پلن پایه')">
+        سفارش پلن 🚀
     </button>
 
 </div>
 
 
-<!-- PLAN 2 -->
+<div class="plan hot">
+
+    <div class="hot-badge">محبوب ⭐</div>
+
+    <div class="icon">🔄</div>
+
+    <h3>پلن تمدیدی</h3>
+
+    <div class="price">
+        ۵٬۰۰۰٬۰۰۰
+        <span>تومان / سالانه</span>
+    </div>
+
+    <ul>
+        <li>ساخت سایت اختصاصی</li>
+        <li>طراحی ریسپانسیو</li>
+        <li>انیمیشن و افکت</li>
+        <li>افزودن تصاویر</li>
+        <li>قابلیت ویرایش</li>
+        <li>امکان دامنه .io</li>
+        <li>پشتیبانی تغییرات توسط همکاران</li>
+    </ul>
+
+    <button class="btn primary" onclick="order('پلن تمدیدی')">
+        سفارش پلن 🚀
+    </button>
+
+</div>
+
 
 <div class="plan">
 
+    <div class="icon">💎</div>
 
-    <div class="plan-icon">
-        💎
-    </div>
+    <h3>بدون تمدید مجدد</h3>
 
-
-    <h3>
-        بدون تمدید مجدد
-    </h3>
-
-
-    <div class="plan-desc">
-        پرداخت یک‌باره
-    </div>
-
-
-    <div class="plan-price">
-
+    <div class="price">
         ۱۰٬۰۰۰٬۰۰۰
-
-        <small>
-            تومان
-        </small>
-
+        <span>تومان / یک‌باره</span>
     </div>
-
 
     <ul>
-
-        <li>
-            ساخت سایت اختصاصی
-        </li>
-
-        <li>
-            طراحی ریسپانسیو
-        </li>
-
-        <li>
-            انیمیشن و افکت
-        </li>
-
-        <li>
-            افزودن تصاویر
-        </li>
-
-        <li>
-            امکان ویرایش
-        </li>
-
-        <li>
-            دامنه .io طبق شرایط سرویس
-        </li>
-
-        <li>
-            بدون پرداخت تمدید سالانه
-        </li>
-
+        <li>ساخت سایت اختصاصی</li>
+        <li>طراحی ریسپانسیو</li>
+        <li>انیمیشن و افکت</li>
+        <li>افزودن تصاویر</li>
+        <li>قابلیت ویرایش</li>
+        <li>امکان دامنه .io</li>
+        <li>بدون تمدید سالانه</li>
     </ul>
 
-
-    <button
-        class="btn btn-primary"
-        onclick="openOrder('پلن بدون تمدید مجدد')">
-
-        انتخاب پلن
-
+    <button class="btn primary" onclick="order('پلن بدون تمدید مجدد')">
+        سفارش پلن 🚀
     </button>
 
 </div>
-
 
 </div>
 
@@ -2778,66 +1727,40 @@ footer p{
 
 <!-- ================= SAMPLES ================= -->
 
-<section id="samples">
+<section id="samples" class="page">
 
 <div class="container">
 
+<div class="title">
 
-<div class="section-title">
+    <small>نمونه کار</small>
 
-    <div class="small">
-        نمونه‌کارها
-    </div>
+    <h2>نمونه‌های طراحی</h2>
 
-    <h2>
-        پروژه‌های ساخته‌شده
-    </h2>
-
-    <p>
-        برای مشاهده نمونه‌ها روی دکمه کلیک کنید.
-    </p>
+    <p>چند نمونه از پروژه‌های ساخته‌شده</p>
 
 </div>
 
-
 <div class="samples">
-
-
-<!-- SAMPLE 1 -->
 
 <div class="sample">
 
-    <div class="sample-preview">
-
-        <div class="preview-text">
-            AMIR SHOP
-        </div>
-
+    <div class="sample-image">
+        AMIR SHOP
     </div>
-
 
     <div class="sample-info">
 
         <div>
-
-            <h3>
-                Amir Shop
-            </h3>
-
-            <p>
-                نمونه فروشگاه آنلاین
-            </p>
-
+            <h3>Amir Shop</h3>
+            <p>نمونه فروشگاه اینترنتی</p>
         </div>
-
 
         <a
             class="sample-link"
             href="https://amirhosseinjabarfar-art.github.io/Amirshop/"
             target="_blank">
-
-            مشاهده سایت ↗
-
+            مشاهده ↗
         </a>
 
     </div>
@@ -2845,47 +1768,85 @@ footer p{
 </div>
 
 
-<!-- SAMPLE 2 -->
-
 <div class="sample">
 
-    <div class="sample-preview second">
-
-        <div class="preview-text">
-            MAHIGIR
-        </div>
-
+    <div class="sample-image">
+        MAHIGIR
     </div>
-
 
     <div class="sample-info">
 
         <div>
-
-            <h3>
-                Mahigir
-            </h3>
-
-            <p>
-                نمونه پروژه اختصاصی
-            </p>
-
+            <h3>Mahigir</h3>
+            <p>نمونه سایت اختصاصی</p>
         </div>
-
 
         <a
             class="sample-link"
             href="https://amirhosseinjabarfar-art.github.io/Mahigir/"
             target="_blank">
-
-            مشاهده سایت ↗
-
+            مشاهده ↗
         </a>
 
     </div>
 
 </div>
 
+
+<!-- ================= NEW SAMPLE 3 ================= -->
+
+<div class="sample">
+
+    <div class="sample-image">
+        AMIR PRINT
+    </div>
+
+    <div class="sample-info">
+
+        <div>
+            <h3>Amir Print</h3>
+            <p>نمونه سایت اختصاصی</p>
+        </div>
+
+        <a
+            class="sample-link"
+            href="https://amirhosseinjabarfar-art.github.io/Amirprint/"
+            target="_blank"
+            rel="noopener noreferrer">
+            مشاهده ↗
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- ================= NEW SAMPLE 4 ================= -->
+
+<div class="sample">
+
+    <div class="sample-image">
+        MINECRAFT
+    </div>
+
+    <div class="sample-info">
+
+        <div>
+            <h3>Minecraft</h3>
+            <p>نمونه سایت اختصاصی</p>
+        </div>
+
+        <a
+            class="sample-link"
+            href="https://amirhosseinjabarfar-art.github.io/minecraft/"
+            target="_blank"
+            rel="noopener noreferrer">
+            مشاهده ↗
+        </a>
+
+    </div>
+
+</div>
 
 </div>
 
@@ -2896,200 +1857,39 @@ footer p{
 
 <!-- ================= PROCESS ================= -->
 
-<section id="process">
+<section id="process" class="page">
 
 <div class="container">
 
-
-<div class="section-title">
-
-    <div class="small">
-        روند ساخت
-    </div>
-
-    <h2>
-        از ایده تا سایت
-    </h2>
-
+<div class="title">
+    <small>فرآیند</small>
+    <h2>مراحل ساخت سایت</h2>
 </div>
 
-
-<div class="process">
-
+<div class="steps">
 
 <div class="step">
-
-    <div class="step-number">
-        ۱
-    </div>
-
-    <h3>
-        ثبت سفارش
-    </h3>
-
-    <p>
-        پلن موردنظر را انتخاب کرده
-        و برای سفارش پیام می‌دهید.
-    </p>
-
+    <div class="number">۱</div>
+    <h3>ثبت سفارش</h3>
+    <p>انتخاب پلن و ارسال پیام در روبیکا.</p>
 </div>
-
 
 <div class="step">
-
-    <div class="step-number">
-        ۲
-    </div>
-
-    <h3>
-        بررسی ایده
-    </h3>
-
-    <p>
-        امکانات، ظاهر و ساختار
-        پروژه مشخص می‌شود.
-    </p>
-
+    <div class="number">۲</div>
+    <h3>بررسی ایده</h3>
+    <p>امکانات و ظاهر پروژه مشخص می‌شود.</p>
 </div>
-
 
 <div class="step">
-
-    <div class="step-number">
-        ۳
-    </div>
-
-    <h3>
-        طراحی
-    </h3>
-
-    <p>
-        سایت با طراحی اختصاصی،
-        انیمیشن و افکت ساخته می‌شود.
-    </p>
-
+    <div class="number">۳</div>
+    <h3>طراحی</h3>
+    <p>طراحی و برنامه‌نویسی سایت انجام می‌شود.</p>
 </div>
-
 
 <div class="step">
-
-    <div class="step-number">
-        ۴
-    </div>
-
-    <h3>
-        تحویل
-    </h3>
-
-    <p>
-        سایت آماده استفاده و انتشار
-        در اختیار شما قرار می‌گیرد.
-    </p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= SPECIAL ================= -->
-
-<section>
-
-<div class="container">
-
-<div class="special">
-
-<div class="special-content">
-
-
-<div class="hero-badge">
-    🚀 سرویس ویژه
-</div>
-
-
-<h2>
-
-    ایده‌ای خاص داری؟
-
-    <br>
-
-    <span class="gradient">
-        سایتش را بساز.
-    </span>
-
-</h2>
-
-
-<p>
-
-    اگر ایده خاصی داری، امکانات موردنظرت
-    را توضیح بده تا ساختار سایت متناسب
-    با پروژه تو طراحی شود.
-
-</p>
-
-
-<div class="special-list">
-
-
-<div class="special-item">
-    🖼️ افزودن تصاویر
-</div>
-
-
-<div class="special-item">
-    🤖 ساخت تصویر با هوش مصنوعی
-</div>
-
-
-<div class="special-item">
-    🌐 دامنه .io
-</div>
-
-
-<div class="special-item">
-    📱 نسخه موبایل و تبلت
-</div>
-
-
-<div class="special-item">
-    ✨ انیمیشن‌های حرفه‌ای
-</div>
-
-
-<div class="special-item">
-    ✏️ امکان ویرایش
-</div>
-
-
-<div class="special-item">
-    👨‍💻 تغییرات توسط همکاران
-</div>
-
-
-<div class="special-item">
-    🚫 بدون قابلیت آپلود ویدیو
-</div>
-
-
-</div>
-
-
-<button
-    class="btn btn-primary"
-    style="margin-top:25px"
-    onclick="openOrder()">
-
-    شروع ساخت سایت 🚀
-
-</button>
-
-
+    <div class="number">۴</div>
+    <h3>تحویل</h3>
+    <p>نسخه نهایی سایت آماده استفاده می‌شود.</p>
 </div>
 
 </div>
@@ -3101,165 +1901,88 @@ footer p{
 
 <!-- ================= FAQ ================= -->
 
-<section id="faq">
+<section id="faq" class="page">
 
 <div class="container">
 
+<div class="title">
 
-<div class="section-title">
-
-    <div class="small">
-        سوالات متداول
-    </div>
-
-    <h2>
-        قبل از سفارش
-    </h2>
+    <small>پرسش‌ها</small>
+    <h2>سوالات متداول</h2>
 
 </div>
-
 
 <div class="faq">
 
-
 <div class="faq-item">
-
-    <button
-        class="faq-question"
-        onclick="toggleFaq(this)">
-
-        آیا سایت برای موبایل هم ساخته می‌شود؟
-
-        <span>
-            ＋
-        </span>
-
-    </button>
-
-
-    <div class="faq-answer">
-
-        <p>
-            بله. سایت به صورت ریسپانسیو
-            طراحی می‌شود تا روی موبایل،
-            تبلت و کامپیوتر ظاهر مناسبی داشته باشد.
-        </p>
-
-    </div>
-
+<button class="question">
+    سایت روی موبایل کار می‌کند؟
+    <span>＋</span>
+</button>
+<div class="answer">
+<p>بله. سایت به صورت ریسپانسیو طراحی می‌شود و برای موبایل، تبلت و کامپیوتر مناسب است.</p>
+</div>
 </div>
 
-
 <div class="faq-item">
-
-    <button
-        class="faq-question"
-        onclick="toggleFaq(this)">
-
-        آیا سایت پنل مدیریت دارد؟
-
-        <span>
-            ＋
-        </span>
-
-    </button>
-
-
-    <div class="faq-answer">
-
-        <p>
-            خیر. این سرویس پنل مدیریت عمومی
-            ندارد و تغییرات توسط همکاران ما
-            انجام می‌شود.
-        </p>
-
-    </div>
-
+<button class="question">
+    سایت روی کامپیوتر و لپ‌تاپ کار می‌کند؟
+    <span>＋</span>
+</button>
+<div class="answer">
+<p>بله. طراحی برای صفحه‌های بزرگ، لپ‌تاپ و کامپیوتر نیز بهینه می‌شود.</p>
+</div>
 </div>
 
-
 <div class="faq-item">
-
-    <button
-        class="faq-question"
-        onclick="toggleFaq(this)">
-
-        آیا امکان افزودن تصویر وجود دارد؟
-
-        <span>
-            ＋
-        </span>
-
-    </button>
-
-
-    <div class="faq-answer">
-
-        <p>
-            بله. تصاویر موردنیاز پروژه
-            می‌توانند در صفحات مختلف
-            سایت قرار بگیرند.
-        </p>
-
-    </div>
-
+<button class="question">
+    آیا سایت روی تبلت هم نمایش خوبی دارد؟
+    <span>＋</span>
+</button>
+<div class="answer">
+<p>بله. ساختار سایت با اندازه‌های مختلف صفحه سازگار می‌شود.</p>
+</div>
 </div>
 
-
 <div class="faq-item">
-
-    <button
-        class="faq-question"
-        onclick="toggleFaq(this)">
-
-        آیا امکان آپلود ویدیو وجود دارد؟
-
-        <span>
-            ＋
-        </span>
-
-    </button>
-
-
-    <div class="faq-answer">
-
-        <p>
-            خیر. این سرویس امکان آپلود
-            مستقیم ویدیو داخل سایت را ندارد.
-        </p>
-
-    </div>
-
+<button class="question">
+    آیا سایت پنل مدیریت دارد؟
+    <span>＋</span>
+</button>
+<div class="answer">
+<p>خیر. سایت پنل مدیریت عمومی ندارد و تغییرات توسط همکاران مجموعه انجام می‌شود.</p>
+</div>
 </div>
 
-
 <div class="faq-item">
-
-    <button
-        class="faq-question"
-        onclick="toggleFaq(this)">
-
-        تفاوت دو پلن چیست؟
-
-        <span>
-            ＋
-        </span>
-
-    </button>
-
-
-    <div class="faq-answer">
-
-        <p>
-            پلن تمدیدی سالانه ۵ میلیون تومان
-            است و پلن بدون تمدید مجدد
-            ۱۰ میلیون تومان هزینه دارد.
-        </p>
-
-    </div>
-
+<button class="question">
+    آیا می‌توانم ویدیو آپلود کنم؟
+    <span>＋</span>
+</button>
+<div class="answer">
+<p>خیر، امکان آپلود مستقیم ویدیو در این سرویس وجود ندارد.</p>
+</div>
 </div>
 
+<div class="faq-item">
+<button class="question">
+    قیمت پلن تمدیدی چقدر است؟
+    <span>＋</span>
+</button>
+<div class="answer">
+<p>قیمت پلن تمدیدی ۵٬۰۰۰٬۰۰۰ تومان به صورت سالانه است.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="question">
+    قیمت پلن بدون تمدید چقدر است؟
+    <span>＋</span>
+</button>
+<div class="answer">
+<p>قیمت پلن بدون تمدید مجدد ۱۰٬۰۰۰٬۰۰۰ تومان است.</p>
+</div>
+</div>
 
 </div>
 
@@ -3268,51 +1991,35 @@ footer p{
 </section>
 
 
-<!-- ================= CTA ================= -->
+<!-- ================= CONTACT ================= -->
 
-<section class="cta">
+<section id="contact" class="page">
 
-<div class="cta-box">
+<div class="container">
 
+<div class="cta">
 
 <h2>
-    آماده‌ای سایت خودت را بسازی؟
+    آماده‌ای سایتت رو بسازیم؟ 🚀
 </h2>
 
-
 <p>
-    برای شروع فقط یک پیام در روبیکا ارسال کن.
+    برای سفارش و هماهنگی به آیدی روبیکا پیام بده.
 </p>
 
+<div class="buttons" style="justify-content:center">
 
-<div class="cta-buttons">
-
-
-<button
-    class="btn btn-primary"
-    onclick="openOrder()">
-
-    سفارش سایت 🚀
-
+<button class="btn secondary" onclick="order()">
+    سفارش سایت ✨
 </button>
 
-
-<a
-    class="btn btn-secondary"
-    href="https://rubika.ir/amirtbpedit"
-    target="_blank">
-
-    روبیکا 📩
-
-</a>
-
+</div>
 
 </div>
 
 </div>
 
 </section>
-
 
 </main>
 
@@ -3321,668 +2028,803 @@ footer p{
 
 <footer>
 
-
 <div class="footer-logo">
-
-    امیر
-    <span class="gradient">
-        سایت
-    </span>
-
+    امیر <span>سایت</span>
 </div>
 
-
-<p>
-    طراحی و ساخت سایت اختصاصی
-</p>
-
+<p>طراحی و ساخت سایت‌های اختصاصی توسط امیر حسین جبارفر</p>
 
 <a
     class="rubika"
     href="https://rubika.ir/amirtbpedit"
     target="_blank">
-
-    آیدی سفارش: @amirtbpedit
-
+    روبیکا: @amirtbpedit
 </a>
 
-
-<p style="margin-top:25px">
-
-    © 2026 امیر سایت
-
-</p>
-
+<p>© 2026 Amir Site</p>
 
 </footer>
 
 
-<!-- ================= ORDER MODAL ================= -->
+<!-- =====================================================
+     SITE BOT BUTTON
+===================================================== -->
 
-<div
-    class="modal"
-    id="orderModal">
-
-
-<div class="modal-box">
-
-
-<div class="modal-head">
-
-    <h2 id="modalTitle">
-        🚀 شروع سفارش
-    </h2>
-
-
-    <button
-        class="close"
-        onclick="closeOrder()">
-
-        ✕
-
-    </button>
-
-</div>
-
-
-<p>
-
-    برای ثبت سفارش، انتخاب پلن و توضیح
-    ایده سایت خود، از طریق آیدی زیر
-    در روبیکا پیام دهید.
-
-</p>
-
-
-<div class="contact-card">
-
-    📩 آیدی سفارش
-
-    <span class="contact-id">
-        @amirtbpedit
-    </span>
-
-</div>
-
-
-<div class="modal-actions">
-
-
-<button
-    class="btn btn-primary"
-    onclick="copyID()">
-
-    کپی آیدی
-
+<button id="bot-button" onclick="toggleBot()" aria-label="باز کردن سایت بات">
+    🤖
+    <span class="bot-notification"></span>
 </button>
 
 
-<a
-    class="btn btn-secondary"
-    href="https://rubika.ir/amirtbpedit"
-    target="_blank">
+<!-- =====================================================
+     SITE BOT
+===================================================== -->
 
-    باز کردن روبیکا ↗
+<div id="bot-window">
 
-</a>
+    <div class="bot-header">
+
+        <div class="bot-avatar">
+            🤖
+        </div>
+
+        <div class="bot-header-text">
+
+            <strong>سایت بات</strong>
+
+            <div class="bot-status">
+                <span class="status-dot"></span>
+                آنلاین و آماده پاسخگویی
+            </div>
+
+        </div>
+
+        <button class="bot-close" onclick="toggleBot()">
+            ×
+        </button>
+
+    </div>
 
 
-</div>
+    <div class="bot-body">
+
+        <div class="bot-messages" id="bot-messages">
+
+            <div class="bot-message bot">
+
+                <div class="message-bubble">
+
+                    👋 سلام! من <b>سایت بات</b> هستم.
+
+                    <br>
+
+                    درباره ساخت سایت، پلن‌ها،
+                    موبایل، تبلت، کامپیوتر، دامنه،
+                    امکانات و سفارش می‌توانم راهنمایی‌ات کنم.
+
+                    <br><br>
+
+                    سوال موردنظرت را از پایین انتخاب کن 👇
+
+                </div>
+
+            </div>
+
+        </div>
 
 
-</div>
+        <div class="bot-questions">
+
+            <div class="bot-questions-title">
+
+                <span>سوالات سایت بات</span>
+
+                <span class="bot-page-number" id="bot-page-number">
+                    ۱ / ۸
+                </span>
+
+            </div>
+
+
+            <div class="question-list" id="question-list"></div>
+
+
+            <div class="bot-controls">
+
+                <button
+                    class="bot-nav-btn"
+                    id="bot-next"
+                    onclick="nextBotPage()">
+                    →
+                </button>
+
+                <div
+                    class="bot-dots"
+                    id="bot-dots">
+                </div>
+
+                <button
+                    class="bot-nav-btn"
+                    id="bot-prev"
+                    onclick="prevBotPage()">
+                    ←
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
 
 <script>
 
+/* =====================================================
+   LOADER
+===================================================== */
 
-/* ================= LOADER ================= */
+setTimeout(function(){
 
-window.addEventListener(
-    "load",
-    ()=>{
+    var loader=document.getElementById("loader");
 
-        setTimeout(
-            ()=>{
+    if(loader){
+        loader.classList.add("hide");
+    }
 
-                document
-                    .getElementById("loader")
-                    .classList.add("hide");
+},5000);
 
-            },
-            900
-        );
+
+/* =====================================================
+   PAGE SYSTEM
+===================================================== */
+
+var pages=[
+    "home",
+    "features",
+    "plans",
+    "samples",
+    "process",
+    "faq",
+    "contact"
+];
+
+function go(page){
+
+    if(pages.indexOf(page)===-1){
+        page="home";
+    }
+
+    var allPages=document.querySelectorAll(".page");
+
+    for(var i=0;i<allPages.length;i++){
+        allPages[i].classList.remove("active");
+    }
+
+    var selected=document.getElementById(page);
+
+    if(selected){
+        selected.classList.add("active");
+    }
+
+    var buttons=document.querySelectorAll(".menu button");
+
+    for(var j=0;j<buttons.length;j++){
+
+        buttons[j].classList.remove("active");
+
+        if(buttons[j].getAttribute("data-page")===page){
+            buttons[j].classList.add("active");
+        }
 
     }
-);
 
+    history.replaceState(null,null,"#"+page);
 
-setTimeout(
-    ()=>{
-
-        document
-            .getElementById("loader")
-            .classList.add("hide");
-
-    },
-    5000
-);
-
-
-/* ================= SCROLL ================= */
-
-function scrollToId(id){
-
-    const el=
-        document.getElementById(id);
-
-    if(!el) return;
-
-    el.scrollIntoView({
+    window.scrollTo({
+        top:0,
         behavior:"smooth"
+    });
+}
+
+
+function loadPage(){
+
+    var hash=window.location.hash.replace("#","");
+
+    if(pages.indexOf(hash)!==-1){
+        go(hash);
+    }else{
+        go("home");
+    }
+
+}
+
+window.addEventListener("DOMContentLoaded",function(){
+    loadPage();
+});
+
+window.addEventListener("popstate",function(){
+    loadPage();
+});
+
+
+/* =====================================================
+   FAQ
+===================================================== */
+
+var questions=document.querySelectorAll(".question");
+
+for(var q=0;q<questions.length;q++){
+
+    questions[q].addEventListener("click",function(){
+
+        var item=this.parentElement;
+
+        var isOpen=item.classList.contains("open");
+
+        var all=document.querySelectorAll(".faq-item");
+
+        for(var x=0;x<all.length;x++){
+
+            all[x].classList.remove("open");
+
+            var icon=all[x].querySelector(".question span");
+
+            if(icon){
+                icon.textContent="＋";
+            }
+
+        }
+
+        if(!isOpen){
+
+            item.classList.add("open");
+
+            this.querySelector("span").textContent="−";
+
+        }
+
     });
 
 }
 
 
-/* ================= ORDER ================= */
+/* =====================================================
+   ORDER
+===================================================== */
 
-function openOrder(plan){
+function order(plan){
 
-    const modal=
-        document.getElementById(
-            "orderModal"
-        );
+    window.open(
+        "https://rubika.ir/amirtbpedit",
+        "_blank"
+    );
 
-    const title=
-        document.getElementById(
-            "modalTitle"
-        );
+}
 
-    if(plan){
 
-        title.textContent=
-            "🚀 سفارش "+plan;
+/* =====================================================
+   CARD 3D
+===================================================== */
 
-    }else{
+var cards=document.querySelectorAll(".card");
 
-        title.textContent=
-            "🚀 شروع سفارش";
+for(var c=0;c<cards.length;c++){
+
+    cards[c].addEventListener("mousemove",function(e){
+
+        var rect=this.getBoundingClientRect();
+
+        var x=e.clientX-rect.left;
+        var y=e.clientY-rect.top;
+
+        var rotateX=(y/rect.height-.5)*-4;
+        var rotateY=(x/rect.width-.5)*4;
+
+        this.style.transform=
+            "translateY(-9px) rotateX("+rotateX+
+            "deg) rotateY("+rotateY+"deg)";
+
+    });
+
+    cards[c].addEventListener("mouseleave",function(){
+
+        this.style.transform="";
+
+    });
+
+}
+
+
+/* =====================================================
+   SITE BOT
+===================================================== */
+
+var botWindow=document.getElementById("bot-window");
+var botMessages=document.getElementById("bot-messages");
+
+var botQuestions=[
+
+    {
+        title:"قیمت ساخت سایت چقدر است؟",
+        answer:
+        "💰 قیمت‌ها:<br><br>"+
+        "🌱 پلن پایه: <b>۳٬۰۰۰٬۰۰۰ تومان</b><br>"+
+        "🔄 تمدیدی: <b>۵٬۰۰۰٬۰۰۰ تومان سالانه</b><br>"+
+        "💎 بدون تمدید مجدد: <b>۱۰٬۰۰۰٬۰۰۰ تومان</b>"
+    },
+
+    {
+        title:"پلن‌های ساخت سایت چیست؟",
+        answer:
+        "📦 سه پلن داریم:<br><br>"+
+        "🌱 پایه — ۳٬۰۰۰٬۰۰۰ تومان<br>"+
+        "🔄 تمدیدی — ۵٬۰۰۰٬۰۰۰ تومان سالانه<br>"+
+        "💎 بدون تمدید — ۱۰٬۰۰۰٬۰۰۰ تومان"
+    },
+
+    {
+        title:"پلن پایه چه امکاناتی دارد؟",
+        answer:
+        "🌱 پلن پایه شامل ساخت سایت اختصاصی،"+
+        " طراحی ریسپانسیو، انیمیشن و افکت،"+
+        " افزودن تصاویر و قابلیت ویرایش است."
+    },
+
+    {
+        title:"پلن تمدیدی چگونه است؟",
+        answer:
+        "🔄 پلن تمدیدی <b>۵٬۰۰۰٬۰۰۰ تومان سالانه</b> است و"+
+        " شامل امکانات اصلی ساخت سایت اختصاصی می‌شود."
+    },
+
+    {
+        title:"پلن بدون تمدید چیست؟",
+        answer:
+        "💎 قیمت این پلن <b>۱۰٬۰۰۰٬۰۰۰ تومان</b> است و"+
+        " برای تمدید سالانه طراحی نشده است."
+    },
+
+    {
+        title:"سایت روی کامپیوتر کار می‌کند؟",
+        answer:
+        "🖥️ بله! سایت برای کامپیوتر و لپ‌تاپ"+
+        " و صفحه‌های بزرگ طراحی و ریسپانسیو می‌شود."
+    },
+
+    {
+        title:"سایت روی موبایل کار می‌کند؟",
+        answer:
+        "📱 بله! چیدمان سایت برای موبایل"+
+        " و صفحه‌های لمسی نیز بهینه می‌شود."
+    },
+
+    {
+        title:"سایت روی تبلت کار می‌کند؟",
+        answer:
+        "💻 بله! سایت برای اندازه‌های مختلف"+
+        " تبلت نیز ریسپانسیو خواهد بود."
+    },
+
+    {
+        title:"روی لپ‌تاپ هم درست نمایش داده می‌شود؟",
+        answer:
+        "💻 بله. طراحی برای نمایشگر لپ‌تاپ"+
+        " و اندازه‌های مختلف صفحه انجام می‌شود."
+    },
+
+    {
+        title:"ریسپانسیو یعنی چه؟",
+        answer:
+        "📐 یعنی ظاهر و چیدمان سایت با اندازه صفحه"+
+        " دستگاه تغییر می‌کند تا محتوا مرتب نمایش داده شود."
+    },
+
+    {
+        title:"آیا دامنه .io دارید؟",
+        answer:
+        "🌐 امکان استفاده از دامنه <b>.io</b>"+
+        " طبق شرایط پلن و سفارش وجود دارد."
+    },
+
+    {
+        title:"آیا سایت سریع است؟",
+        answer:
+        "⚡ تلاش می‌شود سایت سبک و بهینه ساخته شود"+
+        " تا در دستگاه‌های مختلف عملکرد مناسبی داشته باشد."
+    },
+
+    {
+        title:"آیا سایت انیمیشن دارد؟",
+        answer:
+        "✨ بله! انیمیشن‌ها و افکت‌های متنوع"+
+        " می‌توانند در طراحی سایت استفاده شوند."
+    },
+
+    {
+        title:"آیا امکان افزودن تصویر هست؟",
+        answer:
+        "🖼️ بله. امکان قرار دادن تصاویر موردنیاز"+
+        " در طراحی سایت وجود دارد."
+    },
+
+    {
+        title:"آیا با هوش مصنوعی تصویر می‌سازید؟",
+        answer:
+        "🤖 بله، امکان ساخت تصاویر اختصاصی"+
+        " با هوش مصنوعی برای طراحی پروژه وجود دارد."
+    },
+
+    {
+        title:"آیا سایت پنل مدیریت دارد؟",
+        answer:
+        "⚙️ خیر. سایت پنل مدیریت عمومی ندارد و"+
+        " تغییرات توسط همکاران مجموعه انجام می‌شود."
+    },
+
+    {
+        title:"آیا می‌توانم ویدیو آپلود کنم؟",
+        answer:
+        "🎥 خیر. طبق شرایط سرویس، امکان آپلود مستقیم"+
+        " ویدیو در سایت وجود ندارد."
+    },
+
+    {
+        title:"چطور سایت سفارش بدهم؟",
+        answer:
+        "🚀 برای سفارش به آیدی روبیکا"+
+        " <b>@amirtbpedit</b> پیام بده و"+
+        " پلن موردنظرت را اعلام کن."
+    },
+
+    {
+        title:"آیدی سفارش چیست؟",
+        answer:
+        "📨 آیدی سفارش در روبیکا:<br><br>"+
+        "<b>@amirtbpedit</b>"
+    },
+
+    {
+        title:"سایت برای همه دستگاه‌ها ساخته می‌شود؟",
+        answer:
+        "📱💻 بله! طراحی برای موبایل، تبلت،"+
+        " لپ‌تاپ و کامپیوتر در نظر گرفته می‌شود."
+    },
+
+    {
+        title:"آیا طراحی اختصاصی است؟",
+        answer:
+        "🎨 بله. ظاهر سایت بر اساس موضوع،"+
+        " امکانات و ایده پروژه طراحی می‌شود."
+    },
+
+    {
+        title:"چه کسی سایت را طراحی می‌کند؟",
+        answer:
+        "👨‍💻 طراح و سازنده سایت:<br><br>"+
+        "<b>امیر حسین جبارفر</b>"
+    },
+
+    {
+        title:"آیا سایت قابل ویرایش است؟",
+        answer:
+        "✏️ بله، طبق شرایط سرویس امکان ویرایش"+
+        " و انجام تغییرات توسط همکاران وجود دارد."
+    },
+
+    {
+        title:"آیا سایت فروشگاهی هم می‌سازید؟",
+        answer:
+        "🛒 بله، در صورت هماهنگی می‌توان"+
+        " امکانات متناسب با پروژه فروشگاهی را طراحی کرد."
+    },
+
+    {
+        title:"آیا سایت برای صفحه بزرگ مناسب است؟",
+        answer:
+        "🖥️ بله. ساختار ریسپانسیو باعث می‌شود"+
+        " سایت در نمایشگرهای بزرگ نیز مرتب باشد."
+    },
+
+    {
+        title:"آیا سایت برای صفحه کوچک مناسب است؟",
+        answer:
+        "📱 بله. چیدمان برای نمایشگرهای کوچک"+
+        " نیز بهینه می‌شود."
+    },
+
+    {
+        title:"آیا مرورگرها را پشتیبانی می‌کند؟",
+        answer:
+        "🌐 سایت با استانداردهای معمول وب طراحی می‌شود"+
+        " و هدف، نمایش صحیح در مرورگرهای رایج است."
+    },
+
+    {
+        title:"نمونه سایت‌ها را کجا ببینم؟",
+        answer:
+        "👀 از بخش «نمونه‌ها» می‌توانی نمونه‌های"+
+        " قرار داده‌شده را مشاهده کنی."
+    },
+
+    {
+        title:"Amir Shop چیست؟",
+        answer:
+        "🛍️ Amir Shop یکی از نمونه‌های طراحی"+
+        " است که در بخش نمونه‌ها قرار داده شده."
+    },
+
+    {
+        title:"Mahigir چیست؟",
+        answer:
+        "🐟 Mahigir نیز یکی از نمونه سایت‌های"+
+        " طراحی‌شده است که در بخش نمونه‌ها قرار دارد."
+    },
+
+    {
+        title:"آیا هاست هم دارید؟",
+        answer:
+        "🌐 شرایط هاست به نوع پروژه و پلن بستگی دارد."+
+        " برای جزئیات بهتر است در روبیکا هماهنگ شود."
+    },
+
+    {
+        title:"آیا می‌توانم ظاهر سایت را انتخاب کنم؟",
+        answer:
+        "🎨 بله. قبل از ساخت درباره ظاهر،"+
+        " رنگ‌ها، امکانات و سبک سایت هماهنگ می‌شود."
+    }
+
+];
+
+
+var botPerPage=4;
+
+var botCurrentPage=0;
+
+var botTotalPages=
+    Math.ceil(botQuestions.length / botPerPage);
+
+
+function renderBotQuestions(){
+
+    var list=document.getElementById("question-list");
+
+    var dots=document.getElementById("bot-dots");
+
+    var pageNumber=document.getElementById("bot-page-number");
+
+    var next=document.getElementById("bot-next");
+
+    var prev=document.getElementById("bot-prev");
+
+    list.innerHTML="";
+    dots.innerHTML="";
+
+
+    var start=botCurrentPage*botPerPage;
+
+    var end=Math.min(
+        start+botPerPage,
+        botQuestions.length
+    );
+
+
+    for(var i=start;i<end;i++){
+
+        var q=botQuestions[i];
+
+        var button=document.createElement("button");
+
+        button.className="bot-question";
+
+        button.textContent=q.title;
+
+        button.title=q.title;
+
+        button.onclick=(function(question){
+
+            return function(){
+                askBot(question.title,question.answer);
+            };
+
+        })(q);
+
+        list.appendChild(button);
 
     }
 
-    modal.classList.add("show");
 
-}
-
-
-function closeOrder(){
-
-    document
-        .getElementById(
-            "orderModal"
-        )
-        .classList.remove("show");
-
-}
+    pageNumber.textContent=
+        (botCurrentPage+1)+" / "+botTotalPages;
 
 
-document
-    .getElementById("orderModal")
-    .addEventListener(
-        "click",
-        (e)=>{
+    for(var d=0;d<botTotalPages;d++){
 
-            if(
-                e.target ===
-                document.getElementById(
-                    "orderModal"
-                )
-            ){
+        var dot=document.createElement("span");
 
-                closeOrder();
+        dot.className="bot-dot";
 
-            }
-
+        if(d===botCurrentPage){
+            dot.classList.add("active");
         }
-    );
+
+        dots.appendChild(dot);
+
+    }
 
 
-/* ================= COPY ================= */
+    prev.disabled=botCurrentPage===0;
 
-function copyID(){
-
-    navigator.clipboard
-        .writeText(
-            "@amirtbpedit"
-        )
-        .then(
-            ()=>{
-
-                alert(
-                    "آیدی @amirtbpedit کپی شد ✨"
-                );
-
-            }
-        )
-        .catch(
-            ()=>{
-
-                alert(
-                    "آیدی سفارش: @amirtbpedit"
-                );
-
-            }
-        );
+    next.disabled=
+        botCurrentPage===botTotalPages-1;
 
 }
 
 
-/* ================= FAQ ================= */
+function nextBotPage(){
 
-function toggleFaq(button){
+    if(botCurrentPage<botTotalPages-1){
 
-    const item=
-        button.parentElement;
+        botCurrentPage++;
 
-
-    document
-        .querySelectorAll(
-            ".faq-item"
-        )
-        .forEach(
-            other=>{
-
-                if(
-                    other !== item
-                ){
-
-                    other.classList
-                        .remove("open");
-
-                    const span=
-                        other.querySelector(
-                            ".faq-question span"
-                        );
-
-                    if(span){
-
-                        span.textContent=
-                            "＋";
-
-                    }
-
-                }
-
-            }
-        );
-
-
-    item.classList.toggle(
-        "open"
-    );
-
-
-    const span=
-        button.querySelector(
-            "span"
-        );
-
-
-    if(
-        item.classList.contains(
-            "open"
-        )
-    ){
-
-        span.textContent=
-            "−";
-
-    }else{
-
-        span.textContent=
-            "＋";
+        renderBotQuestions();
 
     }
 
 }
 
 
-/* ================= ESC ================= */
+function prevBotPage(){
 
-document.addEventListener(
-    "keydown",
-    (e)=>{
+    if(botCurrentPage>0){
 
-        if(
-            e.key === "Escape"
-        ){
+        botCurrentPage--;
 
-            closeOrder();
-
-        }
+        renderBotQuestions();
 
     }
-);
-
-
-/* ================= PARTICLES ================= */
-
-function createParticle(){
-
-    const p=
-        document.createElement(
-            "div"
-        );
-
-
-    p.style.position=
-        "fixed";
-
-    p.style.left=
-        Math.random()*100+"vw";
-
-    p.style.top=
-        Math.random()*100+"vh";
-
-
-    const size=
-        Math.random()*3+1;
-
-
-    p.style.width=
-        size+"px";
-
-    p.style.height=
-        size+"px";
-
-
-    p.style.borderRadius=
-        "50%";
-
-
-    p.style.background=
-        "white";
-
-
-    p.style.boxShadow=
-        "0 0 12px rgba(255,255,255,.8)";
-
-
-    p.style.pointerEvents=
-        "none";
-
-
-    p.style.zIndex=
-        "-1";
-
-
-    document.body.appendChild(
-        p
-    );
-
-
-    const animation=
-        p.animate(
-
-            [
-
-                {
-                    opacity:0,
-                    transform:"scale(0)"
-                },
-
-                {
-                    opacity:.7,
-                    transform:"scale(1.4)"
-                },
-
-                {
-                    opacity:0,
-                    transform:"scale(0)"
-                }
-
-            ],
-
-            {
-
-                duration:
-                    1200+
-                    Math.random()*1800
-
-            }
-
-        );
-
-
-    animation.onfinish=
-        ()=>{
-            p.remove();
-        };
 
 }
 
 
-/* particles */
-
-setInterval(
-    createParticle,
-    450
-);
+renderBotQuestions();
 
 
-/* ================= MOUSE GLOW ================= */
+/* =====================================================
+   BOT WINDOW
+===================================================== */
 
-const glow=
-    document.createElement(
-        "div"
-    );
+function toggleBot(){
 
+    botWindow.classList.toggle("open");
 
-glow.style.position=
-    "fixed";
-
-glow.style.width=
-    "180px";
-
-glow.style.height=
-    "180px";
-
-glow.style.borderRadius=
-    "50%";
-
-glow.style.pointerEvents=
-    "none";
-
-glow.style.zIndex=
-    "-1";
-
-glow.style.background=
-    "radial-gradient(circle,rgba(255,40,150,.09),transparent 70%)";
-
-glow.style.transform=
-    "translate(-50%,-50%)";
+}
 
 
-document.body.appendChild(
-    glow
-);
+/* =====================================================
+   ADD MESSAGE
+===================================================== */
+
+function addMessage(text,type){
+
+    var wrapper=document.createElement("div");
+
+    wrapper.className="bot-message "+type;
+
+    var bubble=document.createElement("div");
+
+    bubble.className="message-bubble";
+
+    bubble.innerHTML=text;
+
+    wrapper.appendChild(bubble);
+
+    botMessages.appendChild(wrapper);
+
+    botMessages.scrollTop=
+        botMessages.scrollHeight;
+
+}
 
 
-document.addEventListener(
-    "mousemove",
-    (e)=>{
+/* =====================================================
+   TYPING
+===================================================== */
 
-        glow.style.left=
-            e.clientX+"px";
+function showTyping(){
 
-        glow.style.top=
-            e.clientY+"px";
+    var wrapper=document.createElement("div");
+
+    wrapper.className="bot-message bot";
+
+    wrapper.id="typing-message";
+
+    wrapper.innerHTML=
+        '<div class="typing">'+
+        '<i></i><i></i><i></i>'+
+        '</div>';
+
+    botMessages.appendChild(wrapper);
+
+    botMessages.scrollTop=
+        botMessages.scrollHeight;
+
+}
+
+
+function removeTyping(){
+
+    var typing=
+        document.getElementById("typing-message");
+
+    if(typing){
+        typing.remove();
+    }
+
+}
+
+
+/* =====================================================
+   ASK BOT
+===================================================== */
+
+function askBot(question,answer){
+
+    addMessage(question,"user");
+
+    showTyping();
+
+    setTimeout(function(){
+
+        removeTyping();
+
+        addMessage(answer,"bot");
+
+    },700);
+
+}
+
+
+/* =====================================================
+   ESC
+===================================================== */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
+
+        botWindow.classList.remove("open");
 
     }
-);
+
+});
 
 
-/* ================= SCROLL REVEAL ================= */
+/* =====================================================
+   BOT BUTTON ANIMATION
+===================================================== */
 
-const revealObserver=
-    new IntersectionObserver(
+setTimeout(function(){
 
-        entries=>{
+    var button=
+        document.getElementById("bot-button");
 
-            entries.forEach(
-                entry=>{
-
-                    if(
-                        entry.isIntersecting
-                    ){
-
-                        entry.target
-                            .style.opacity="1";
-
-                        entry.target
-                            .style.transform=
-                            "translateY(0)";
-
-                        revealObserver
-                            .unobserve(
-                                entry.target
-                            );
-
-                    }
-
-                }
-            );
-
-        },
-
+    button.animate(
+        [
+            {transform:"scale(1)"},
+            {transform:"scale(1.18)"},
+            {transform:"scale(1)"}
+        ],
         {
-            threshold:.08
-        }
-
-    );
-
-
-document
-    .querySelectorAll(
-        ".feature,"+
-        ".plan,"+
-        ".sample,"+
-        ".step,"+
-        ".stat,"+
-        ".faq-item"
-    )
-    .forEach(
-        el=>{
-
-            el.style.opacity="0";
-
-            el.style.transform=
-                "translateY(25px)";
-
-            el.style.transition=
-                "opacity .7s ease,"+
-                "transform .7s ease";
-
-            revealObserver
-                .observe(el);
-
+            duration:800,
+            iterations:2
         }
     );
 
-
-/* ================= BUTTON RIPPLE ================= */
-
-document
-    .querySelectorAll(
-        ".btn,.nav-order,.sample-link"
-    )
-    .forEach(
-        button=>{
-
-            button.addEventListener(
-                "click",
-                function(e){
-
-                    const ripple=
-                        document.createElement(
-                            "span"
-                        );
-
-                    ripple.style.position=
-                        "absolute";
-
-                    ripple.style.width=
-                        "10px";
-
-                    ripple.style.height=
-                        "10px";
-
-                    ripple.style.borderRadius=
-                        "50%";
-
-                    ripple.style.background=
-                        "rgba(255,255,255,.4)";
-
-                    ripple.style.left=
-                        e.offsetX+"px";
-
-                    ripple.style.top=
-                        e.offsetY+"px";
-
-                    ripple.style.pointerEvents=
-                        "none";
-
-                    ripple.style.transform=
-                        "translate(-50%,-50%)";
-
-                    this.style.position=
-                        "relative";
-
-                    this.style.overflow=
-                        "hidden";
-
-                    this.appendChild(
-                        ripple
-                    );
-
-
-                    ripple.animate(
-
-                        [
-
-                            {
-                                width:"10px",
-                                height:"10px",
-                                opacity:.7
-                            },
-
-                            {
-                                width:"300px",
-                                height:"300px",
-                                opacity:0
-                            }
-
-                        ],
-
-                        {
-                            duration:600,
-                            easing:"ease-out"
-                        }
-
-                    ).onfinish=
-                        ()=>{
-                            ripple.remove();
-                        };
-
-                }
-            );
-
-        }
-    );
-
+},5600);
 
 </script>
 
