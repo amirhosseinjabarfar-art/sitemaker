@@ -192,6 +192,81 @@ footer{padding:30px 0 40px}
 @media(max-width:760px){.wrap{width:min(100% - 32px,600px)}.topbar{top:9px;width:calc(100% - 18px);padding:8px 9px}.brand{font-size:17px}.brand-mark{width:38px;height:38px}.menu-btn{display:grid}.navlinks{position:absolute;top:calc(100% + 9px);right:0;left:0;display:none;flex-direction:column;align-items:stretch;padding:10px;border:1px solid var(--line);border-radius:17px;background:rgba(12,15,24,.96);backdrop-filter:blur(20px)}.navlinks.open{display:flex}.navlinks a{padding:12px}.nav-actions .cta{padding:11px 12px;font-size:11px}.theme-btn{width:38px;height:38px}.hero{min-height:auto;padding:135px 0 80px}.hero-grid{grid-template-columns:1fr;gap:25px}.hero h1{font-size:clamp(42px,11vw,65px);letter-spacing:-1.8px}.hero-copy{font-size:15px}.hero-art{min-height:390px;order:2}.art-halo{width:min(340px,85vw);height:min(340px,85vw)}.browser{width:min(440px,96%)}.browser-screen{min-height:280px}.float-chip.one{right:-2px;top:28px}.float-chip.two{left:-2px;bottom:35px}.scroll-note{display:none}section{padding:78px 0}.section-head{margin-bottom:32px}.section-head h2{font-size:clamp(30px,8vw,43px)}.services-grid{grid-template-columns:1fr}.service{min-height:205px}.plan-intro{display:block}.plan-note{margin-top:15px;max-width:none}.plans-grid{grid-template-columns:1fr;gap:17px}.plan,.plan.featured{min-height:0;transform:none;padding:27px}.plan.featured:hover{transform:translateY(-7px)}.plan:hover{transform:translateY(-7px)}.plan-title{font-size:36px}.plan-sub{min-height:0}.plan-visual{height:105px}.plan-list{gap:8px}.work-grid{grid-template-columns:1fr}.work-card,.work-card:nth-child(3){min-height:270px}.process{grid-template-columns:repeat(2,1fr);gap:8px}.step{padding:20px 14px}.step::before{font-size:25px;margin-bottom:15px}.contact-panel{grid-template-columns:1fr;padding:32px 24px;gap:25px}.contact-action{max-width:260px}.footer-inner{flex-direction:column;text-align:center}.back-top{bottom:14px;left:14px}}
 @media(max-width:390px){.nav-actions .cta{display:none}.hero h1{font-size:39px}.hero-art{min-height:330px}.browser-screen{padding:15px 10px;min-height:255px}.mock-hero{padding:17px 13px}.float-chip{font-size:10px}.process{grid-template-columns:1fr}.contact-panel{padding:27px 19px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+/* Portfolio, founder and team sections */
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.portfolio-card{display:flex;flex-direction:column;min-width:0;border:1px solid rgba(255,255,255,.12);border-radius:27px;overflow:hidden;background:linear-gradient(150deg,#171e2d,#0e131e);transition:transform .45s,border-color .4s,box-shadow .4s}
+.portfolio-card:hover{transform:translateY(-10px);border-color:rgba(199,255,74,.42);box-shadow:0 28px 70px rgba(0,0,0,.32)}
+.portfolio-visual{height:270px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;isolation:isolate}
+.portfolio-visual:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 50%,rgba(5,8,14,.45))}
+.portfolio-topline{position:absolute;top:15px;left:15px;right:15px;display:flex;align-items:center;gap:5px;color:rgba(255,255,255,.7);font:600 9px "Space Grotesk";direction:ltr}
+.portfolio-topline b{margin-left:auto;letter-spacing:1px}
+.portfolio-dot{width:6px;height:6px;border-radius:50%;background:#ff747d}.portfolio-dot:nth-child(2){background:#ffcf63}.portfolio-dot:nth-child(3){background:#a8e66d}
+.minecraft .portfolio-visual{background:linear-gradient(150deg,#193f43,#245b48 52%,#152b2a)}
+.pixel-sun{position:absolute;top:53px;right:18%;width:45px;height:45px;background:#f5d878;box-shadow:0 0 55px rgba(245,216,120,.5);border-radius:4px}
+.pixel-land{position:absolute;bottom:0;left:0;right:0;height:86px;background:linear-gradient(#6eaa55 0 23%,#79553c 23%);clip-path:polygon(0 35%,14% 35%,14% 15%,31% 15%,31% 42%,50% 42%,50% 8%,68% 8%,68% 33%,83% 33%,83% 0,100% 0,100% 100%,0 100%)}
+.pixel-land i{position:absolute;width:18px;height:18px;background:#79bf5a;bottom:35px;left:18%;box-shadow:0 0 0 5px rgba(121,191,90,.18)}
+.pixel-land i:nth-child(2){left:44%;bottom:46px}.pixel-land i:nth-child(3){left:74%;bottom:28px}
+.pixel-title{font:900 clamp(26px,3vw,39px) "Space Grotesk";direction:ltr;letter-spacing:2px;color:#fff;text-shadow:4px 4px 0 #263d2c,0 8px 35px rgba(0,0,0,.5);margin-top:25px}
+.pixel-subtitle{font:700 9px "Space Grotesk";letter-spacing:4px;color:#e4f5c7;direction:ltr;margin-top:5px}
+.pixel-button{margin-top:19px;padding:8px 14px;border:1px solid rgba(255,255,255,.55);background:rgba(10,24,20,.55);color:white;font:700 9px "Space Grotesk";direction:ltr;letter-spacing:1px}
+.amirshop .portfolio-visual{background:radial-gradient(circle at 80% 30%,rgba(242,190,117,.24),transparent 35%),linear-gradient(145deg,#33251f,#17171b 75%)}
+.shop-head{position:absolute;top:19px;left:20px;right:20px;display:flex;justify-content:space-between;align-items:center;color:#fff;font:700 13px "Space Grotesk";direction:ltr}
+.shop-head b span{color:#e9bc7d}.shop-head i{font-style:normal;font-size:13px;color:#d8c9b8}
+.shop-copy{align-self:flex-start;margin:58px 0 0 23px;direction:ltr;text-align:left}
+.shop-copy small{display:block;color:#e7bd84;font:600 8px "Space Grotesk";letter-spacing:3px}
+.shop-copy strong{display:block;color:#fff;font:700 27px/1.08 "Space Grotesk";margin:10px 0}
+.shop-copy span{font-size:10px;color:#c6b8aa}
+.shop-products{position:absolute;right:18px;bottom:24px;display:flex;gap:7px}
+.shop-products i{width:53px;height:72px;border-radius:10px;background:linear-gradient(145deg,#b38d65,#59412f);display:grid;place-items:center;box-shadow:0 10px 22px rgba(0,0,0,.25);transform:rotate(5deg)}
+.shop-products i:nth-child(2){transform:translateY(-12px) rotate(-4deg);background:linear-gradient(145deg,#d4c4a7,#655447)}
+.shop-products i:nth-child(3){transform:rotate(7deg);background:linear-gradient(145deg,#8f9c8e,#34453e)}
+.shop-products b{font-size:23px;color:rgba(255,255,255,.75)}
+.amirgem .portfolio-visual{background:radial-gradient(circle at 50% 48%,rgba(125,105,255,.25),transparent 34%),linear-gradient(145deg,#16162f,#0a0c19)}
+.gem-brand{position:absolute;top:23px;left:0;right:0;text-align:center;color:#f3efff;font:700 15px "Space Grotesk";letter-spacing:3px;direction:ltr}.gem-brand span{color:#b4a4ff}
+.gem-shape{font-size:115px;line-height:1;color:#c4b8ff;text-shadow:0 0 18px #9b8cff,0 0 60px rgba(155,140,255,.65);transform:rotate(45deg);animation:gemFloat 5s ease-in-out infinite}
+@keyframes gemFloat{50%{transform:translateY(-9px) rotate(45deg) scale(1.05)}}
+.gem-orbit{position:absolute;width:190px;height:190px;border:1px solid rgba(190,177,255,.3);border-radius:50%;transform:rotate(-25deg) scaleY(.45)}
+.orbit-two{width:235px;height:235px;transform:rotate(58deg) scaleY(.4);border-color:rgba(87,230,244,.24)}
+.gem-caption{position:absolute;bottom:25px;color:#a99bdb;font:600 8px "Space Grotesk";letter-spacing:3px;direction:ltr}
+.gem-spark{position:absolute;color:#e2d9ff;font-size:20px;animation:spark 3s ease-in-out infinite}.spark-one{top:82px;right:24%}.spark-two{bottom:76px;left:23%;animation-delay:-1.2s}
+@keyframes spark{50%{transform:scale(.6) rotate(45deg);opacity:.4}}
+.portfolio-info{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 22px 24px}
+.portfolio-tag{font:600 9px "Space Grotesk";letter-spacing:1.3px;color:var(--cyan);direction:ltr}
+.portfolio-info h3{font-size:23px;font-weight:900;margin-top:7px}
+.portfolio-info p{font-size:12px;color:var(--muted);line-height:1.9;margin-top:5px}
+.portfolio-open{width:42px;height:42px;flex:none;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;color:var(--lime);font:700 20px Arial;direction:ltr;transition:.3s}
+.portfolio-card:hover .portfolio-open{background:var(--lime);color:#111;transform:rotate(45deg)}
+.portfolio-foot{text-align:center;margin-top:25px;color:#8290a5;font-size:12px}
+.founder-card{position:relative;max-width:900px;margin:auto;min-height:285px;padding:35px 45px;border:1px solid rgba(199,255,74,.22);border-radius:30px;background:radial-gradient(circle at 16% 45%,rgba(199,255,74,.12),transparent 32%),linear-gradient(120deg,#18212b,#101621);display:flex;align-items:center;gap:45px;overflow:hidden}
+.founder-orbit{width:175px;height:175px;flex:none;border:1px solid rgba(199,255,74,.35);border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:0 0 60px rgba(199,255,74,.07),inset 0 0 40px rgba(199,255,74,.05)}
+.founder-orbit:before,.founder-orbit:after{content:"";position:absolute;inset:14px;border:1px dashed rgba(87,230,244,.35);border-radius:50%;animation:spin 22s linear infinite}.founder-orbit:after{inset:30px;border-style:solid;border-color:rgba(155,140,255,.35);animation-direction:reverse}
+.founder-monogram{font:700 72px "Space Grotesk";direction:ltr;color:#f5f8ec;text-shadow:0 0 35px rgba(199,255,74,.35);z-index:1}.founder-monogram span{color:var(--lime)}
+.founder-star{position:absolute;right:5px;top:20px;color:var(--lime);font-style:normal}.founder-star.second{left:4px;right:auto;bottom:25px;top:auto;color:var(--cyan)}
+.founder-copy{position:relative;z-index:1}.founder-role{font:600 10px "Space Grotesk";letter-spacing:2px;color:var(--lime);direction:ltr}.founder-copy h3{font-size:clamp(29px,4vw,43px);font-weight:900;margin-top:12px}.founder-copy p{font-size:17px;color:#d5dfeb;font-weight:700;margin-top:3px}.founder-line{width:75px;height:3px;background:var(--lime);border-radius:5px;margin:18px 0}.founder-caption{font-size:12px;color:#a1aec0}.founder-number{position:absolute;left:25px;bottom:5px;color:rgba(255,255,255,.045);font:700 105px "Space Grotesk";direction:ltr}
+.join-panel{position:relative;overflow:hidden;min-height:420px;padding:55px 60px;border:1px solid rgba(87,230,244,.2);border-radius:32px;background:radial-gradient(circle at 82% 50%,rgba(87,230,244,.13),transparent 34%),linear-gradient(120deg,#151d2b,#111522 75%);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:25px}
+.join-content{position:relative;z-index:2}.join-content h2{font-size:clamp(39px,5.5vw,66px);line-height:1.25;font-weight:900;letter-spacing:-1.5px;margin-top:9px}.join-content h2 em{font-style:normal;color:var(--cyan)}
+.join-content>p{font-size:14px;color:#b0bdcf;max-width:520px;margin-top:14px;line-height:2}.join-content .join-small{font-size:12px;color:#8494aa;margin:7px 0 20px}
+.join-content .cta{background:var(--cyan);box-shadow:0 10px 30px rgba(87,230,244,.12)}
+.join-content .cta:hover{box-shadow:0 15px 38px rgba(87,230,244,.22)}
+.join-handle{margin-top:13px;color:#d7e1ed;font:600 12px "Space Grotesk";direction:ltr}
+.join-graphic{height:300px;position:relative;display:grid;place-items:center}
+.join-ring{position:absolute;width:250px;height:250px;border:1px solid rgba(87,230,244,.22);border-radius:50%;transform:rotateX(65deg) rotate(-25deg);animation:spin 22s linear infinite}
+.ring-b{width:190px;height:190px;border-color:rgba(199,255,74,.28);transform:rotateX(65deg) rotate(35deg);animation-direction:reverse}
+.join-symbol{width:115px;height:115px;border-radius:32px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(87,230,244,.2),rgba(155,140,255,.12));border:1px solid rgba(87,230,244,.4);box-shadow:0 0 65px rgba(87,230,244,.15);font:300 83px "Space Grotesk";color:var(--cyan);transform:rotate(-12deg);animation:chip 5s ease-in-out infinite}
+.join-chip{position:absolute;padding:8px 12px;border:1px solid rgba(255,255,255,.13);border-radius:10px;background:rgba(17,24,38,.85);color:#d9e6f3;font:700 9px "Space Grotesk";letter-spacing:2px;direction:ltr}
+.chip-a{top:20px;right:15px}.chip-b{bottom:30px;right:0}.chip-c{bottom:8px;left:5px}
+.light-mode .portfolio-card{background:linear-gradient(150deg,#fff,#edf1f6);border-color:rgba(16,23,34,.13)}
+.light-mode .portfolio-info h3,.light-mode .founder-copy h3{color:#101722}
+.light-mode .founder-card{background:radial-gradient(circle at 16% 45%,rgba(155,190,45,.15),transparent 32%),linear-gradient(120deg,#e8efdf,#f7f9fc)}
+.light-mode .founder-copy p,.light-mode .founder-caption{color:#4f5d70}
+.light-mode .join-panel{background:radial-gradient(circle at 82% 50%,rgba(87,190,205,.15),transparent 34%),linear-gradient(120deg,#e5eef0,#f7f9fc 75%)}
+.light-mode .join-content>p,.light-mode .join-handle{color:#4e5e70}
+.light-mode .join-chip{background:rgba(245,249,252,.9);color:#29394a}
+@media(max-width:900px){.portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.portfolio-card:last-child{grid-column:1/-1}.portfolio-card:last-child .portfolio-visual{height:240px}.join-panel{padding:40px;grid-template-columns:1fr .8fr}.founder-card{gap:30px}}
+@media(max-width:760px){.portfolio-grid{grid-template-columns:1fr}.portfolio-card:last-child{grid-column:auto}.portfolio-visual,.portfolio-card:last-child .portfolio-visual{height:250px}.portfolio-info{padding:19px}.portfolio-info h3{font-size:21px}.founder-card{padding:30px 24px;flex-direction:column;text-align:center;gap:22px}.founder-orbit{width:145px;height:145px}.founder-monogram{font-size:60px}.founder-line{margin:15px auto}.founder-number{font-size:75px;left:12px}.join-panel{grid-template-columns:1fr;padding:35px 25px;gap:0}.join-graphic{height:220px;order:-1}.join-ring{width:190px;height:190px}.ring-b{width:145px;height:145px}.join-symbol{width:90px;height:90px;font-size:65px}.join-content h2{font-size:43px}.join-content>p{font-size:13px}}
+@media(max-width:390px){.portfolio-visual,.portfolio-card:last-child .portfolio-visual{height:220px}.portfolio-info{padding:17px}.portfolio-info p{font-size:11px}.founder-card{padding:25px 18px}.join-panel{padding:28px 19px}.join-content h2{font-size:38px}}
+
 </style>
 </head>
 <body>
@@ -200,7 +275,7 @@ footer{padding:30px 0 40px}
   <nav class="nav wrap" aria-label="ناوبری اصلی">
     <a class="brand" href="#home" aria-label="Amir Site"><span class="brand-mark">A.</span><span>AMIR<span style="color:var(--lime)">SITE</span></span></a>
     <ul class="navlinks" id="navLinks">
-      <li><a href="#services">خدمات</a></li><li><a href="#plans">پلن‌ها</a></li><li><a href="#work">نمونه‌کارها</a></li><li><a href="#process">مراحل همکاری</a></li><li><a href="#faq">سؤالات متداول</a></li>
+      <li><a href="#services">خدمات</a></li><li><a href="#plans">پلن‌ها</a></li><li><a href="#work">نمونه‌کارها</a></li><li><a href="#team">سازندگان</a></li><li><a href="#join">همکاری</a></li><li><a href="#process">مراحل همکاری</a></li><li><a href="#faq">سؤالات متداول</a></li>
     </ul>
     <div class="nav-actions">
       <button class="theme-btn" id="themeToggle" aria-label="تغییر تم">☼</button>
@@ -289,11 +364,56 @@ footer{padding:30px 0 40px}
 
 <section id="work">
  <div class="wrap">
-  <div class="section-head reveal"><div class="kicker">SELECTED DIRECTIONS</div><h2>هر پروژه، یک <em>داستان متفاوت.</em></h2><p>از فروشگاه‌های محتوایی تا تجربه‌های تعاملی؛ طراحی باید با هدف پروژه هماهنگ باشد، نه برعکس.</p></div>
-  <div class="work-grid">
-   <article class="work-card reveal"><div class="work-glow"></div><div class="work-meta"><span>فروشگاه و مدیریت محتوا</span><b>ECOMMERCE / 01</b></div><div class="work-preview"><div class="preview-bar"></div><div class="preview-layout"><i></i><i></i><i></i></div></div><div><h3>فروشگاه‌های اختصاصی</h3><p>چیدمان محصول، دسته‌بندی و مدیریت متناسب با مدل فروش</p></div></article>
-   <article class="work-card reveal delay-1"><div class="work-glow"></div><div class="work-meta"><span>سامانه تعاملی</span><b>WEB APP / 02</b></div><div class="work-preview"><div class="preview-bar"></div><div class="preview-layout"><i></i><i></i><i></i></div></div><div><h3>پروژه‌های تعاملی</h3><p>صفحات پویا، داشبورد و تجربه‌های سفارشی</p></div></article>
-   <article class="work-card reveal delay-2"><div class="work-glow"></div><div class="work-meta"><span>برند و خدمات</span><b>BRAND / 03</b></div><div class="work-preview"><div class="preview-bar"></div><div class="preview-layout"><i></i><i></i><i></i></div></div><div><h3>وب‌سایت‌های معرفی و خدمات</h3><p>نمایش هویت برند و تبدیل بازدیدکننده به مخاطب واقعی</p></div></article>
+  <div class="section-head reveal"><div class="kicker">SELECTED PROJECTS / 2026</div><h2>از ایده تا اجرا؛<br><em>این‌ها را ببین.</em></h2><p>چند نمونه از تجربه‌هایی که طراحی و توسعه داده‌ام؛ هر کدام با هویت و حال‌وهوای مخصوص خودش</p></div>
+  <div class="portfolio-grid">
+   <a class="portfolio-card minecraft reveal" href="https://amirhosseinjabarfar-art.github.io/minecraft/" target="_blank" rel="noopener" aria-label="مشاهده پروژه ماینکرفت">
+    <div class="portfolio-visual">
+     <div class="portfolio-topline"><span class="portfolio-dot"></span><span class="portfolio-dot"></span><span class="portfolio-dot"></span><b>MINECRAFT WORLD</b></div>
+     <div class="pixel-sun"></div><div class="pixel-land"><i></i><i></i><i></i><i></i><i></i></div>
+     <div class="pixel-title">MINECRAFT</div><div class="pixel-subtitle">BUILD YOUR WORLD</div>
+     <div class="pixel-button">ENTER WORLD ↗</div>
+    </div>
+    <div class="portfolio-info"><div><div class="portfolio-tag">01 / GAME EXPERIENCE</div><h3>ماینکرفت</h3><p>یک تجربه وب با فضای الهام‌گرفته از دنیای بلوکی و ماجراجویی</p></div><span class="portfolio-open">↗</span></div>
+   </a>
+   <a class="portfolio-card amirshop reveal delay-1" href="https://amirhosseinjabarfar-art.github.io/Amirshop/" target="_blank" rel="noopener" aria-label="مشاهده پروژه امیرشاپ">
+    <div class="portfolio-visual">
+     <div class="shop-head"><b>AMIR<span>SHOP</span></b><i>⌕　☰</i></div>
+     <div class="shop-copy"><small>DISCOVER MORE</small><strong>YOUR STYLE<br>YOUR CHOICE</strong><span>یک انتخاب متفاوت برای تو</span></div>
+     <div class="shop-products"><i><b>✦</b></i><i><b>◈</b></i><i><b>✧</b></i></div>
+    </div>
+    <div class="portfolio-info"><div><div class="portfolio-tag">02 / ONLINE STORE</div><h3>امیرشاپ</h3><p>فروشگاه اینترنتی با تمرکز بر معرفی محصولات و تجربه خرید</p></div><span class="portfolio-open">↗</span></div>
+   </a>
+   <a class="portfolio-card amirgem reveal delay-2" href="https://amirhosseinjabarfar-art.github.io/Amirgem/#home" target="_blank" rel="noopener" aria-label="مشاهده پروژه امیرجم">
+    <div class="portfolio-visual">
+     <div class="gem-orbit orbit-one"></div><div class="gem-orbit orbit-two"></div>
+     <div class="gem-brand">AMIR<span>GEM</span></div>
+     <div class="gem-shape">◇</div><div class="gem-caption">A WORLD OF PRECIOUS IDEAS</div>
+     <div class="gem-spark spark-one">✦</div><div class="gem-spark spark-two">✧</div>
+    </div>
+    <div class="portfolio-info"><div><div class="portfolio-tag">03 / DIGITAL BRAND</div><h3>امیرجم</h3><p>هویت دیجیتال اختصاصی با فضایی لوکس و جلوه‌های بصری درخشان</p></div><span class="portfolio-open">↗</span></div>
+   </a>
+  </div>
+  <p class="portfolio-foot reveal">برای مشاهده هر پروژه، روی کارت آن کلیک کن و وارد نسخه زنده شو</p>
+ </div>
+</section>
+
+<section id="team">
+ <div class="wrap">
+  <div class="section-head center reveal"><div class="kicker">THE PEOPLE BEHIND THE WORK</div><h2>سازندگان <em>AMIR SITE</em></h2><p>ایده‌های بزرگ با خلاقیت، دقت و ساختن کنار هم شکل می‌گیرند</p></div>
+  <div class="founder-card reveal">
+   <div class="founder-orbit"><div class="founder-monogram">A<span>.</span></div><i class="founder-star">✦</i><i class="founder-star second">✧</i></div>
+   <div class="founder-copy"><span class="founder-role">FOUNDER / DEVELOPER</span><h3>امیر حسین جبارفر</h3><p>کدنویس و مدیرعامل</p><div class="founder-line"></div><span class="founder-caption">طراحی ایده‌ها، ساخت تجربه‌ها و توسعه مسیرهای تازه در دنیای وب</span></div>
+   <div class="founder-number">01</div>
+  </div>
+ </div>
+</section>
+
+<section id="join">
+ <div class="wrap">
+  <div class="join-panel reveal">
+   <div class="join-orb"></div>
+   <div class="join-content"><div class="kicker">BUILD THE NEXT CHAPTER WITH US</div><h2>با هم این تیم رو<br><em>می‌سازیم</em></h2><p>اگر به طراحی، برنامه‌نویسی، ایده‌پردازی یا ساخت تجربه‌های دیجیتال علاقه داری، جای تو می‌تونه کنار ما باشه</p><p class="join-small">برای همکاری و صحبت درباره ایده‌هات، مستقیم پیام بده</p><a class="cta" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener">درخواست همکاری در روبیکا <span class="arrow">↗</span></a><div class="join-handle">@amirtbpedit</div></div>
+   <div class="join-graphic" aria-hidden="true"><div class="join-ring ring-a"></div><div class="join-ring ring-b"></div><div class="join-symbol">+</div><span class="join-chip chip-a">IDEAS</span><span class="join-chip chip-b">PEOPLE</span><span class="join-chip chip-c">CREATE</span></div>
   </div>
  </div>
 </section>
