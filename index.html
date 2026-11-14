@@ -18,7 +18,6 @@ html{scroll-behavior:smooth;scroll-padding-top:100px}
 body{font-family:"Estedad",Tahoma,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.8}
 body::before{content:"";position:fixed;inset:0;z-index:-5;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(#000,transparent 85%)}
 a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;border:0;cursor:pointer}::selection{background:var(--lime);color:#090b12}
-.cursor-glow{position:fixed;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(87,230,244,.09),transparent 68%);pointer-events:none;z-index:-2;transform:translate(-50%,-50%);opacity:0;transition:opacity .3s}
 .ambient{position:fixed;z-index:-3;border-radius:50%;filter:blur(100px);pointer-events:none;opacity:.16;animation:ambient 16s ease-in-out infinite alternate}
 .ambient.a{width:430px;height:430px;background:#3d69ff;top:4%;right:-190px}.ambient.b{width:380px;height:380px;background:#9a55ff;bottom:0;left:-180px;animation-delay:-6s}.ambient.c{width:260px;height:260px;background:#baff4b;top:48%;left:35%;opacity:.08;animation-delay:-10s}
 @keyframes ambient{to{transform:translate(90px,70px) scale(1.2)}}
@@ -31,8 +30,6 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;border:0;
 .navlinks a{display:block;padding:10px 13px;color:#b7c0ce;font-size:13px;border-radius:12px;transition:.25s}
 .navlinks a:hover{background:rgba(255,255,255,.07);color:var(--lime)}
 .nav-actions{display:flex;gap:9px;align-items:center}
-.theme-btn,.menu-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.04);display:grid;place-items:center;font-size:17px;transition:.25s}
-.theme-btn:hover,.menu-btn:hover{border-color:var(--lime);color:var(--lime)}
 .menu-btn{display:none}
 .cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 19px;border-radius:14px;background:var(--lime);color:#10140a;font-size:13px;font-weight:900;transition:transform .3s,box-shadow .3s;box-shadow:0 8px 28px rgba(199,255,74,.13)}
 .cta:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(199,255,74,.25)}
@@ -174,111 +171,18 @@ footer{padding:30px 0 40px}
 .reveal.delay-1{transition-delay:.1s}.reveal.delay-2{transition-delay:.2s}.reveal.delay-3{transition-delay:.3s}
 .back-top{position:fixed;z-index:600;bottom:22px;left:22px;width:45px;height:45px;border-radius:15px;background:var(--lime);color:#10140a;font:700 20px Arial;box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;visibility:hidden;transform:translateY(10px);transition:.3s}
 .back-top.show{opacity:1;visibility:visible;transform:none}
-.light-mode{--bg:#f2f5f8;--bg2:#fff;--panel:#fff;--panel2:#e9eef4;--text:#101722;--muted:#596579;--line:rgba(16,23,34,.12);--shadow:0 25px 70px rgba(24,36,52,.1)}
-.light-mode body{background:var(--bg);color:var(--text)}
-.light-mode .topbar{background:rgba(250,252,255,.82);border-color:rgba(16,23,34,.12)}
-.light-mode .navlinks a{color:#536074}.light-mode .navlinks a:hover{color:#557900;background:rgba(120,160,0,.08)}
-.light-mode .brand-mark,.light-mode .cta,.light-mode .plan.featured .plan-btn{color:#10140a}
-.light-mode .browser,.light-mode .work-card,.light-mode .contact-panel{box-shadow:0 25px 65px rgba(20,30,45,.15)}
-.light-mode .service,.light-mode .plan,.light-mode .faq-item{background:rgba(255,255,255,.72);border-color:rgba(16,23,34,.12)}
-.light-mode .plan{background:linear-gradient(155deg,#fff,#edf1f6 78%)}
-.light-mode .plan.featured{background:linear-gradient(155deg,#f3f9e8,#fff 78%)}
-.light-mode .plan-title,.light-mode .service h3,.light-mode .step h3,.light-mode .faq-q{color:#101722}
-.light-mode .plan-list li{color:#475366}.light-mode .plan-sub,.light-mode .plan-bottom p{color:#677387}
-.light-mode .contact-panel{background:radial-gradient(circle at 12% 10%,rgba(155,190,45,.16),transparent 33%),linear-gradient(135deg,#e6edda,#f7f9fc 70%)}
-.light-mode .contact-panel p,.light-mode .contact-id{color:#465367}
-.light-mode .footer-brand{color:#192334}
-@media(max-width:980px){.hero-grid{gap:25px}.hero-art{min-height:450px}.art-halo{width:360px;height:360px}.plans-grid{gap:12px}.plan{padding:24px 19px}.plan-title{font-size:29px}.navlinks a{padding:9px 8px}.services-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:760px){.wrap{width:min(100% - 32px,600px)}.topbar{top:9px;width:calc(100% - 18px);padding:8px 9px}.brand{font-size:17px}.brand-mark{width:38px;height:38px}.menu-btn{display:grid}.navlinks{position:absolute;top:calc(100% + 9px);right:0;left:0;display:none;flex-direction:column;align-items:stretch;padding:10px;border:1px solid var(--line);border-radius:17px;background:rgba(12,15,24,.96);backdrop-filter:blur(20px)}.navlinks.open{display:flex}.navlinks a{padding:12px}.nav-actions .cta{padding:11px 12px;font-size:11px}.theme-btn{width:38px;height:38px}.hero{min-height:auto;padding:135px 0 80px}.hero-grid{grid-template-columns:1fr;gap:25px}.hero h1{font-size:clamp(42px,11vw,65px);letter-spacing:-1.8px}.hero-copy{font-size:15px}.hero-art{min-height:390px;order:2}.art-halo{width:min(340px,85vw);height:min(340px,85vw)}.browser{width:min(440px,96%)}.browser-screen{min-height:280px}.float-chip.one{right:-2px;top:28px}.float-chip.two{left:-2px;bottom:35px}.scroll-note{display:none}section{padding:78px 0}.section-head{margin-bottom:32px}.section-head h2{font-size:clamp(30px,8vw,43px)}.services-grid{grid-template-columns:1fr}.service{min-height:205px}.plan-intro{display:block}.plan-note{margin-top:15px;max-width:none}.plans-grid{grid-template-columns:1fr;gap:17px}.plan,.plan.featured{min-height:0;transform:none;padding:27px}.plan.featured:hover{transform:translateY(-7px)}.plan:hover{transform:translateY(-7px)}.plan-title{font-size:36px}.plan-sub{min-height:0}.plan-visual{height:105px}.plan-list{gap:8px}.work-grid{grid-template-columns:1fr}.work-card,.work-card:nth-child(3){min-height:270px}.process{grid-template-columns:repeat(2,1fr);gap:8px}.step{padding:20px 14px}.step::before{font-size:25px;margin-bottom:15px}.contact-panel{grid-template-columns:1fr;padding:32px 24px;gap:25px}.contact-action{max-width:260px}.footer-inner{flex-direction:column;text-align:center}.back-top{bottom:14px;left:14px}}
-@media(max-width:390px){.nav-actions .cta{display:none}.hero h1{font-size:39px}.hero-art{min-height:330px}.browser-screen{padding:15px 10px;min-height:255px}.mock-hero{padding:17px 13px}.float-chip{font-size:10px}.process{grid-template-columns:1fr}.contact-panel{padding:27px 19px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
-
-/* Portfolio, founder and team sections */
-.portfolio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.portfolio-card{display:flex;flex-direction:column;min-width:0;border:1px solid rgba(255,255,255,.12);border-radius:27px;overflow:hidden;background:linear-gradient(150deg,#171e2d,#0e131e);transition:transform .45s,border-color .4s,box-shadow .4s}
-.portfolio-card:hover{transform:translateY(-10px);border-color:rgba(199,255,74,.42);box-shadow:0 28px 70px rgba(0,0,0,.32)}
-.portfolio-visual{height:270px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;isolation:isolate}
-.portfolio-visual:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 50%,rgba(5,8,14,.45))}
-.portfolio-topline{position:absolute;top:15px;left:15px;right:15px;display:flex;align-items:center;gap:5px;color:rgba(255,255,255,.7);font:600 9px "Space Grotesk";direction:ltr}
-.portfolio-topline b{margin-left:auto;letter-spacing:1px}
-.portfolio-dot{width:6px;height:6px;border-radius:50%;background:#ff747d}.portfolio-dot:nth-child(2){background:#ffcf63}.portfolio-dot:nth-child(3){background:#a8e66d}
-.minecraft .portfolio-visual{background:linear-gradient(150deg,#193f43,#245b48 52%,#152b2a)}
-.pixel-sun{position:absolute;top:53px;right:18%;width:45px;height:45px;background:#f5d878;box-shadow:0 0 55px rgba(245,216,120,.5);border-radius:4px}
-.pixel-land{position:absolute;bottom:0;left:0;right:0;height:86px;background:linear-gradient(#6eaa55 0 23%,#79553c 23%);clip-path:polygon(0 35%,14% 35%,14% 15%,31% 15%,31% 42%,50% 42%,50% 8%,68% 8%,68% 33%,83% 33%,83% 0,100% 0,100% 100%,0 100%)}
-.pixel-land i{position:absolute;width:18px;height:18px;background:#79bf5a;bottom:35px;left:18%;box-shadow:0 0 0 5px rgba(121,191,90,.18)}
-.pixel-land i:nth-child(2){left:44%;bottom:46px}.pixel-land i:nth-child(3){left:74%;bottom:28px}
-.pixel-title{font:900 clamp(26px,3vw,39px) "Space Grotesk";direction:ltr;letter-spacing:2px;color:#fff;text-shadow:4px 4px 0 #263d2c,0 8px 35px rgba(0,0,0,.5);margin-top:25px}
-.pixel-subtitle{font:700 9px "Space Grotesk";letter-spacing:4px;color:#e4f5c7;direction:ltr;margin-top:5px}
-.pixel-button{margin-top:19px;padding:8px 14px;border:1px solid rgba(255,255,255,.55);background:rgba(10,24,20,.55);color:white;font:700 9px "Space Grotesk";direction:ltr;letter-spacing:1px}
-.amirshop .portfolio-visual{background:radial-gradient(circle at 80% 30%,rgba(242,190,117,.24),transparent 35%),linear-gradient(145deg,#33251f,#17171b 75%)}
-.shop-head{position:absolute;top:19px;left:20px;right:20px;display:flex;justify-content:space-between;align-items:center;color:#fff;font:700 13px "Space Grotesk";direction:ltr}
-.shop-head b span{color:#e9bc7d}.shop-head i{font-style:normal;font-size:13px;color:#d8c9b8}
-.shop-copy{align-self:flex-start;margin:58px 0 0 23px;direction:ltr;text-align:left}
-.shop-copy small{display:block;color:#e7bd84;font:600 8px "Space Grotesk";letter-spacing:3px}
-.shop-copy strong{display:block;color:#fff;font:700 27px/1.08 "Space Grotesk";margin:10px 0}
-.shop-copy span{font-size:10px;color:#c6b8aa}
-.shop-products{position:absolute;right:18px;bottom:24px;display:flex;gap:7px}
-.shop-products i{width:53px;height:72px;border-radius:10px;background:linear-gradient(145deg,#b38d65,#59412f);display:grid;place-items:center;box-shadow:0 10px 22px rgba(0,0,0,.25);transform:rotate(5deg)}
-.shop-products i:nth-child(2){transform:translateY(-12px) rotate(-4deg);background:linear-gradient(145deg,#d4c4a7,#655447)}
-.shop-products i:nth-child(3){transform:rotate(7deg);background:linear-gradient(145deg,#8f9c8e,#34453e)}
-.shop-products b{font-size:23px;color:rgba(255,255,255,.75)}
-.amirgem .portfolio-visual{background:radial-gradient(circle at 50% 48%,rgba(125,105,255,.25),transparent 34%),linear-gradient(145deg,#16162f,#0a0c19)}
-.gem-brand{position:absolute;top:23px;left:0;right:0;text-align:center;color:#f3efff;font:700 15px "Space Grotesk";letter-spacing:3px;direction:ltr}.gem-brand span{color:#b4a4ff}
-.gem-shape{font-size:115px;line-height:1;color:#c4b8ff;text-shadow:0 0 18px #9b8cff,0 0 60px rgba(155,140,255,.65);transform:rotate(45deg);animation:gemFloat 5s ease-in-out infinite}
-@keyframes gemFloat{50%{transform:translateY(-9px) rotate(45deg) scale(1.05)}}
-.gem-orbit{position:absolute;width:190px;height:190px;border:1px solid rgba(190,177,255,.3);border-radius:50%;transform:rotate(-25deg) scaleY(.45)}
-.orbit-two{width:235px;height:235px;transform:rotate(58deg) scaleY(.4);border-color:rgba(87,230,244,.24)}
-.gem-caption{position:absolute;bottom:25px;color:#a99bdb;font:600 8px "Space Grotesk";letter-spacing:3px;direction:ltr}
-.gem-spark{position:absolute;color:#e2d9ff;font-size:20px;animation:spark 3s ease-in-out infinite}.spark-one{top:82px;right:24%}.spark-two{bottom:76px;left:23%;animation-delay:-1.2s}
-@keyframes spark{50%{transform:scale(.6) rotate(45deg);opacity:.4}}
-.portfolio-info{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 22px 24px}
-.portfolio-tag{font:600 9px "Space Grotesk";letter-spacing:1.3px;color:var(--cyan);direction:ltr}
-.portfolio-info h3{font-size:23px;font-weight:900;margin-top:7px}
-.portfolio-info p{font-size:12px;color:var(--muted);line-height:1.9;margin-top:5px}
-.portfolio-open{width:42px;height:42px;flex:none;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;color:var(--lime);font:700 20px Arial;direction:ltr;transition:.3s}
-.portfolio-card:hover .portfolio-open{background:var(--lime);color:#111;transform:rotate(45deg)}
-.portfolio-foot{text-align:center;margin-top:25px;color:#8290a5;font-size:12px}
-.founder-card{position:relative;max-width:900px;margin:auto;min-height:285px;padding:35px 45px;border:1px solid rgba(199,255,74,.22);border-radius:30px;background:radial-gradient(circle at 16% 45%,rgba(199,255,74,.12),transparent 32%),linear-gradient(120deg,#18212b,#101621);display:flex;align-items:center;gap:45px;overflow:hidden}
-.founder-orbit{width:175px;height:175px;flex:none;border:1px solid rgba(199,255,74,.35);border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:0 0 60px rgba(199,255,74,.07),inset 0 0 40px rgba(199,255,74,.05)}
-.founder-orbit:before,.founder-orbit:after{content:"";position:absolute;inset:14px;border:1px dashed rgba(87,230,244,.35);border-radius:50%;animation:spin 22s linear infinite}.founder-orbit:after{inset:30px;border-style:solid;border-color:rgba(155,140,255,.35);animation-direction:reverse}
-.founder-monogram{font:700 72px "Space Grotesk";direction:ltr;color:#f5f8ec;text-shadow:0 0 35px rgba(199,255,74,.35);z-index:1}.founder-monogram span{color:var(--lime)}
-.founder-star{position:absolute;right:5px;top:20px;color:var(--lime);font-style:normal}.founder-star.second{left:4px;right:auto;bottom:25px;top:auto;color:var(--cyan)}
-.founder-copy{position:relative;z-index:1}.founder-role{font:600 10px "Space Grotesk";letter-spacing:2px;color:var(--lime);direction:ltr}.founder-copy h3{font-size:clamp(29px,4vw,43px);font-weight:900;margin-top:12px}.founder-copy p{font-size:17px;color:#d5dfeb;font-weight:700;margin-top:3px}.founder-line{width:75px;height:3px;background:var(--lime);border-radius:5px;margin:18px 0}.founder-caption{font-size:12px;color:#a1aec0}.founder-number{position:absolute;left:25px;bottom:5px;color:rgba(255,255,255,.045);font:700 105px "Space Grotesk";direction:ltr}
-.join-panel{position:relative;overflow:hidden;min-height:420px;padding:55px 60px;border:1px solid rgba(87,230,244,.2);border-radius:32px;background:radial-gradient(circle at 82% 50%,rgba(87,230,244,.13),transparent 34%),linear-gradient(120deg,#151d2b,#111522 75%);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:25px}
-.join-content{position:relative;z-index:2}.join-content h2{font-size:clamp(39px,5.5vw,66px);line-height:1.25;font-weight:900;letter-spacing:-1.5px;margin-top:9px}.join-content h2 em{font-style:normal;color:var(--cyan)}
-.join-content>p{font-size:14px;color:#b0bdcf;max-width:520px;margin-top:14px;line-height:2}.join-content .join-small{font-size:12px;color:#8494aa;margin:7px 0 20px}
-.join-content .cta{background:var(--cyan);box-shadow:0 10px 30px rgba(87,230,244,.12)}
-.join-content .cta:hover{box-shadow:0 15px 38px rgba(87,230,244,.22)}
-.join-handle{margin-top:13px;color:#d7e1ed;font:600 12px "Space Grotesk";direction:ltr}
-.join-graphic{height:300px;position:relative;display:grid;place-items:center}
-.join-ring{position:absolute;width:250px;height:250px;border:1px solid rgba(87,230,244,.22);border-radius:50%;transform:rotateX(65deg) rotate(-25deg);animation:spin 22s linear infinite}
-.ring-b{width:190px;height:190px;border-color:rgba(199,255,74,.28);transform:rotateX(65deg) rotate(35deg);animation-direction:reverse}
-.join-symbol{width:115px;height:115px;border-radius:32px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(87,230,244,.2),rgba(155,140,255,.12));border:1px solid rgba(87,230,244,.4);box-shadow:0 0 65px rgba(87,230,244,.15);font:300 83px "Space Grotesk";color:var(--cyan);transform:rotate(-12deg);animation:chip 5s ease-in-out infinite}
-.join-chip{position:absolute;padding:8px 12px;border:1px solid rgba(255,255,255,.13);border-radius:10px;background:rgba(17,24,38,.85);color:#d9e6f3;font:700 9px "Space Grotesk";letter-spacing:2px;direction:ltr}
-.chip-a{top:20px;right:15px}.chip-b{bottom:30px;right:0}.chip-c{bottom:8px;left:5px}
-.light-mode .portfolio-card{background:linear-gradient(150deg,#fff,#edf1f6);border-color:rgba(16,23,34,.13)}
-.light-mode .portfolio-info h3,.light-mode .founder-copy h3{color:#101722}
-.light-mode .founder-card{background:radial-gradient(circle at 16% 45%,rgba(155,190,45,.15),transparent 32%),linear-gradient(120deg,#e8efdf,#f7f9fc)}
-.light-mode .founder-copy p,.light-mode .founder-caption{color:#4f5d70}
-.light-mode .join-panel{background:radial-gradient(circle at 82% 50%,rgba(87,190,205,.15),transparent 34%),linear-gradient(120deg,#e5eef0,#f7f9fc 75%)}
-.light-mode .join-content>p,.light-mode .join-handle{color:#4e5e70}
-.light-mode .join-chip{background:rgba(245,249,252,.9);color:#29394a}
-@media(max-width:900px){.portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.portfolio-card:last-child{grid-column:1/-1}.portfolio-card:last-child .portfolio-visual{height:240px}.join-panel{padding:40px;grid-template-columns:1fr .8fr}.founder-card{gap:30px}}
-@media(max-width:760px){.portfolio-grid{grid-template-columns:1fr}.portfolio-card:last-child{grid-column:auto}.portfolio-visual,.portfolio-card:last-child .portfolio-visual{height:250px}.portfolio-info{padding:19px}.portfolio-info h3{font-size:21px}.founder-card{padding:30px 24px;flex-direction:column;text-align:center;gap:22px}.founder-orbit{width:145px;height:145px}.founder-monogram{font-size:60px}.founder-line{margin:15px auto}.founder-number{font-size:75px;left:12px}.join-panel{grid-template-columns:1fr;padding:35px 25px;gap:0}.join-graphic{height:220px;order:-1}.join-ring{width:190px;height:190px}.ring-b{width:145px;height:145px}.join-symbol{width:90px;height:90px;font-size:65px}.join-content h2{font-size:43px}.join-content>p{font-size:13px}}
-@media(max-width:390px){.portfolio-visual,.portfolio-card:last-child .portfolio-visual{height:220px}.portfolio-info{padding:17px}.portfolio-info p{font-size:11px}.founder-card{padding:25px 18px}.join-panel{padding:28px 19px}.join-content h2{font-size:38px}}
 
 </style>
 </head>
 <body>
-<div class="cursor-glow" id="cursorGlow"></div><div class="ambient a"></div><div class="ambient b"></div><div class="ambient c"></div>
+<div class="ambient a"></div><div class="ambient b"></div><div class="ambient c"></div>
 <header class="topbar">
   <nav class="nav wrap" aria-label="ناوبری اصلی">
     <a class="brand" href="#home" aria-label="Amir Site"><span class="brand-mark">A.</span><span>AMIR<span style="color:var(--lime)">SITE</span></span></a>
     <ul class="navlinks" id="navLinks">
-      <li><a href="#services">خدمات</a></li><li><a href="#plans">پلن‌ها</a></li><li><a href="#work">نمونه‌کارها</a></li><li><a href="#team">سازندگان</a></li><li><a href="#join">همکاری</a></li><li><a href="#process">مراحل همکاری</a></li><li><a href="#faq">سؤالات متداول</a></li>
+      <li><a href="#services">خدمات</a></li><li><a href="#plans">پلن‌ها</a></li><li><a href="#work">نمونه‌کارها</a></li><li><a href="#team">سازندگان</a></li><li><a href="#process">مراحل همکاری</a></li><li><a href="#faq">سؤالات متداول</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="theme-btn" id="themeToggle" aria-label="تغییر تم">☼</button>
       <a class="cta" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener">شروع گفتگو <span class="arrow">↗</span></a>
       <button class="menu-btn" id="menuToggle" aria-label="باز کردن منو">☰</button>
     </div>
@@ -290,8 +194,8 @@ footer{padding:30px 0 40px}
  <div class="wrap hero-grid">
   <div class="hero-content">
    <div class="eyebrow"><span class="pulse"></span> استودیوی طراحی و توسعه وب‌سایت اختصاصی</div>
-   <h1>ایده‌ات را به یک<br><span class="accent">تجربه دیجیتال</span><br>تبدیل کن.</h1>
-   <p class="hero-copy">من <strong>امیر حسین جبارفر</strong> هستم. وب‌سایت‌هایی طراحی می‌کنم که فقط زیبا نیستند؛ برای هدف مشخص ساخته می‌شوند. از فروشگاه اختصاصی تا سامانه‌های پروژه‌محور، همراه با <strong>پنل مدیریت اختصاصی</strong> و امکاناتی که دقیقاً با نیاز کسب‌وکار تو هماهنگ‌اند.</p>
+   <h1>ایده‌ات را به یک<br><span class="accent">تجربه دیجیتال</span><br>تبدیل کن</h1>
+   <p class="hero-copy">من <strong>امیر حسین جبارفر</strong> هستم. وب‌سایت‌هایی طراحی می‌کنم که فقط زیبا نیستند؛ برای هدف مشخص ساخته می‌شوند. از فروشگاه اختصاصی تا سامانه‌های پروژه‌محور، همراه با <strong>پنل مدیریت اختصاصی</strong> و امکاناتی که دقیقاً با نیاز کسب‌وکار تو هماهنگ‌اند</p>
    <div class="hero-buttons"><a class="cta" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener">درباره پروژه‌ات صحبت کنیم <span class="arrow">↗</span></a><a class="cta-outline" href="#plans">مشاهده پلن‌ها <span class="arrow">↓</span></a></div>
    <div class="hero-meta"><span><b class="tiny-check">✦</b> طراحی کاملاً اختصاصی</span><span><b class="tiny-check">✦</b> پنل مدیریت متناسب با پروژه</span><span><b class="tiny-check">✦</b> واکنش‌گرا و قابل توسعه</span></div>
   </div>
@@ -317,14 +221,14 @@ footer{padding:30px 0 40px}
 
 <section id="services">
  <div class="wrap">
-  <div class="section-head center reveal"><div class="kicker">WHAT WE BUILD</div><h2>یک سایت آماده نه؛<br><em>یک راه‌حل اختصاصی.</em></h2><p>هر پروژه شخصیت و نیاز خودش را دارد. ساختار، ظاهر و امکانات سایت از ابتدا بر اساس همان نیاز طراحی می‌شود.</p></div>
+  <div class="section-head center reveal"><div class="kicker">WHAT WE BUILD</div><h2>یک سایت آماده نه؛<br><em>یک راه‌حل اختصاصی</em></h2><p>هر پروژه شخصیت و نیاز خودش را دارد. ساختار، ظاهر و امکانات سایت از ابتدا بر اساس همان نیاز طراحی می‌شود</p></div>
   <div class="services-grid">
-   <article class="service reveal" style="--glow:#c7ff4a"><span class="service-index">01 / STORE</span><div class="service-icon">▦</div><h3>فروشگاه اینترنتی اختصاصی</h3><p>تجربه خرید متناسب با برند شما؛ از معرفی محصولات تا مدیریت سفارش‌ها و بخش‌های موردنیاز فروشگاه.</p></article>
-   <article class="service reveal delay-1" style="--glow:#57e6f4"><span class="service-index">02 / DASHBOARD</span><div class="service-icon">⌘</div><h3>پنل مدیریت اختصاصی</h3><p>مدیریت محتوا، محصولات، کاربران و بخش‌های سایت از یک محیط منظم و متناسب با پروژه.</p></article>
-   <article class="service reveal delay-2" style="--glow:#9b8cff"><span class="service-index">03 / PLATFORM</span><div class="service-icon">◈</div><h3>سامانه‌ها و پروژه‌های ویژه</h3><p>وب‌اپلیکیشن‌ها و سامانه‌هایی با منطق، نقش‌ها و قابلیت‌های اختصاصی برای ایده‌های متفاوت.</p></article>
-   <article class="service reveal" style="--glow:#9b8cff"><span class="service-index">04 / EXPERIENCE</span><div class="service-icon">✳</div><h3>رابط کاربری چشم‌نواز</h3><p>طراحی مدرن با تایپوگرافی دقیق، جزئیات ظریف، حرکت‌های هدفمند و تجربه کاربری روان.</p></article>
-   <article class="service reveal delay-1" style="--glow:#57e6f4"><span class="service-index">05 / RESPONSIVE</span><div class="service-icon">▣</div><h3>نمایش بی‌نقص در همه دستگاه‌ها</h3><p>چیدمان واکنش‌گرا برای موبایل، تبلت و دسکتاپ؛ بدون اسکرول افقی و به‌هم‌ریختگی.</p></article>
-   <article class="service reveal delay-2" style="--glow:#c7ff4a"><span class="service-index">06 / GROWTH</span><div class="service-icon">↗</div><h3>آماده برای توسعه</h3><p>ساختاری قابل گسترش تا بتوان امکانات جدید را با رشد پروژه به سایت اضافه کرد.</p></article>
+   <article class="service reveal" style="--glow:#c7ff4a"><span class="service-index">01 / STORE</span><div class="service-icon">▦</div><h3>فروشگاه اینترنتی اختصاصی</h3><p>تجربه خرید متناسب با برند شما؛ از معرفی محصولات تا مدیریت سفارش‌ها و بخش‌های موردنیاز فروشگاه</p></article>
+   <article class="service reveal delay-1" style="--glow:#57e6f4"><span class="service-index">02 / DASHBOARD</span><div class="service-icon">⌘</div><h3>پنل مدیریت اختصاصی</h3><p>مدیریت محتوا، محصولات، کاربران و بخش‌های سایت از یک محیط منظم و متناسب با پروژه</p></article>
+   <article class="service reveal delay-2" style="--glow:#9b8cff"><span class="service-index">03 / PLATFORM</span><div class="service-icon">◈</div><h3>سامانه‌ها و پروژه‌های ویژه</h3><p>وب‌اپلیکیشن‌ها و سامانه‌هایی با منطق، نقش‌ها و قابلیت‌های اختصاصی برای ایده‌های متفاوت</p></article>
+   <article class="service reveal" style="--glow:#9b8cff"><span class="service-index">04 / EXPERIENCE</span><div class="service-icon">✳</div><h3>رابط کاربری چشم‌نواز</h3><p>طراحی مدرن با تایپوگرافی دقیق، جزئیات ظریف، حرکت‌های هدفمند و تجربه کاربری روان</p></article>
+   <article class="service reveal delay-1" style="--glow:#57e6f4"><span class="service-index">05 / RESPONSIVE</span><div class="service-icon">▣</div><h3>نمایش بی‌نقص در همه دستگاه‌ها</h3><p>چیدمان واکنش‌گرا برای موبایل، تبلت و دسکتاپ؛ بدون اسکرول افقی و به‌هم‌ریختگی</p></article>
+   <article class="service reveal delay-2" style="--glow:#c7ff4a"><span class="service-index">06 / GROWTH</span><div class="service-icon">↗</div><h3>آماده برای توسعه</h3><p>ساختاری قابل گسترش تا بتوان امکانات جدید را با رشد پروژه به سایت اضافه کرد</p></article>
   </div>
  </div>
 </section>
@@ -332,39 +236,39 @@ footer{padding:30px 0 40px}
 <section class="plans-section" id="plans">
  <div class="wrap">
   <div class="plan-intro">
-   <div class="section-head reveal"><div class="kicker">CHOOSE YOUR EXPERIENCE</div><h2>پلنی انتخاب کن که<br><em>به اندازه ایده‌ات بزرگ باشد.</em></h2><p>سه مسیر برای شروع؛ جزئیات نهایی هر پروژه با توجه به امکانات موردنیاز، در گفت‌وگوی مستقیم مشخص می‌شود.</p></div>
-   <p class="plan-note reveal">هیچ قیمت ثابتی اینجا نمایش داده نمی‌شود. برای بررسی نیازها و دریافت پیشنهاد متناسب با پروژه، مستقیم پیام بده.</p>
+   <div class="section-head reveal"><div class="kicker">CHOOSE YOUR EXPERIENCE</div><h2>پلنی انتخاب کن که<br><em>به اندازه ایده‌ات بزرگ باشد</em></h2><p>سه مسیر برای شروع؛ جزئیات نهایی هر پروژه با توجه به امکانات موردنیاز، در گفت‌وگوی مستقیم مشخص می‌شود</p></div>
+   <p class="plan-note reveal">هیچ قیمت ثابتی اینجا نمایش داده نمی‌شود. برای بررسی نیازها و دریافت پیشنهاد متناسب با پروژه، مستقیم پیام بده</p>
   </div>
   <div class="plans-grid">
    <article class="plan reveal" style="--plan-color:#57e6f4">
     <div class="plan-top"><span class="plan-no">PLAN / 01</span><span class="plan-label">شروع حرفه‌ای</span></div>
-    <h3 class="plan-title">پایهٔ اختصاصی</h3><p class="plan-sub">برای معرفی حرفه‌ای ایده، برند یا خدمات شما در قالب یک وب‌سایت خوش‌ساخت.</p>
+    <h3 class="plan-title">پایهٔ اختصاصی</h3><p class="plan-sub">برای معرفی حرفه‌ای ایده، برند یا خدمات شما در قالب یک وب‌سایت خوش‌ساخت</p>
     <div class="plan-visual"><div class="plan-symbol">START.</div></div>
     <ul class="plan-list"><li>طراحی رابط کاربری متناسب با هویت برند</li><li>صفحات اصلی و بخش‌های موردنیاز پروژه</li><li>نمایش واکنش‌گرا در موبایل و دسکتاپ</li><li>افکت‌ها و انیمیشن‌های ظریف و هدفمند</li><li>ساختار منظم و قابل توسعه</li></ul>
     <div class="plan-bottom"><p>برای شروع یک حضور حرفه‌ای در وب</p><a class="plan-btn" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener"><span>گفت‌وگو درباره این پلن</span><span>↗</span></a></div>
    </article>
    <article class="plan featured reveal delay-1" style="--plan-color:#c7ff4a">
     <div class="plan-top"><span class="plan-no">PLAN / 02</span><span class="plan-label">انتخاب پیشنهادی</span></div>
-    <h3 class="plan-title">حرفه‌ای پلاس</h3><p class="plan-sub">برای کسب‌وکارهایی که ظاهر قدرتمند و مدیریت ساده و کاربردی می‌خواهند.</p>
+    <h3 class="plan-title">حرفه‌ای پلاس</h3><p class="plan-sub">برای کسب‌وکارهایی که ظاهر قدرتمند و مدیریت ساده و کاربردی می‌خواهند</p>
     <div class="plan-visual"><div class="plan-symbol">PRO+</div></div>
     <ul class="plan-list"><li>تمام امکانات پلن پایهٔ اختصاصی</li><li>پنل مدیریت متناسب با ساختار سایت</li><li>مدیریت محتوا و بخش‌های اصلی</li><li>تعاملات و انیمیشن‌های پیشرفته‌تر</li><li>بهینه‌سازی تجربه کاربری و مسیرهای دسترسی</li><li>آماده‌سازی برای افزودن امکانات جدید</li></ul>
     <div class="plan-bottom"><p>برای یک کسب‌وکار در حال رشد</p><a class="plan-btn" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener"><span>گفت‌وگو درباره این پلن</span><span>↗</span></a></div>
    </article>
    <article class="plan reveal delay-2" style="--plan-color:#9b8cff">
     <div class="plan-top"><span class="plan-no">PLAN / 03</span><span class="plan-label">بدون محدودیت ایده</span></div>
-    <h3 class="plan-title">پروژهٔ ویژه</h3><p class="plan-sub">برای فروشگاه‌ها و سامانه‌هایی که به منطق، نقش‌ها و قابلیت‌های کاملاً سفارشی نیاز دارند.</p>
+    <h3 class="plan-title">پروژهٔ ویژه</h3><p class="plan-sub">برای فروشگاه‌ها و سامانه‌هایی که به منطق، نقش‌ها و قابلیت‌های کاملاً سفارشی نیاز دارند</p>
     <div class="plan-visual"><div class="plan-symbol">CUSTOM</div></div>
     <ul class="plan-list"><li>تحلیل نیازها و طراحی معماری پروژه</li><li>پنل مدیریت پیشرفته و چندبخشی</li><li>قابلیت‌ها و گردش‌کارهای سفارشی</li><li>طراحی اختصاصی تمام صفحات و حالت‌ها</li><li>اتصال سرویس‌ها و امکانات موردنیاز پروژه</li><li>توسعه مرحله‌ای بر اساس نقشه راه</li></ul>
     <div class="plan-bottom"><p>برای ایده‌هایی که نسخه آماده ندارند</p><a class="plan-btn" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener"><span>شرح ایده در روبیکا</span><span>↗</span></a></div>
    </article>
   </div>
-  <p class="plan-footnote">پلن‌ها نقطه شروع گفت‌وگو هستند؛ ترکیب امکانات می‌تواند با توجه به نیاز واقعی پروژه تغییر کند.</p>
+  <p class="plan-footnote">پلن‌ها نقطه شروع گفت‌وگو هستند؛ ترکیب امکانات می‌تواند با توجه به نیاز واقعی پروژه تغییر کند</p>
  </div>
 </section>
 
 <section id="work">
  <div class="wrap">
-  <div class="section-head reveal"><div class="kicker">SELECTED PROJECTS / 2026</div><h2>از ایده تا اجرا؛<br><em>این‌ها را ببین.</em></h2><p>چند نمونه از تجربه‌هایی که طراحی و توسعه داده‌ام؛ هر کدام با هویت و حال‌وهوای مخصوص خودش</p></div>
+  <div class="section-head reveal"><div class="kicker">SELECTED PROJECTS / 2026</div><h2>از ایده تا اجرا؛<br><em>این‌ها را ببین</em></h2><p>چند نمونه از تجربه‌هایی که طراحی و توسعه داده‌ام؛ هر کدام با هویت و حال‌وهوای مخصوص خودش</p></div>
   <div class="portfolio-grid">
    <a class="portfolio-card minecraft reveal" href="https://amirhosseinjabarfar-art.github.io/minecraft/" target="_blank" rel="noopener" aria-label="مشاهده پروژه ماینکرفت">
     <div class="portfolio-visual">
@@ -378,8 +282,8 @@ footer{padding:30px 0 40px}
    <a class="portfolio-card amirshop reveal delay-1" href="https://amirhosseinjabarfar-art.github.io/Amirshop/" target="_blank" rel="noopener" aria-label="مشاهده پروژه امیرشاپ">
     <div class="portfolio-visual">
      <div class="shop-head"><b>AMIR<span>SHOP</span></b><i>⌕　☰</i></div>
-     <div class="shop-copy"><small>DISCOVER MORE</small><strong>YOUR STYLE<br>YOUR CHOICE</strong><span>یک انتخاب متفاوت برای تو</span></div>
-     <div class="shop-products"><i><b>✦</b></i><i><b>◈</b></i><i><b>✧</b></i></div>
+     <div class="shop-copy"><small>CURATED FOR YOU</small><strong>FIND YOUR<br>OWN STYLE</strong><span>انتخابی ساده، خاص و متفاوت</span><div class="shop-cta">EXPLORE COLLECTION ↗</div></div>
+     <div class="shop-feature"><div class="shop-feature-glow"></div><div class="shop-feature-item"><span>✦</span></div><small>NEW COLLECTION</small></div>
     </div>
     <div class="portfolio-info"><div><div class="portfolio-tag">02 / ONLINE STORE</div><h3>امیرشاپ</h3><p>فروشگاه اینترنتی با تمرکز بر معرفی محصولات و تجربه خرید</p></div><span class="portfolio-open">↗</span></div>
    </a>
@@ -408,38 +312,29 @@ footer{padding:30px 0 40px}
  </div>
 </section>
 
-<section id="join">
- <div class="wrap">
-  <div class="join-panel reveal">
-   <div class="join-orb"></div>
-   <div class="join-content"><div class="kicker">BUILD THE NEXT CHAPTER WITH US</div><h2>با هم این تیم رو<br><em>می‌سازیم</em></h2><p>اگر به طراحی، برنامه‌نویسی، ایده‌پردازی یا ساخت تجربه‌های دیجیتال علاقه داری، جای تو می‌تونه کنار ما باشه</p><p class="join-small">برای همکاری و صحبت درباره ایده‌هات، مستقیم پیام بده</p><a class="cta" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener">درخواست همکاری در روبیکا <span class="arrow">↗</span></a><div class="join-handle">@amirtbpedit</div></div>
-   <div class="join-graphic" aria-hidden="true"><div class="join-ring ring-a"></div><div class="join-ring ring-b"></div><div class="join-symbol">+</div><span class="join-chip chip-a">IDEAS</span><span class="join-chip chip-b">PEOPLE</span><span class="join-chip chip-c">CREATE</span></div>
-  </div>
- </div>
-</section>
 
 <section id="process">
  <div class="wrap">
-  <div class="section-head center reveal"><div class="kicker">HOW IT WORKS</div><h2>از یک پیام تا <em>یک محصول واقعی.</em></h2><p>مسیر همکاری روشن است؛ قدم‌به‌قدم و با هماهنگی مستقیم.</p></div>
+  <div class="section-head center reveal"><div class="kicker">HOW IT WORKS</div><h2>از یک پیام تا <em>یک محصول واقعی</em></h2><p>مسیر همکاری روشن است؛ قدم‌به‌قدم و با هماهنگی مستقیم</p></div>
   <div class="process">
-   <article class="step reveal"><h3>گفت‌وگوی اولیه</h3><p>ایده، هدف و نیازهای اصلی پروژه را در روبیکا مطرح می‌کنیم.</p></article>
-   <article class="step reveal delay-1"><h3>تعیین نقشه راه</h3><p>صفحات، امکانات، پنل مدیریت و محدوده اجرای پروژه مشخص می‌شود.</p></article>
-   <article class="step reveal delay-2"><h3>طراحی و توسعه</h3><p>ظاهر و قابلیت‌ها بر اساس توافق پروژه پیاده‌سازی می‌شوند.</p></article>
-   <article class="step reveal delay-3"><h3>بررسی و تحویل</h3><p>جزئیات نهایی بررسی می‌شود و خروجی مطابق توافق ارائه خواهد شد.</p></article>
+   <article class="step reveal"><h3>گفت‌وگوی اولیه</h3><p>ایده، هدف و نیازهای اصلی پروژه را در روبیکا مطرح می‌کنیم</p></article>
+   <article class="step reveal delay-1"><h3>تعیین نقشه راه</h3><p>صفحات، امکانات، پنل مدیریت و محدوده اجرای پروژه مشخص می‌شود</p></article>
+   <article class="step reveal delay-2"><h3>طراحی و توسعه</h3><p>ظاهر و قابلیت‌ها بر اساس توافق پروژه پیاده‌سازی می‌شوند</p></article>
+   <article class="step reveal delay-3"><h3>بررسی و تحویل</h3><p>جزئیات نهایی بررسی می‌شود و خروجی مطابق توافق ارائه خواهد شد</p></article>
   </div>
  </div>
 </section>
 
 <section id="faq">
  <div class="wrap">
-  <div class="section-head center reveal"><div class="kicker">GOOD TO KNOW</div><h2>سؤالی داری؟ <em>اینجا جوابش هست.</em></h2><p>پاسخ چند پرسش رایج درباره طراحی و توسعه وب‌سایت اختصاصی.</p></div>
+  <div class="section-head center reveal"><div class="kicker">GOOD TO KNOW</div><h2>سؤالی داری؟ <em>اینجا جوابش هست</em></h2><p>پاسخ چند پرسش رایج درباره طراحی و توسعه وب‌سایت اختصاصی</p></div>
   <div class="faq-wrap">
-   <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>چه نوع وب‌سایت‌هایی طراحی می‌کنید؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>فروشگاه اینترنتی، وب‌سایت معرفی خدمات، سایت شخصی و شرکتی، سامانه‌های پروژه‌محور و وب‌اپلیکیشن‌های اختصاصی؛ ساختار هرکدام بر اساس نیاز همان پروژه طراحی می‌شود.</p></div></div></article>
-   <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>آیا سایت پنل مدیریت اختصاصی دارد؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>بله. با توجه به نوع پروژه می‌توان پنلی برای مدیریت محتوا، محصولات، کاربران و بخش‌های موردنیاز طراحی کرد. جزئیات پنل در مرحله بررسی نیازها مشخص می‌شود.</p></div></div></article>
-   <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>هزینه طراحی سایت چطور مشخص می‌شود؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>هزینه به نوع سایت، امکانات، پیچیدگی پنل مدیریت و محدوده پروژه بستگی دارد. در سایت قیمت ثابت درج نشده؛ برای بررسی و اعلام پیشنهاد متناسب، در روبیکا پیام بده.</p></div></div></article>
-   <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>چطور درخواست طراحی ثبت کنم؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>فرم سفارش یا پرداخت آنلاین در سایت وجود ندارد. تمام هماهنگی‌ها و درخواست‌های همکاری فقط از طریق پیام خصوصی روبیکا انجام می‌شود.</p></div></div></article>
-   <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>آیا سایت روی موبایل و تبلت هم درست نمایش داده می‌شود؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>بله، طراحی واکنش‌گرا بخشی از روند توسعه است تا چیدمان و امکانات در اندازه‌های مختلف صفحه قابل استفاده باشند.</p></div></div></article>
-   <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>امکان اضافه‌کردن قابلیت‌های جدید در آینده وجود دارد؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>ساختار پروژه تا جای ممکن با نگاه توسعه‌پذیر طراحی می‌شود. امکان و روش افزودن قابلیت‌های تازه به معماری و امکانات اولیه پروژه بستگی دارد.</p></div></div></article>
+   <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>چه نوع وب‌سایت‌هایی طراحی می‌کنید؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>فروشگاه اینترنتی، وب‌سایت معرفی خدمات، سایت شخصی و شرکتی، سامانه‌های پروژه‌محور و وب‌اپلیکیشن‌های اختصاصی؛ ساختار هرکدام بر اساس نیاز همان پروژه طراحی می‌شود</p></div></div></article>
+   <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>آیا سایت پنل مدیریت اختصاصی دارد؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>بله. با توجه به نوع پروژه می‌توان پنلی برای مدیریت محتوا، محصولات، کاربران و بخش‌های موردنیاز طراحی کرد. جزئیات پنل در مرحله بررسی نیازها مشخص می‌شود</p></div></div></article>
+   <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>هزینه طراحی سایت چطور مشخص می‌شود؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>هزینه به نوع سایت، امکانات، پیچیدگی پنل مدیریت و محدوده پروژه بستگی دارد. در سایت قیمت ثابت درج نشده؛ برای بررسی و اعلام پیشنهاد متناسب، در روبیکا پیام بده</p></div></div></article>
+   <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>چطور درخواست طراحی ثبت کنم؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>فرم سفارش یا پرداخت آنلاین در سایت وجود ندارد. تمام هماهنگی‌ها و درخواست‌های همکاری فقط از طریق پیام خصوصی روبیکا انجام می‌شود</p></div></div></article>
+   <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>آیا سایت روی موبایل و تبلت هم درست نمایش داده می‌شود؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>بله، طراحی واکنش‌گرا بخشی از روند توسعه است تا چیدمان و امکانات در اندازه‌های مختلف صفحه قابل استفاده باشند</p></div></div></article>
+   <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>امکان اضافه‌کردن قابلیت‌های جدید در آینده وجود دارد؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>ساختار پروژه تا جای ممکن با نگاه توسعه‌پذیر طراحی می‌شود. امکان و روش افزودن قابلیت‌های تازه به معماری و امکانات اولیه پروژه بستگی دارد</p></div></div></article>
   </div>
  </div>
 </section>
@@ -447,23 +342,17 @@ footer{padding:30px 0 40px}
 <section id="contact">
  <div class="wrap">
   <div class="contact-panel reveal">
-   <div><div class="kicker">LET'S BUILD SOMETHING GREAT</div><h2>ایده‌ات آماده است؟<br><em>از همین‌جا شروع کنیم.</em></h2><p>چند خط درباره چیزی که در ذهن داری بنویس. مستقیم در روبیکا صحبت می‌کنیم و مسیر مناسب پروژه‌ات را مشخص می‌کنیم.</p><div class="contact-id"><i></i>@amirtbpedit</div></div>
+   <div><div class="kicker">LET'S BUILD SOMETHING GREAT</div><h2>ایده‌ات آماده است؟<br><em>از همین‌جا شروع کنیم</em></h2><p>چند خط درباره چیزی که در ذهن داری بنویس. مستقیم در روبیکا صحبت می‌کنیم و مسیر مناسب پروژه‌ات را مشخص می‌کنیم</p><div class="contact-id"><i></i>@amirtbpedit</div></div>
    <div class="contact-action"><a class="cta" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener">پیام در روبیکا <span class="arrow">↗</span></a></div>
   </div>
  </div>
 </section>
 </main>
-<footer><div class="wrap footer-inner"><div class="footer-brand">AMIR<span>SITE</span></div><p>طراحی و توسعه وب‌سایت اختصاصی — امیر حسین جبارفر</p><p>© <span id="year"></span> تمام حقوق محفوظ است.</p></div></footer>
+<footer><div class="wrap footer-inner"><div class="footer-brand">AMIR<span>SITE</span></div><p>طراحی و توسعه وب‌سایت اختصاصی — امیر حسین جبارفر</p><p>© <span id="year"></span> تمام حقوق محفوظ است</p></div></footer>
 <button class="back-top" id="backTop" aria-label="بازگشت به بالا">↑</button>
 <script>
 (function(){
  const root=document.documentElement,body=document.body;
- const saved=localStorage.getItem("amirSiteNewTheme");
- if(saved==="light")root.classList.add("light-mode");
- const theme=document.getElementById("themeToggle");
- function themeIcon(){theme.textContent=root.classList.contains("light-mode")?"☾":"☼";}
- themeIcon();
- theme.addEventListener("click",function(){root.classList.toggle("light-mode");localStorage.setItem("amirSiteNewTheme",root.classList.contains("light-mode")?"light":"dark");themeIcon();});
  const menu=document.getElementById("menuToggle"),links=document.getElementById("navLinks");
  menu.addEventListener("click",function(){links.classList.toggle("open");menu.textContent=links.classList.contains("open")?"×":"☰";});
  links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{links.classList.remove("open");menu.textContent="☰";}));
@@ -474,8 +363,6 @@ footer{padding:30px 0 40px}
  window.addEventListener("scroll",()=>back.classList.toggle("show",window.scrollY>500),{passive:true});
  back.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
  document.getElementById("year").textContent=new Date().getFullYear();
- const glow=document.getElementById("cursorGlow");
- if(window.matchMedia("(pointer:fine)").matches){window.addEventListener("pointermove",e=>{glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px";glow.style.opacity=".9";},{passive:true});}
  if(window.matchMedia("(pointer:fine)").matches){document.querySelectorAll(".plan,.service,.work-card").forEach(card=>{card.addEventListener("pointermove",e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform="translateY(-7px) perspective(900px) rotateX("+(-y*3)+"deg) rotateY("+(x*3)+"deg)";});card.addEventListener("pointerleave",()=>card.style.transform="");});}
 })();
 </script>
