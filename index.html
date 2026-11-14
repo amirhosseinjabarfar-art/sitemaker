@@ -288,6 +288,30 @@ footer{padding:30px 0 40px}
 
 
 /* Testimonials section — isolated styles */
+
+/* Referral ticket */
+.referral-section{padding-top:90px;padding-bottom:105px;overflow:hidden}
+.referral-ticket-wrap{max-width:900px;margin:0 auto;perspective:1200px}
+.referral-ticket{position:relative;display:flex;align-items:stretch;justify-content:center;filter:drop-shadow(0 25px 45px rgba(0,0,0,.32));animation:ticketFloat 5s ease-in-out infinite}
+.referral-half{position:relative;flex:1;min-height:190px;padding:28px 25px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(145deg,#202b36,#111a25);border:1px solid rgba(199,255,74,.32);overflow:hidden}
+.referral-half:first-child{border-radius:22px 0 0 22px;border-left:0}
+.referral-half:last-child{border-radius:0 22px 22px 0;border-right:0}
+.referral-half::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0,rgba(199,255,74,.14),transparent 65%);pointer-events:none}
+.referral-half::after{content:"";position:absolute;inset:10px;border:1px dashed rgba(255,255,255,.16);border-radius:14px;pointer-events:none}
+.referral-ticket::before,.referral-ticket::after{content:"";position:absolute;z-index:2;top:50%;width:25px;height:25px;border-radius:50%;background:var(--bg);transform:translateY(-50%)}
+.referral-ticket::before{right:calc(50% - 12px)}.referral-ticket::after{display:none}
+.referral-seam{position:absolute;z-index:3;top:13px;bottom:13px;left:50%;border-left:2px dashed rgba(255,255,255,.25);transform:translateX(-50%)}
+.referral-label{position:relative;z-index:1;color:#c5d0df;font-size:clamp(14px,2vw,18px);font-weight:800;margin-bottom:8px}
+.referral-amount{position:relative;z-index:1;color:var(--lime);font-size:clamp(22px,4vw,36px);font-weight:900;line-height:1.5;text-shadow:0 0 25px rgba(199,255,74,.2)}
+.referral-caption{position:relative;z-index:1;color:#8290a4;font-size:11px;margin-top:7px}
+.referral-ticket.is-split .referral-half:first-child{transform:translateX(-24px) rotate(-4deg)}
+.referral-ticket.is-split .referral-half:last-child{transform:translateX(24px) rotate(4deg)}
+.referral-half{transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.referral-ticket{animation:ticketCycle 15s infinite}
+@keyframes ticketCycle{0%,66.66%{transform:translateY(0)}70%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+@keyframes ticketFloat{0%,100%{filter:drop-shadow(0 25px 45px rgba(0,0,0,.32))}50%{filter:drop-shadow(0 30px 55px rgba(87,230,244,.12))}}
+@media(max-width:640px){.referral-ticket{gap:0}.referral-half{min-height:165px;padding:22px 12px}.referral-ticket.is-split .referral-half:first-child{transform:translateX(-12px) rotate(-4deg)}.referral-ticket.is-split .referral-half:last-child{transform:translateX(12px) rotate(4deg)}.referral-seam{top:12px;bottom:12px}}
+
 .reviews-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
 .review-card{position:relative;min-width:0;min-height:255px;padding:27px;border:1px solid rgba(255,255,255,.11);border-radius:25px;background:linear-gradient(145deg,rgba(25,34,50,.94),rgba(15,20,31,.96));overflow:hidden;box-shadow:0 18px 48px rgba(0,0,0,.16);transition:transform .4s,border-color .4s,box-shadow .4s}
 .review-card::before{content:"";position:absolute;width:180px;height:180px;left:-100px;top:-110px;border-radius:50%;background:var(--review-glow,var(--lime));filter:blur(75px);opacity:.13;transition:opacity .4s}
@@ -481,6 +505,20 @@ footer{padding:30px 0 40px}
  </div>
 </section>
 
+
+<section id="referral" class="referral-section">
+ <div class="wrap">
+  <div class="section-head center reveal"><div class="kicker">INVITE A FRIEND / GET REWARDED</div><h2>دوستتو دعوت کن <em>تخفیف بگیر</em></h2><p>با دعوت دوستت، هر دو سهمی از تخفیف دارید</p></div>
+  <div class="referral-ticket-wrap reveal">
+   <div class="referral-ticket" id="referralTicket">
+    <div class="referral-half"><span class="referral-label">سهم تو</span><strong class="referral-amount">300/000</strong><span class="referral-caption">تومان تخفیف</span></div>
+    <div class="referral-seam" aria-hidden="true"></div>
+    <div class="referral-half"><span class="referral-label">سهم دوستت</span><strong class="referral-amount">250/000</strong><span class="referral-caption">تومان تخفیف</span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
 <section id="process">
  <div class="wrap">
   <div class="section-head center reveal"><div class="kicker">HOW IT WORKS</div><h2>از یک پیام تا <em>یک محصول واقعی</em></h2><p>مسیر همکاری روشن است؛ قدم‌به‌قدم و با هماهنگی مستقیم</p></div>
@@ -531,6 +569,10 @@ footer{padding:30px 0 40px}
  window.addEventListener("scroll",()=>back.classList.toggle("show",window.scrollY>500),{passive:true});
  back.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
  document.getElementById("year").textContent=new Date().getFullYear();
+
+ const referralTicket=document.getElementById("referralTicket");
+ if(referralTicket){setInterval(()=>{referralTicket.classList.add("is-split");setTimeout(()=>referralTicket.classList.remove("is-split"),5000);},10000);}
+
  if(window.matchMedia("(pointer:fine)").matches){document.querySelectorAll(".plan,.service,.work-card").forEach(card=>{card.addEventListener("pointermove",e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform="translateY(-7px) perspective(900px) rotateX("+(-y*3)+"deg) rotateY("+(x*3)+"deg)";});card.addEventListener("pointerleave",()=>card.style.transform="");});}
 })();
 </script>
