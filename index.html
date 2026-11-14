@@ -542,6 +542,17 @@ footer{padding:30px 0 40px}
   .referral-amount { font-size: 19px; }
 }
 
+
+/* Supported service integrations */
+.integrations-section{padding-top:88px;padding-bottom:88px}
+.integrations-frame{width:min(760px,100%);margin:0 auto;display:grid;grid-template-columns:1fr 1px 1fr;align-items:center;gap:28px;padding:30px 38px;border:1px solid rgba(255,255,255,.13);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));box-shadow:0 24px 70px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.07)}
+.integration-logo{min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.integration-logo img{display:block;width:132px;height:132px;object-fit:contain;border-radius:18px;background:#fff;box-shadow:0 12px 35px rgba(0,0,0,.18)}
+.integration-logo span{font-size:14px;font-weight:800;color:#eef2f8}
+.integration-divider{height:112px;background:linear-gradient(transparent,rgba(255,255,255,.2),transparent)}
+.integrations-caption{max-width:680px;margin:22px auto 0;text-align:center;color:var(--muted);font-size:12px;line-height:2}
+@media(max-width:760px){.integrations-section{padding:62px 0}.integrations-frame{gap:12px;padding:18px 12px;border-radius:21px}.integration-logo{min-height:128px;gap:9px}.integration-logo img{width:min(26vw,100px);height:min(26vw,100px);border-radius:14px}.integration-logo span{font-size:12px}.integration-divider{height:90px}.integrations-caption{font-size:10px;padding-inline:8px}}
+
 </style>
 </head>
 <body>
@@ -600,6 +611,18 @@ footer{padding:30px 0 40px}
    <article class="service reveal delay-1" style="--glow:#57e6f4"><span class="service-index">05 / RESPONSIVE</span><div class="service-icon">▣</div><h3>نمایش بی‌نقص در همه دستگاه‌ها</h3><p>چیدمان واکنش‌گرا برای موبایل، تبلت و دسکتاپ؛ بدون اسکرول افقی و به‌هم‌ریختگی</p></article>
    <article class="service reveal delay-2" style="--glow:#c7ff4a"><span class="service-index">06 / GROWTH</span><div class="service-icon">↗</div><h3>آماده برای توسعه</h3><p>ساختاری قابل گسترش تا بتوان امکانات جدید را با رشد پروژه به سایت اضافه کرد</p></article>
   </div>
+ </div>
+</section>
+
+<section id="integrations" class="integrations-section">
+ <div class="wrap">
+  <div class="section-head center reveal"><div class="kicker">CONNECTED SERVICES</div><h2>پشتیبانی از <em>سرویس‌های مختلف</em><br>برای سایت‌ها</h2><p>امکان اتصال و راه‌اندازی سرویس‌های موردنیاز هر وب‌سایت، متناسب با امکانات و ساختار پروژه</p></div>
+  <div class="integrations-frame reveal">
+   <div class="integration-logo"><img src="data:image/webp;base64,UklGRsgLAABXRUJQVlA4ILwLAACQRACdASoEAQQBPmEwlUckIyIhJhGJIIAMCWVu4WneArB6nJSCX/dfyc/KrpfN3e+n7wdU6hn1N9xfzv9i/GLtQeYH+qn+2/tHWX8wH7B/sp7uH+X9UH0Z/IL/K/6r1m/oH/ud6Z37a/DJ+1f7X+0NqqGiDw7/wnLUpH/wb+r/JD2I8JeAF7F/xO8xc1/tPf16sSs/QA/SvoQ6C/zr/T+wYN98e4sNRcQO0VwZFrPkh76ZOJ+VZ7akGJJPPa0Xl7LSe1iHkj5AHRD73Gx21pmyA+tsREOVhFUtrlfol4aJyjDA7rrjbpb8HfNywbxNritnU8/X8kfOxmTU+DrUgacZQ7fIxaXtogqupptt8c+6+s7s4I1gU3AWtaMh0OGQuhwtVwZCh71F0FjIX+5ZYue1NbZHIaDR0WeSQSY8C30Z+zOb89o7YkmsCf6naMlueSQSkzv5L9jxSnrwNy3pMWHFGkscfRQ9XKE8JCF/q4Mi1n2t5u/uJF2sVsrrp7fHuLG5t+7wZHz/h5OzVxqoSwst8e4sclbdNJ66RkKRCZVXumKUPJkcTkpfedK6pGraGIspSeaGU+CGuL55I+/Vvh/Y32yL0FW8oo08zOu1kElw4ef+LUEjokORN4+XClBDT53g4sSZP2UEypySZZpNZxRk8e+o2eHDbVn3sQkOwGjcSIod4nlKEdnnOofgksAZq/9XSwmHiQpdDDijRX3e80dJ1gnQt8i7bXFP7iw2QAD+/jh0RU/MHD6ScgAwLXzFUOej620q16CeUQfWeeu4W3UJi+xrulvjvhgi9VuT6oQbwmKXcdehqgAM2lu4A2vkWlx3dtEaI/212ccvbPqhkbzSYDyIOxRU2grLjwqS4z0GMtbR3iF+gDsEjW6/69YW2aV+CvPAURq1PY2O5M7Z7CYHxhUWY2T9xyWYNrZE6kdt8rwq0F8XV4+7RtHe8vrxs8wnfzlHnm/TKM3hCiCpIxmxJzQ4bhbU7i4Fa6QuNTtWUxQoO91zl2UVDk5CfaiI24jX/4MH3YVlgJvP+0QLEP8FBfFWR2H4FDqk32YqVGengEFBeHUcH9FmTlAI7ajzNOCP+4sNIAZeVj327ZnrlNUSOOgEkHjzdoNIyjgrb1V1p/BT5YHBQ2YZQHYRJRj+ru9ViYgGUsdXBke9sfRfiAXkrf9AwKrooRj1G49MY1ZSZMd15Wvuo1hAXCjGnr/kXdl7hKH7ha+xaLCsvR0NUury/wkEhjtsW6nPmV2N4XUu5s+gxdKuC4k/p671nKyIw03XaOgcXkCas2nvEGhuObIYt3xuHH9pVGdYp8taICGHoW9WNoT0Ox7aT8UxcSUrnnaDEkG7uZA9eXt+xTPd1AytvFm1PSaU/AEQNmsHjppJ7y5PQZtRlX5b1rbUdz9J9WwvqX24tWwyMz5J7ggjknK7cAfOt3jJzLLkuT0OZrf46pLBwlvwopwDnWuHMBakKh1JSKRGDqtIdHycnh6pUmutMna+CTfi3r2vxQKpAzuLmIdmM5JcWmMBv5zjmfhuy5wvun+jnq/ykrKerwDfuE8IPnh/bvIBGS/1Ou0EUkG6rBQApku2Hl988hULWboIfO7n0la8GG8XMw4OjVmyJjB1W0TD6fANtrxGnt6M55hvge7JMeeVKu0p1kMi33KI4jD6nj0svRTwG3AAAhv8WA6guPBqdwZfP+i2vocp+0jIY39R3nNJWxzbWrUWYDaH6tokYPJPO0dGkayGPbg6B3FFOwglK0o2z/c049gT/ocsZB5Cu0jShETAtU+/o2PyUoFjF5Q8Hr9YzM8CqGojBNWo02Q2ar15ptkpbzt+FXszy2tjdu3CYPGAMmgASb6rUeBshkr4hyfFmyrI1MwBpviqR8D95uIcn/VjuZTCx623qkmdAVb8TwajYiIViMLBj2AwlcDACNwAdl6b2s4PCibgRv03n5oVt/tyyM9lh2IuQ9MdpREnsWld/fZ4B/gZVII0/wdOwltV40nSKXO2U6OaOQUPdG7NVFCmVtXW/4bBEcY4YusPACFcvVopgfwxAtSv4LKVcUr6xVXye5b4XIvI1vY0GByfJVWGtfjzirj9mqgFZm6SrOnedQ2S1FJTVcNkPXWOaJUVUW4Mq8Y1Cmp3Egu+M3R9T5W0ur4JFswhAQFb2ulmd6lYu7i0JdIacdZKlApQ0jx4UpO4FBivtxF0Kv+z+L49vBGJMsSC01puyz+OpBYYjfriZHdBegemMa5KOTL/wGaATgMKSZRsZP4TJBo5jVWM9X8FMOt8luJ/O67UkFUOfdGj21GmUQzpjPJyYlMjmuf2UmlQ+R9Gs3fGUfE/cdF+fS85exrRxb40D8pLQ31eFrmp7R+vIkjRxVLsjHJnAJ1Z+5j+XGAbcoedz55x2b4ljwnV6T+V4ShG5QjG5vdBYbdROR4pOKSeiLl2k+jmtKpZSquKJSf5F4KTJsIIapTsDuSR/mOENU0ss8Dw1NAAunCOEGN3x9us+PRN/oxtNoLltqevVHgwFhjroP2gyPwWlLVpAHe96l0Mt12/TRb2bmA39o8LsKiPLgy+JjKqa7ptQ8AAr3TjFxx5dPcbzgTmxtueX4jN3E5lFD6OHwjDZGfUy/3IIJ5SSssG8gox8EC08zuEUuff5tqDS2wpBievXmJAdFRKPS8LyGQl+m42hUCNPOihQ4BjWKK4eF+7AOaqib78L8OdukzrKHfKlfHgDfkCb3pBajHL0PQywChvA/9HhUBmaRSa/f8Ko5PYUWuc3hkj/Xod63/EYADVJ2lIvdPvj9K5v23TjscJsNUn+GV1PpSuCNqQKtgJ6P/olneKv32JoXWOLd1J+fWb0fs9IELLwtp7hNx8/9/9aZ6bzynRiO2Taw5wfCVYlzH/5V9a8QXWJG0dicJ56/ozQMvkWM7WR1lWhmI+jxPyoFND7MiNoH98suqewIFpILXefFuBQDb7aZtXB6C2YH4Yz1SNKSnJ/15dH34o2IMFNWPCeT2mbh8hPoKtFisNY/8PUXPuBEdM+dg+52/DhaGHUc/b8MemmzELZX2+WT/zlzgJWuEEXSLByHO0aGCHI5i6LYMf1JoBxfEoqtVwkn5JudJ77jwUZJ5B+qNdgubWm4XM7V++H39pA7VStFWaGDuLAP/dNUyvzfeUxcAhrn+srJtunztXckcIQyljcKdzLtXhCimQ5DN6dfoXz0Wj/wbAEO6dRdG0/Z8me//wvQgZdKpDO5xj17cp7Nz8ebRhyrdSchJqArU+KJ8BD5LpQ9e2ywwFHzGy2OPyhSJJtoOraLTmesXuuSmg7adULY+rg3ora9WbQcXR3JInLnNZiKFeEqx8mny5Bjyxkcfqk/HgO66Zv9CiyQLzwshoqAjBJqa2gOHdExRJdpWrvt4ihkeWo+UXjm+QHwdlHXFTxm8a2BKzwFpzTdOanfd5HI3TSOALdezbb8jmVqGNnwjwkuamZ/R+AJk9X3h93fJgRM2Ukfeihq2FGKZbXAsSqnI81buKLPJiK4jZgu1147lDglMmf7CYa/F8W/DbU3GzYhFs4s7S78JC8ZfxMX4YbBf2zIxA5dQZsXdvNH4vJSt9cfBPpNKdVyNPTUMyRdEUlB0UvF9eWuLtgvaQgNC8KVy28IZjhDSVdvfJgskGM8qchq/zVkbxPyS2n0A0T9xHTMyyKnvXu3nhj5QpB54yOIwqvnaq9ybgHNG9sWa/lqQFz14JqDX3dArnEdPdXnjS6b6WLcRrszHxICy9sLh24evKUn3xoJYOQ7tfoF5s1Z7ayK/2oPUcc9ozg2oSx7Kutbonh3IjDqw6wOXaeHQYIigC03gQjsH6f4Tdg5X7QBwuMObahcZUidKEBqAd1k64e6jpaXV8bZXRTmCVRbH8fc22mHOdz1XDlP7BObv7prvddh+XHR+/ehb0nHCfYjFZOmjNZ4pV/1b1Xa+5XjUM+50equz1XetpjyJMtiOBeaGYI8ZCb1w96Vi01WQf3etduBWdS7DgAAAAAAAA" alt="زرین‌پال"><span>زرین‌پال</span></div>
+   <div class="integration-divider"></div>
+   <div class="integration-logo"><img src="data:image/webp;base64,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" alt="گفتینو"><span>گفتینو</span></div>
+  </div>
+  <p class="integrations-caption">این موارد نمونه‌ای از سرویس‌های قابل پشتیبانی هستند؛ اتصال هر سرویس با توجه به نیاز پروژه بررسی می‌شود</p>
  </div>
 </section>
 
@@ -697,19 +720,6 @@ footer{padding:30px 0 40px}
 </section>
 
 
-<section id="referral" class="referral-section">
- <div class="wrap">
-  <div class="section-head center reveal"><div class="kicker">INVITE A FRIEND / GET REWARDED</div><h2>دوستتو دعوت کن <em>تخفیف بگیر</em></h2><p>با دعوت دوستت، هر دو سهمی از تخفیف دارید</p></div>
-  <div class="referral-ticket-wrap reveal">
-   <div class="referral-ticket" id="referralTicket">
-    <div class="referral-half"><span class="referral-label">سهم تو</span><strong class="referral-amount">300/000</strong><span class="referral-caption">تومان تخفیف</span></div>
-    <div class="referral-seam" aria-hidden="true"></div>
-    <div class="referral-half"><span class="referral-label">سهم دوستت</span><strong class="referral-amount">250/000</strong><span class="referral-caption">تومان تخفیف</span></div>
-   </div>
-  </div>
- </div>
-</section>
-
 <section id="process">
  <div class="wrap">
   <div class="section-head center reveal"><div class="kicker">HOW IT WORKS</div><h2>از یک پیام تا <em>یک محصول واقعی</em></h2><p>مسیر همکاری روشن است؛ قدم‌به‌قدم و با هماهنگی مستقیم</p></div>
@@ -759,12 +769,7 @@ footer{padding:30px 0 40px}
  const back=document.getElementById("backTop");
  window.addEventListener("scroll",()=>back.classList.toggle("show",window.scrollY>500),{passive:true});
  back.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
- document.getElementById("year").textContent=new Date().getFullYear();
-
- const referralTicket=document.getElementById("referralTicket");
- if(referralTicket){setInterval(()=>{referralTicket.classList.add("is-split");setTimeout(()=>referralTicket.classList.remove("is-split"),5000);},10000);}
-
- if(window.matchMedia("(pointer:fine)").matches){document.querySelectorAll(".plan,.service,.work-card").forEach(card=>{card.addEventListener("pointermove",e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform="translateY(-7px) perspective(900px) rotateX("+(-y*3)+"deg) rotateY("+(x*3)+"deg)";});card.addEventListener("pointerleave",()=>card.style.transform="");});}
+ document.getElementById("year").textContent=new Date().getFullYear();if(window.matchMedia("(pointer:fine)").matches){document.querySelectorAll(".plan,.service,.work-card").forEach(card=>{card.addEventListener("pointermove",e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform="translateY(-7px) perspective(900px) rotateX("+(-y*3)+"deg) rotateY("+(x*3)+"deg)";});card.addEventListener("pointerleave",()=>card.style.transform="");});}
 })();
 </script>
 </body>
