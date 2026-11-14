@@ -319,14 +319,7 @@ footer{padding:30px 0 40px}
 @media(prefers-reduced-motion:reduce){.review-card.reveal.visible,.review-card.reveal.visible .review-stars span{animation:none;opacity:1;transform:none;filter:none}}
 
 
-/* Review selector and luminous star finish */
-.reviews-toolbar{display:flex;justify-content:center;align-items:center;gap:13px;flex-wrap:wrap;margin:-20px 0 30px}
-.reviews-toolbar label{font-size:12px;color:#aab6c8}
-.reviews-select-wrap{position:relative}
-.reviews-select{appearance:none;min-width:210px;padding:12px 42px 12px 17px;border:1px solid rgba(199,255,74,.28);border-radius:14px;background:linear-gradient(135deg,rgba(199,255,74,.1),rgba(87,230,244,.07));color:#f4f7fb;font:700 12px inherit;cursor:pointer;outline:none;box-shadow:0 0 25px rgba(199,255,74,.05);transition:.3s}
-.reviews-select:focus,.reviews-select:hover{border-color:rgba(199,255,74,.65);box-shadow:0 0 24px rgba(199,255,74,.13)}
-.reviews-select option{background:#151d2b;color:#f4f7fb}
-.reviews-select-wrap::after{content:"⌄";position:absolute;left:15px;top:50%;transform:translateY(-55%);color:var(--lime);font-size:18px;pointer-events:none}
+/* Luminous review stars */
 .review-stars span{text-shadow:0 0 7px rgba(255,214,107,.9),0 0 17px rgba(255,190,65,.65),0 0 30px rgba(255,190,65,.35);animation:starGlow 1.8s ease-in-out infinite alternate}
 .review-stars span:nth-child(2){animation-delay:.2s}.review-stars span:nth-child(3){animation-delay:.4s}.review-stars span:nth-child(4){animation-delay:.6s}.review-stars span:nth-child(5){animation-delay:.8s}
 @keyframes starGlow{from{filter:drop-shadow(0 0 1px rgba(255,214,107,.25));transform:scale(1)}to{filter:drop-shadow(0 0 7px rgba(255,214,107,.9));transform:scale(1.13)}}
@@ -479,10 +472,6 @@ footer{padding:30px 0 40px}
 <section id="reviews">
  <div class="wrap">
   <div class="section-head center reveal"><div class="kicker">KIND WORDS / FEEDBACK</div><h2>تجربه‌ها و <em>دیدگاه‌ها</em></h2><p>چند نمونه از بازخوردها درباره طراحی و توسعه پروژه‌های اختصاصی</p></div>
-  <div class="reviews-toolbar">
-   <label for="reviewsSet">نمایش مجموعه نظرات</label>
-   <span class="reviews-select-wrap"><select class="reviews-select" id="reviewsSet" aria-label="انتخاب مجموعه نظرات"><option value="0">مجموعه اول · شروع همکاری</option><option value="1">مجموعه دوم · تجربه پروژه‌ها</option></select></span>
-  </div>
   <div class="reviews-grid" id="reviewsGrid">
    <article class="review-card reveal" style="--review-glow:#c7ff4a"><div class="review-stars" aria-label="۵ ستاره"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="review-quote">چیزی که برام مهم بود این بود که سایت فقط ظاهر خوبی نداشته باشه و واقعاً با نیاز پروژه هماهنگ باشه. ساختار و جزئیات طراحی خیلی خوب و منظم از آب درآمد</p><div class="review-person"><span class="review-avatar">ن</span><div><strong>نیما رضایی</strong><small>نمونه نمایشی · طراحی وب‌سایت</small></div></div></article>
    <article class="review-card reveal" style="--review-glow:#57e6f4"><div class="review-stars" aria-label="۵ ستاره"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="review-quote">ترکیب ظاهر مدرن با پنل مدیریت کاربردی دقیقاً همان چیزی بود که برای پروژه لازم داشتیم. نمایش سایت روی موبایل هم روان و مرتب است</p><div class="review-person"><span class="review-avatar">م</span><div><strong>مریم احمدی</strong><small>نمونه نمایشی · فروشگاه اینترنتی</small></div></div></article>
