@@ -286,6 +286,38 @@ footer{padding:30px 0 40px}
  .portfolio-card.reveal.visible{animation:none}
 }
 
+
+/* Testimonials section — isolated styles */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.review-card{position:relative;min-width:0;min-height:255px;padding:27px;border:1px solid rgba(255,255,255,.11);border-radius:25px;background:linear-gradient(145deg,rgba(25,34,50,.94),rgba(15,20,31,.96));overflow:hidden;box-shadow:0 18px 48px rgba(0,0,0,.16);transition:transform .4s,border-color .4s,box-shadow .4s}
+.review-card::before{content:"";position:absolute;width:180px;height:180px;left:-100px;top:-110px;border-radius:50%;background:var(--review-glow,var(--lime));filter:blur(75px);opacity:.13;transition:opacity .4s}
+.review-card:hover{transform:translateY(-8px);border-color:rgba(199,255,74,.32);box-shadow:0 25px 60px rgba(0,0,0,.25)}
+.review-card:hover::before{opacity:.28}
+.review-stars{display:flex;gap:5px;direction:ltr;justify-content:flex-end;margin-bottom:22px;color:#ffd66b;font:700 21px/1 Arial}
+.review-stars span{display:inline-block;opacity:0;transform:translateY(-18px) rotate(-24deg) scale(.5);filter:blur(4px)}
+.review-card.reveal.visible .review-stars span{animation:reviewStarIn .55s cubic-bezier(.2,.8,.2,1) forwards}
+.review-card.reveal.visible .review-stars span:nth-child(1){animation-delay:.12s}
+.review-card.reveal.visible .review-stars span:nth-child(2){animation-delay:.22s}
+.review-card.reveal.visible .review-stars span:nth-child(3){animation-delay:.32s}
+.review-card.reveal.visible .review-stars span:nth-child(4){animation-delay:.42s}
+.review-card.reveal.visible .review-stars span:nth-child(5){animation-delay:.52s}
+@keyframes reviewStarIn{to{opacity:1;transform:translateY(0) rotate(0) scale(1);filter:blur(0)}}
+.review-card.reveal.visible{animation:reviewCardIn .8s cubic-bezier(.2,.8,.2,1) both}
+.review-card.reveal.visible:nth-child(2){animation-delay:.13s}
+.review-card.reveal.visible:nth-child(3){animation-delay:.26s}
+@keyframes reviewCardIn{from{opacity:0;transform:translateY(42px) scale(.96);filter:blur(6px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+.review-quote{position:relative;z-index:1;color:#d5dce7;font-size:13px;line-height:2.15;min-height:112px}
+.review-person{position:relative;z-index:1;display:flex;align-items:center;gap:12px;margin-top:22px;padding-top:17px;border-top:1px solid rgba(255,255,255,.09)}
+.review-avatar{width:43px;height:43px;flex:none;display:grid;place-items:center;border-radius:14px;background:rgba(199,255,74,.1);color:var(--lime);font-size:18px;font-weight:900}
+.review-card:nth-child(2) .review-avatar{background:rgba(87,230,244,.1);color:var(--cyan)}
+.review-card:nth-child(3) .review-avatar{background:rgba(155,140,255,.12);color:var(--violet)}
+.review-person strong{display:block;font-size:13px;color:#f3f6fb}
+.review-person small{display:block;margin-top:2px;color:#8290a5;font-size:10px}
+.reviews-note{text-align:center;margin-top:23px;color:#748197;font-size:11px}
+@media(max-width:900px){.reviews-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.review-card:last-child{grid-column:1/-1}}
+@media(max-width:600px){.reviews-grid{grid-template-columns:minmax(0,1fr);gap:13px}.review-card{min-height:0;padding:23px}.review-card:last-child{grid-column:auto}.review-quote{min-height:0}}
+@media(prefers-reduced-motion:reduce){.review-card.reveal.visible,.review-card.reveal.visible .review-stars span{animation:none;opacity:1;transform:none;filter:none}}
+
 </style>
 </head>
 <body>
@@ -294,7 +326,7 @@ footer{padding:30px 0 40px}
   <nav class="nav wrap" aria-label="ناوبری اصلی">
     <a class="brand" href="#home" aria-label="Amir Site"><span class="brand-mark">A</span><span>AMIR<span style="color:var(--lime)">SITE</span></span></a>
     <ul class="navlinks" id="navLinks">
-      <li><a href="#services">خدمات</a></li><li><a href="#plans">پلن‌ها</a></li><li><a href="#work">نمونه‌کارها</a></li><li><a href="#team">سازندگان</a></li><li><a href="#process">مراحل همکاری</a></li><li><a href="#faq">سؤالات متداول</a></li>
+      <li><a href="#services">خدمات</a></li><li><a href="#plans">پلن‌ها</a></li><li><a href="#work">نمونه‌کارها</a></li><li><a href="#team">سازندگان</a></li><li><a href="#reviews">نظرات</a></li><li><a href="#process">مراحل همکاری</a></li><li><a href="#faq">سؤالات متداول</a></li>
     </ul>
     <div class="nav-actions">
       <a class="cta" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener">شروع گفتگو <span class="arrow">↗</span></a>
@@ -426,6 +458,31 @@ footer{padding:30px 0 40px}
  </div>
 </section>
 
+
+
+<section id="reviews">
+ <div class="wrap">
+  <div class="section-head center reveal"><div class="kicker">KIND WORDS / FEEDBACK</div><h2>چند نگاه به <em>تجربه همکاری</em></h2><p>نمونه‌ای از بازخوردهایی که می‌توانند درباره روند طراحی و توسعه یک پروژه مطرح شوند</p></div>
+  <div class="reviews-grid">
+   <article class="review-card reveal" style="--review-glow:#c7ff4a">
+    <div class="review-stars" aria-label="۵ ستاره"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+    <p class="review-quote">چیزی که برام مهم بود این بود که سایت فقط ظاهر خوبی نداشته باشه و واقعاً با نیاز پروژه هماهنگ باشه. ساختار و جزئیات طراحی خیلی خوب و منظم از آب درآمد</p>
+    <div class="review-person"><span class="review-avatar">ن</span><div><strong>کارفرمای نمونه ۰۱</strong><small>بازخورد نمونه · طراحی وب‌سایت</small></div></div>
+   </article>
+   <article class="review-card reveal" style="--review-glow:#57e6f4">
+    <div class="review-stars" aria-label="۵ ستاره"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+    <p class="review-quote">ترکیب ظاهر مدرن با پنل مدیریت کاربردی دقیقاً همان چیزی بود که برای پروژه لازم داشتیم. نمایش سایت روی موبایل هم روان و مرتب است</p>
+    <div class="review-person"><span class="review-avatar">م</span><div><strong>کارفرمای نمونه ۰۲</strong><small>بازخورد نمونه · فروشگاه اینترنتی</small></div></div>
+   </article>
+   <article class="review-card reveal" style="--review-glow:#9b8cff">
+    <div class="review-stars" aria-label="۵ ستاره"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+    <p class="review-quote">از اینکه مراحل کار مشخص بود و امکانات بر اساس ایده خود پروژه طراحی شد، رضایت داشتم. نتیجه نهایی حس یک محصول اختصاصی و متفاوت دارد</p>
+    <div class="review-person"><span class="review-avatar">آ</span><div><strong>کارفرمای نمونه ۰۳</strong><small>بازخورد نمونه · سامانه اختصاصی</small></div></div>
+   </article>
+  </div>
+  <p class="reviews-note">متن‌های این بخش نمونه نمایشی هستند و به‌عنوان نظر واقعی مشتریان ارائه نشده‌اند</p>
+ </div>
+</section>
 
 <section id="process">
  <div class="wrap">
