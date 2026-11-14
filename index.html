@@ -553,6 +553,69 @@ footer{padding:30px 0 40px}
 .integrations-caption{max-width:680px;margin:22px auto 0;text-align:center;color:var(--muted);font-size:12px;line-height:2}
 @media(max-width:760px){.integrations-section{padding:62px 0}.integrations-frame{gap:12px;padding:18px 12px;border-radius:21px}.integration-logo{min-height:128px;gap:9px}.integration-logo img{width:min(26vw,100px);height:min(26vw,100px);border-radius:14px}.integration-logo span{font-size:12px}.integration-divider{height:90px}.integrations-caption{font-size:10px;padding-inline:8px}}
 
+
+/* Mobile layout hardening: prevent horizontal page overflow without changing desktop */
+@media (max-width: 760px) {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+  body { position: relative; }
+  .wrap, main, header, footer, section {
+    max-width: 100%;
+  }
+  .wrap {
+    width: calc(100% - 32px);
+    min-width: 0;
+  }
+  section, .hero, .hero-grid, .hero-content, .hero-art,
+  .services-grid, .plans-grid, .work-grid, .portfolio-grid,
+  .reviews-grid, .process, .contact-panel, .integrations-frame,
+  .footer-inner, .plan-intro, .section-head {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .hero-grid > *, .services-grid > *, .plans-grid > *,
+  .work-grid > *, .portfolio-grid > *, .reviews-grid > *,
+  .process > *, .contact-panel > *, .integrations-frame > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+  img, video, iframe, svg, canvas {
+    max-width: 100%;
+  }
+  .hero h1, .section-head h2, .contact-panel h2,
+  .service h3, .plan-title, .work-card h3,
+  .portfolio-info h3, .founder-copy h3, .faq-q,
+  .contact-panel p, .section-head p {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+  .hero-art { overflow: hidden; }
+  .art-halo { max-width: 84vw; }
+  .float-chip.one { right: 4px; }
+  .float-chip.two { left: 4px; }
+  .topbar { max-width: calc(100% - 20px); }
+  .nav, .brand, .nav-actions { min-width: 0; }
+  .brand { flex-shrink: 1; }
+  .brand > span:last-child { min-width: 0; }
+  .integrations-frame {
+    grid-template-columns: minmax(0,1fr) 1px minmax(0,1fr);
+  }
+  .portfolio-info { min-width: 0; }
+  .portfolio-info > div { min-width: 0; }
+  .contact-action { min-width: 0; max-width: 100%; }
+  .footer-inner > * { max-width: 100%; overflow-wrap: anywhere; }
+}
+@media (max-width: 390px) {
+  .wrap { width: calc(100% - 26px); }
+  .integrations-frame { gap: 8px; padding-inline: 9px; }
+  .integration-logo img { width: min(25vw, 88px); height: min(25vw, 88px); }
+  .hero h1 { font-size: clamp(32px, 9vw, 40px); letter-spacing: -.8px; }
+  .hero-copy { overflow-wrap: anywhere; }
+}
+
 </style>
 </head>
 <body>
