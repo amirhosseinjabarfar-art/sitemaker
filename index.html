@@ -774,23 +774,23 @@ footer{padding:30px 0 40px}
 
 
 /* SITEX order prompt */
-.order-nudge{padding:72px 0 84px}
-.order-nudge-card{position:relative;max-width:850px;margin:0 auto;min-height:230px;padding:48px 28px;border:1px solid rgba(199,255,74,.24);border-radius:30px;background:radial-gradient(ellipse at 50% 100%,rgba(199,255,74,.12),transparent 58%),linear-gradient(145deg,#151e2a,#0d131d);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:25px;overflow:hidden;isolation:isolate;box-shadow:0 24px 70px rgba(0,0,0,.2)}
-.order-nudge-card:before{content:"";position:absolute;inset:12px;border:1px solid rgba(199,255,74,.07);border-radius:22px;pointer-events:none}
-.order-nudge-title{position:relative;z-index:1;margin:0;text-align:center;font-size:clamp(20px,3vw,29px);font-weight:850;line-height:1.7}
+.order-nudge{padding:78px 0 88px}
+.order-nudge-card{position:relative;max-width:1080px;margin:0 auto;min-height:320px;padding:66px 36px;border:1px solid rgba(199,255,74,.3);border-radius:34px;background:radial-gradient(ellipse at 50% 100%,rgba(199,255,74,.19),transparent 60%),radial-gradient(ellipse at 10% 0%,rgba(199,255,74,.09),transparent 42%),linear-gradient(145deg,#172333,#0b121c);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;overflow:hidden;isolation:isolate;box-shadow:0 28px 85px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.05)}
+.order-nudge-card:before{content:"";position:absolute;inset:14px;border:1px solid rgba(199,255,74,.1);border-radius:25px;pointer-events:none}
+.order-nudge-title{position:relative;z-index:1;margin:0;text-align:center;font-size:clamp(25px,3.8vw,38px);font-weight:900;line-height:1.7}
 .order-nudge-title em{font-style:normal;color:var(--lime)}
-.order-nudge-target{position:relative;z-index:1;width:min(100%,390px);display:flex;justify-content:center;align-items:center}
-.order-nudge-button{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:62px;padding:16px 25px;border-radius:17px;border:1px solid rgba(199,255,74,.65);background:linear-gradient(135deg,#d8ff79,#a8ed32);color:#10170a;font-family:"Estedad",sans-serif;font-size:15px;font-weight:900;text-decoration:none;box-shadow:0 0 0 6px rgba(199,255,74,.07),0 13px 35px rgba(157,225,48,.2);transition:transform .25s,box-shadow .25s;animation:orderButtonPulse 2.8s ease-in-out infinite}
-.order-nudge-button:hover{transform:translateY(-4px) scale(1.025);box-shadow:0 0 0 9px rgba(199,255,74,.09),0 18px 42px rgba(157,225,48,.3)}
-.order-nudge-button svg{width:23px;height:23px;flex:none}
-.order-arrow{position:absolute;color:var(--lime);font:800 35px/1 "Space Grotesk",sans-serif;text-shadow:0 0 18px rgba(199,255,74,.35);animation:orderArrowFloat 1.8s ease-in-out infinite}
-.order-arrow.a1{top:-42px;left:8%;transform:rotate(45deg)}
-.order-arrow.a2{top:-42px;right:8%;transform:rotate(-45deg);animation-delay:.2s}
-.order-arrow.a3{bottom:-42px;left:8%;transform:rotate(-45deg);animation-delay:.4s}
-.order-arrow.a4{bottom:-42px;right:8%;transform:rotate(45deg);animation-delay:.6s}
-@keyframes orderArrowFloat{0%,100%{translate:0 0;opacity:.7}50%{translate:0 -6px;opacity:1}}
-@keyframes orderButtonPulse{0%,100%{box-shadow:0 0 0 6px rgba(199,255,74,.07),0 13px 35px rgba(157,225,48,.2)}50%{box-shadow:0 0 0 10px rgba(199,255,74,.025),0 13px 42px rgba(157,225,48,.3)}}
-@media(max-width:600px){.order-nudge{padding:45px 0 58px}.order-nudge-card{min-height:215px;padding:40px 20px;border-radius:24px}.order-nudge-button{font-size:13px;min-height:58px;padding:14px 17px}.order-arrow{font-size:29px}.order-arrow.a1,.order-arrow.a3{left:0}.order-arrow.a2,.order-arrow.a4{right:0}}
+.order-nudge-target{position:relative;z-index:1;width:min(100%,540px);min-height:105px;display:flex;justify-content:center;align-items:center}
+.order-nudge-button{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:76px;min-width:270px;padding:19px 36px;border-radius:20px;border:1px solid rgba(199,255,74,.8);background:linear-gradient(135deg,#e4ff9a,#b7f344 55%,#9cde2c);color:#10170a;font-family:"Estedad",sans-serif;font-size:19px;font-weight:950;text-decoration:none;box-shadow:0 0 0 8px rgba(199,255,74,.08),0 16px 44px rgba(157,225,48,.28);transition:transform .25s,box-shadow .25s;animation:orderButtonPulse 2.5s ease-in-out infinite}
+.order-nudge-button:hover{transform:translateY(-5px) scale(1.04);box-shadow:0 0 0 12px rgba(199,255,74,.1),0 22px 55px rgba(157,225,48,.38)}
+.order-nudge-button svg{width:27px;height:27px;flex:none}
+.order-arrow{position:absolute;color:var(--lime);font:900 49px/1 "Space Grotesk",sans-serif;-webkit-text-stroke:1px rgba(255,255,255,.35);filter:drop-shadow(0 0 9px rgba(199,255,74,.65));animation:orderArrowDance 1.65s ease-in-out infinite}
+.order-arrow.a1{top:0;left:5%;transform:rotate(42deg);animation-delay:0s}
+.order-arrow.a2{top:0;right:5%;transform:rotate(138deg);animation-delay:.25s}
+.order-arrow.a3{bottom:0;left:5%;transform:rotate(-42deg);animation-delay:.5s}
+.order-arrow.a4{bottom:0;right:5%;transform:rotate(-138deg);animation-delay:.75s}
+@keyframes orderArrowDance{0%,100%{translate:0 0;scale:1;opacity:.72}50%{translate:0 -11px;scale:1.22;opacity:1;filter:drop-shadow(0 0 16px rgba(199,255,74,.95))}}
+@keyframes orderButtonPulse{0%,100%{box-shadow:0 0 0 8px rgba(199,255,74,.08),0 16px 44px rgba(157,225,48,.28)}50%{box-shadow:0 0 0 14px rgba(199,255,74,.025),0 18px 52px rgba(157,225,48,.36)}}
+@media(max-width:600px){.order-nudge{padding:48px 0 58px}.order-nudge-card{min-height:270px;padding:46px 18px;border-radius:25px;gap:25px}.order-nudge-title{font-size:clamp(23px,6vw,30px)}.order-nudge-target{width:100%;min-height:115px}.order-nudge-button{font-size:16px;min-height:66px;min-width:220px;padding:15px 24px}.order-arrow{font-size:35px}.order-arrow.a1{left:0;top:0}.order-arrow.a2{right:0;top:0}.order-arrow.a3{left:0;bottom:0}.order-arrow.a4{right:0;bottom:0}}
 @media(prefers-reduced-motion:reduce){.order-nudge-button,.order-arrow{animation:none!important}}
 
 </style>
@@ -859,6 +859,24 @@ footer{padding:30px 0 40px}
  </div>
 </section>
 
+
+<section class="order-nudge" id="order">
+ <div class="wrap">
+  <div class="order-nudge-card reveal">
+   <h2 class="order-nudge-title">برای سفارش باید <em>اینجا</em> پیام بدی</h2>
+   <div class="order-nudge-target">
+    <span class="order-arrow a1" aria-hidden="true">➤</span>
+    <span class="order-arrow a2" aria-hidden="true">➤</span>
+    <span class="order-arrow a3" aria-hidden="true">➤</span>
+    <span class="order-arrow a4" aria-hidden="true">➤</span>
+    <a class="order-nudge-button" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 12s3.4-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.4 6.5-9.5 6.5S2.5 12 2.5 12Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.1" stroke="currentColor" stroke-width="1.8"/><circle cx="13" cy="11" r=".9" fill="currentColor"/></svg>
+     <span>پیام در روبیکا</span>
+    </a>
+   </div>
+  </div>
+ </div>
+</section>
 
 <section id="themeShowcase" class="theme-showcase">
  <div class="wrap">
@@ -1055,23 +1073,7 @@ footer{padding:30px 0 40px}
  </div>
 </section>
 
-<section class="order-nudge" id="order">
- <div class="wrap">
-  <div class="order-nudge-card reveal">
-   <h2 class="order-nudge-title">برای سفارش باید <em>اینجا</em> پیام بدی</h2>
-   <div class="order-nudge-target">
-    <span class="order-arrow a1" aria-hidden="true">↘</span>
-    <span class="order-arrow a2" aria-hidden="true">↙</span>
-    <span class="order-arrow a3" aria-hidden="true">↗</span>
-    <span class="order-arrow a4" aria-hidden="true">↖</span>
-    <a class="order-nudge-button" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener">
-     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 12s3.4-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.4 6.5-9.5 6.5S2.5 12 2.5 12Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.1" stroke="currentColor" stroke-width="1.8"/><circle cx="13" cy="11" r=".9" fill="currentColor"/></svg>
-     <span>برای سفارش باید اینجا پیام بدی</span>
-    </a>
-   </div>
-  </div>
- </div>
-</section>
+
 
 <section id="contact">
  <div class="wrap">
