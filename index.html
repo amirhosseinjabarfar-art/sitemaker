@@ -10,7 +10,7 @@
 <title>AMIR SITE — طراحی وب‌سایت اختصاصی</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#090b12;--bg2:#0e111b;--panel:#121725;--panel2:#171e2e;--text:#f4f7fb;--muted:#9aa5b7;--line:rgba(255,255,255,.1);--lime:#c7ff4a;--cyan:#57e6f4;--violet:#9b8cff;--shadow:0 28px 90px rgba(0,0,0,.38);--radius:28px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -732,30 +732,30 @@ footer{padding:30px 0 40px}
 .amir-3d-stage{width:100%;min-height:420px;display:grid;place-items:center;perspective:1100px;transform-style:preserve-3d}
 .amir-3d{
  position:relative;display:inline-block;direction:ltr;white-space:nowrap;
- font-family:"Space Grotesk",sans-serif;font-size:clamp(104px,12.5vw,174px);
- font-weight:700;letter-spacing:.055em;line-height:1;
- color:#eaf7ff;
- background:linear-gradient(145deg,#ffffff 5%,#b9d9eb 23%,#57e6f4 48%,#c7ff4a 76%,#f5fff0 100%);
+ font-family:"Orbitron","Space Grotesk",sans-serif;font-size:clamp(104px,12.5vw,174px);
+ font-weight:800;letter-spacing:.075em;line-height:1;
+ color:#eaffc9;
+ background:linear-gradient(145deg,#f4ffd9 0%,#dfff91 18%,#c7ff4a 42%,#8edb27 68%,#efffc1 100%);
  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
- -webkit-text-stroke:1px rgba(220,250,255,.55);
- filter:drop-shadow(0 16px 18px rgba(0,0,0,.45)) drop-shadow(0 0 28px rgba(87,230,244,.2));
+ -webkit-text-stroke:1px rgba(222,255,166,.72);
+ filter:drop-shadow(0 16px 18px rgba(0,0,0,.45)) drop-shadow(0 0 30px rgba(199,255,74,.27));
  transform:rotateX(0deg) rotateY(0deg) translateZ(18px);
  transform-style:preserve-3d;transition:transform .18s cubic-bezier(.2,.8,.2,1),filter .3s;
  will-change:transform;user-select:none;
 }
 .amir-3d::before{
  content:attr(data-text);position:absolute;inset:0;z-index:-1;
- color:#1b6277;-webkit-text-fill-color:#1b6277;
- -webkit-text-stroke:1px rgba(87,230,244,.6);
+ color:#477d12;-webkit-text-fill-color:#477d12;
+ -webkit-text-stroke:1px rgba(199,255,74,.58);
  transform:translate3d(0,0,-20px);
- text-shadow:0 2px 0 #164b60,0 4px 0 #123e52,0 6px 0 #103447,0 8px 0 #0c2938,0 18px 30px rgba(0,0,0,.55);
+ text-shadow:0 2px 0 #477d12,0 4px 0 #37640e,0 6px 0 #294b0a,0 8px 0 #1b3307,0 18px 30px rgba(0,0,0,.55);
 }
 .amir-3d::after{
  content:"";position:absolute;inset:-24% -18%;z-index:-2;pointer-events:none;
- background:radial-gradient(ellipse at 50% 55%,rgba(87,230,244,.16),rgba(87,230,244,.045) 38%,transparent 70%);
+ background:radial-gradient(ellipse at 50% 55%,rgba(199,255,74,.2),rgba(142,219,39,.055) 38%,transparent 70%);
  filter:blur(18px);transform:translateZ(-35px);
 }
-.amir-hero-art:hover .amir-3d{filter:drop-shadow(0 20px 24px rgba(0,0,0,.5)) drop-shadow(0 0 38px rgba(87,230,244,.3))}
+.amir-hero-art:hover .amir-3d{filter:drop-shadow(0 20px 24px rgba(0,0,0,.5)) drop-shadow(0 0 40px rgba(199,255,74,.38))}
 @media(max-width:900px){
  .amir-3d-stage{min-height:280px}
  .amir-3d{font-size:clamp(92px,19vw,142px)}
