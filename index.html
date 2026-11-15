@@ -726,6 +726,52 @@ footer{padding:30px 0 40px}
 @media(max-width:380px){.ai-copy-card{padding:19px 14px}.ai-robot-scene{height:305px}.ai-robot{transform:scale(.82);margin-top:55px}.ai-chat-bubble b{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.ai-robot,.ai-robot-shadow,.ai-robot-eyes i,.ai-antenna i,.ai-spark,.ai-chat-bubble{animation:none!important}}
 
+
+/* Interactive 3D AMIR wordmark — isolated to the home hero */
+.amir-hero-art{overflow:visible;perspective:1100px;isolation:isolate}
+.amir-3d-stage{width:100%;min-height:420px;display:grid;place-items:center;perspective:1100px;transform-style:preserve-3d}
+.amir-3d{
+ position:relative;display:inline-block;direction:ltr;white-space:nowrap;
+ font-family:"Space Grotesk",sans-serif;font-size:clamp(104px,12.5vw,174px);
+ font-weight:700;letter-spacing:.055em;line-height:1;
+ color:#eaf7ff;
+ background:linear-gradient(145deg,#ffffff 5%,#b9d9eb 23%,#57e6f4 48%,#c7ff4a 76%,#f5fff0 100%);
+ -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+ -webkit-text-stroke:1px rgba(220,250,255,.55);
+ filter:drop-shadow(0 16px 18px rgba(0,0,0,.45)) drop-shadow(0 0 28px rgba(87,230,244,.2));
+ transform:rotateX(0deg) rotateY(0deg) translateZ(18px);
+ transform-style:preserve-3d;transition:transform .18s cubic-bezier(.2,.8,.2,1),filter .3s;
+ will-change:transform;user-select:none;
+}
+.amir-3d::before{
+ content:attr(data-text);position:absolute;inset:0;z-index:-1;
+ color:#1b6277;-webkit-text-fill-color:#1b6277;
+ -webkit-text-stroke:1px rgba(87,230,244,.6);
+ transform:translate3d(0,0,-20px);
+ text-shadow:0 2px 0 #164b60,0 4px 0 #123e52,0 6px 0 #103447,0 8px 0 #0c2938,0 18px 30px rgba(0,0,0,.55);
+}
+.amir-3d::after{
+ content:"";position:absolute;inset:-24% -18%;z-index:-2;pointer-events:none;
+ background:radial-gradient(ellipse at 50% 55%,rgba(87,230,244,.16),rgba(87,230,244,.045) 38%,transparent 70%);
+ filter:blur(18px);transform:translateZ(-35px);
+}
+.amir-hero-art:hover .amir-3d{filter:drop-shadow(0 20px 24px rgba(0,0,0,.5)) drop-shadow(0 0 38px rgba(87,230,244,.3))}
+@media(max-width:900px){
+ .amir-3d-stage{min-height:280px}
+ .amir-3d{font-size:clamp(92px,19vw,142px)}
+}
+@media(max-width:600px){
+ .amir-3d-stage{min-height:245px}
+ .amir-3d{font-size:clamp(82px,23vw,120px);letter-spacing:.035em}
+}
+@media(max-width:390px){
+ .amir-3d-stage{min-height:220px}
+ .amir-3d{font-size:clamp(70px,22vw,94px)}
+}
+@media(prefers-reduced-motion:reduce){
+ .amir-3d{transition:none}
+}
+
 </style>
 </head>
 <body>
@@ -753,17 +799,10 @@ footer{padding:30px 0 40px}
    <div class="hero-buttons"><a class="cta" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener">درباره پروژه‌ات صحبت کنیم <span class="arrow">↗</span></a><a class="cta-outline" href="#plans">مشاهده پلن‌ها <span class="arrow">↓</span></a></div>
    <div class="hero-meta"><span><b class="tiny-check">✦</b> طراحی کاملاً اختصاصی</span><span><b class="tiny-check">✦</b> پنل مدیریت متناسب با پروژه</span><span><b class="tiny-check">✦</b> واکنش‌گرا و قابل توسعه</span></div>
   </div>
-  <div class="hero-art" aria-label="نمای گرافیکی طراحی وب‌سایت">
-   <div class="art-halo"></div>
-   <div class="browser">
-    <div class="browser-top"><i></i><i></i><i></i><div class="browser-address"></div></div>
-    <div class="browser-screen">
-     <div class="mock-nav"><div class="mock-logo">YOUR BRAND.</div><div class="mock-pill"></div></div>
-     <div class="mock-hero"><div class="mock-kicker"></div><div class="mock-title"></div><div class="mock-title small"></div><div class="mock-desc"></div><div class="mock-desc short"></div><div class="mock-action"></div></div>
-     <div class="mock-cards"><div class="mock-card"><b></b><span></span><span></span></div><div class="mock-card"><b></b><span></span><span></span></div><div class="mock-card"><b></b><span></span><span></span></div></div>
-    </div>
+  <div class="hero-art amir-hero-art" aria-label="نمای سه‌بعدی دیجیتالی نام AMIR">
+   <div class="amir-3d-stage">
+    <div class="amir-3d" data-text="AMIR" aria-label="AMIR">AMIR</div>
    </div>
-   <div class="float-chip one">✦ پنل مدیریت اختصاصی</div><div class="float-chip two">↗ ساخته‌شده برای رشد</div>
   </div>
  </div>
  <div class="scroll-note"><span></span> برای کشف امکانات بیشتر اسکرول کن</div>
@@ -1019,6 +1058,21 @@ footer{padding:30px 0 40px}
  window.addEventListener("scroll",()=>back.classList.toggle("show",window.scrollY>500),{passive:true});
  back.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
  document.getElementById("year").textContent=new Date().getFullYear();if(window.matchMedia("(pointer:fine)").matches){document.querySelectorAll(".plan,.service,.work-card").forEach(card=>{card.addEventListener("pointermove",e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform="translateY(-7px) perspective(900px) rotateX("+(-y*3)+"deg) rotateY("+(x*3)+"deg)";});card.addEventListener("pointerleave",()=>card.style.transform="");});}
+ // 3D AMIR wordmark follows pointer movement without a cursor-glow effect
+ const amirStage=document.querySelector(".amir-hero-art");
+ const amirWord=document.querySelector(".amir-3d");
+ if(amirStage&&amirWord&&window.matchMedia("(pointer:fine)").matches&&!window.matchMedia("(prefers-reduced-motion:reduce)").matches){
+  amirStage.addEventListener("pointermove",e=>{
+   const r=amirStage.getBoundingClientRect();
+   const x=(e.clientX-r.left)/r.width-.5;
+   const y=(e.clientY-r.top)/r.height-.5;
+   amirWord.style.transform="rotateX("+(-y*22)+"deg) rotateY("+(x*28)+"deg) translateZ(24px)";
+  });
+  amirStage.addEventListener("pointerleave",()=>{
+   amirWord.style.transform="rotateX(0deg) rotateY(0deg) translateZ(18px)";
+  });
+ }
+
 })();
 
  // Animated website theme showcase: changes every five seconds
