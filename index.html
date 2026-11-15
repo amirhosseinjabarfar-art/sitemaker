@@ -772,6 +772,27 @@ footer{padding:30px 0 40px}
  .amir-3d{transition:none}
 }
 
+
+/* SITEX order prompt */
+.order-nudge{padding:72px 0 84px}
+.order-nudge-card{position:relative;max-width:850px;margin:0 auto;min-height:230px;padding:48px 28px;border:1px solid rgba(199,255,74,.24);border-radius:30px;background:radial-gradient(ellipse at 50% 100%,rgba(199,255,74,.12),transparent 58%),linear-gradient(145deg,#151e2a,#0d131d);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:25px;overflow:hidden;isolation:isolate;box-shadow:0 24px 70px rgba(0,0,0,.2)}
+.order-nudge-card:before{content:"";position:absolute;inset:12px;border:1px solid rgba(199,255,74,.07);border-radius:22px;pointer-events:none}
+.order-nudge-title{position:relative;z-index:1;margin:0;text-align:center;font-size:clamp(20px,3vw,29px);font-weight:850;line-height:1.7}
+.order-nudge-title em{font-style:normal;color:var(--lime)}
+.order-nudge-target{position:relative;z-index:1;width:min(100%,390px);display:flex;justify-content:center;align-items:center}
+.order-nudge-button{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:62px;padding:16px 25px;border-radius:17px;border:1px solid rgba(199,255,74,.65);background:linear-gradient(135deg,#d8ff79,#a8ed32);color:#10170a;font-family:"Estedad",sans-serif;font-size:15px;font-weight:900;text-decoration:none;box-shadow:0 0 0 6px rgba(199,255,74,.07),0 13px 35px rgba(157,225,48,.2);transition:transform .25s,box-shadow .25s;animation:orderButtonPulse 2.8s ease-in-out infinite}
+.order-nudge-button:hover{transform:translateY(-4px) scale(1.025);box-shadow:0 0 0 9px rgba(199,255,74,.09),0 18px 42px rgba(157,225,48,.3)}
+.order-nudge-button svg{width:23px;height:23px;flex:none}
+.order-arrow{position:absolute;color:var(--lime);font:800 35px/1 "Space Grotesk",sans-serif;text-shadow:0 0 18px rgba(199,255,74,.35);animation:orderArrowFloat 1.8s ease-in-out infinite}
+.order-arrow.a1{top:-42px;left:8%;transform:rotate(45deg)}
+.order-arrow.a2{top:-42px;right:8%;transform:rotate(-45deg);animation-delay:.2s}
+.order-arrow.a3{bottom:-42px;left:8%;transform:rotate(-45deg);animation-delay:.4s}
+.order-arrow.a4{bottom:-42px;right:8%;transform:rotate(45deg);animation-delay:.6s}
+@keyframes orderArrowFloat{0%,100%{translate:0 0;opacity:.7}50%{translate:0 -6px;opacity:1}}
+@keyframes orderButtonPulse{0%,100%{box-shadow:0 0 0 6px rgba(199,255,74,.07),0 13px 35px rgba(157,225,48,.2)}50%{box-shadow:0 0 0 10px rgba(199,255,74,.025),0 13px 42px rgba(157,225,48,.3)}}
+@media(max-width:600px){.order-nudge{padding:45px 0 58px}.order-nudge-card{min-height:215px;padding:40px 20px;border-radius:24px}.order-nudge-button{font-size:13px;min-height:58px;padding:14px 17px}.order-arrow{font-size:29px}.order-arrow.a1,.order-arrow.a3{left:0}.order-arrow.a2,.order-arrow.a4{right:0}}
+@media(prefers-reduced-motion:reduce){.order-nudge-button,.order-arrow{animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -1030,6 +1051,24 @@ footer{padding:30px 0 40px}
    <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>چطور درخواست طراحی ثبت کنم؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>فرم سفارش یا پرداخت آنلاین در سایت وجود ندارد. تمام هماهنگی‌ها و درخواست‌های همکاری فقط از طریق پیام خصوصی روبیکا انجام می‌شود</p></div></div></article>
    <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>آیا سایت روی موبایل و تبلت هم درست نمایش داده می‌شود؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>بله، طراحی واکنش‌گرا بخشی از روند توسعه است تا چیدمان و امکانات در اندازه‌های مختلف صفحه قابل استفاده باشند</p></div></div></article>
    <article class="faq-item reveal"><button class="faq-q" aria-expanded="false"><span>امکان اضافه‌کردن قابلیت‌های جدید در آینده وجود دارد؟</span><span class="faq-plus">+</span></button><div class="faq-a"><div><p>ساختار پروژه تا جای ممکن با نگاه توسعه‌پذیر طراحی می‌شود. امکان و روش افزودن قابلیت‌های تازه به معماری و امکانات اولیه پروژه بستگی دارد</p></div></div></article>
+  </div>
+ </div>
+</section>
+
+<section class="order-nudge" id="order">
+ <div class="wrap">
+  <div class="order-nudge-card reveal">
+   <h2 class="order-nudge-title">برای سفارش باید <em>اینجا</em> پیام بدی</h2>
+   <div class="order-nudge-target">
+    <span class="order-arrow a1" aria-hidden="true">↘</span>
+    <span class="order-arrow a2" aria-hidden="true">↙</span>
+    <span class="order-arrow a3" aria-hidden="true">↗</span>
+    <span class="order-arrow a4" aria-hidden="true">↖</span>
+    <a class="order-nudge-button" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 12s3.4-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.4 6.5-9.5 6.5S2.5 12 2.5 12Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.1" stroke="currentColor" stroke-width="1.8"/><circle cx="13" cy="11" r=".9" fill="currentColor"/></svg>
+     <span>برای سفارش باید اینجا پیام بدی</span>
+    </a>
+   </div>
   </div>
  </div>
 </section>
