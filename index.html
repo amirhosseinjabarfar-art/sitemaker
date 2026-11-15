@@ -83,6 +83,22 @@ section{padding:112px 0;position:relative}
 .section-head h2{font-size:clamp(32px,4.5vw,56px);font-weight:900;line-height:1.35;letter-spacing:-1.5px}
 .section-head h2 em{font-style:normal;color:var(--lime)}
 .section-head p{color:var(--muted);font-size:15px;line-height:2;margin-top:13px}
+.stats-section{padding:58px 0 72px;overflow:hidden}
+.stats-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.stat-card{--stat-color:var(--lime);position:relative;min-height:190px;padding:25px 22px;border:1px solid rgba(199,255,74,.18);border-radius:24px;background:linear-gradient(145deg,rgba(199,255,74,.075),rgba(255,255,255,.018));display:flex;align-items:center;gap:19px;overflow:hidden;isolation:isolate;transition:transform .4s,border-color .4s,box-shadow .4s}
+.stat-card:nth-child(2){--stat-color:var(--cyan);border-color:rgba(87,230,244,.2);background:linear-gradient(145deg,rgba(87,230,244,.075),rgba(255,255,255,.018))}
+.stat-card:nth-child(3){--stat-color:#b9a8ff;border-color:rgba(155,140,255,.22);background:linear-gradient(145deg,rgba(155,140,255,.08),rgba(255,255,255,.018))}
+.stat-card::before{content:"";position:absolute;z-index:-1;width:170px;height:170px;left:-80px;bottom:-110px;border-radius:50%;background:var(--stat-color);filter:blur(65px);opacity:.2;transition:.4s}
+.stat-card:hover{transform:translateY(-8px);border-color:var(--stat-color);box-shadow:0 18px 55px rgba(0,0,0,.22),0 0 28px color-mix(in srgb,var(--stat-color) 10%,transparent)}
+.stat-icon{width:66px;height:66px;flex:none;display:grid;place-items:center;border-radius:20px;color:var(--stat-color);background:color-mix(in srgb,var(--stat-color) 12%,transparent);border:1px solid color-mix(in srgb,var(--stat-color) 27%,transparent);font-size:29px;animation:statIconFloat 3.2s ease-in-out infinite}
+.stat-card:nth-child(2) .stat-icon{animation-delay:-1s}.stat-card:nth-child(3) .stat-icon{animation-delay:-2s}
+@keyframes statIconFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-7px) rotate(5deg)}}
+.stat-content{min-width:0}.stat-value{display:block;font:800 clamp(34px,4vw,48px)/1.2 "Space Grotesk","Estedad",sans-serif;direction:ltr;text-align:right;color:var(--stat-color);text-shadow:0 0 25px color-mix(in srgb,var(--stat-color) 24%,transparent);letter-spacing:-1.5px}
+.stat-value.yes{font:900 35px/1.4 "Estedad",sans-serif;direction:rtl}
+.stat-label{display:block;margin-top:8px;color:#dce3ed;font-size:14px;font-weight:800}
+.stat-caption{display:block;margin-top:3px;color:#8995a8;font-size:11px}
+@media(max-width:760px){.stats-section{padding:38px 0 52px}.stats-grid{grid-template-columns:1fr;gap:12px}.stat-card{min-height:132px;padding:19px}.stat-icon{width:56px;height:56px;border-radius:17px;font-size:25px}.stat-value{font-size:38px}.stat-value.yes{font-size:31px}.stat-label{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.stat-icon{animation:none}.stat-card{transition:none}}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
 .service{position:relative;min-height:250px;padding:27px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));overflow:hidden;transition:transform .45s,border-color .45s,background .45s}
 .service::after{content:"";position:absolute;width:180px;height:180px;left:-90px;bottom:-110px;background:var(--glow,var(--cyan));filter:blur(90px);opacity:.18;transition:.5s}
@@ -832,6 +848,25 @@ footer{padding:30px 0 40px}
 <div class="marquee" aria-hidden="true"><div class="marquee-track">
  <span>EXCLUSIVE WEB DESIGN</span><b>✳</b><span>SMART ADMIN PANEL</span><b>✳</b><span>CREATIVE DEVELOPMENT</span><b>✳</b><span>YOUR IDEA, YOUR WEBSITE</span><b>✳</b><span>EXCLUSIVE WEB DESIGN</span><b>✳</b><span>SMART ADMIN PANEL</span><b>✳</b><span>CREATIVE DEVELOPMENT</span><b>✳</b><span>YOUR IDEA, YOUR WEBSITE</span><b>✳</b>
 </div></div>
+
+<section class="stats-section" aria-label="شاخص‌های SITEX">
+ <div class="wrap">
+  <div class="stats-grid">
+   <article class="stat-card reveal">
+    <div class="stat-icon" aria-hidden="true">♧</div>
+    <div class="stat-content"><strong class="stat-value" data-count="99" data-suffix="%">99%</strong><span class="stat-label">رضایت مشتری</span><span class="stat-caption">تجربه‌ای با تمرکز بر رضایت شما</span></div>
+   </article>
+   <article class="stat-card reveal delay-1">
+    <div class="stat-icon" aria-hidden="true">✧</div>
+    <div class="stat-content"><strong class="stat-value" data-count="100" data-suffix="%">100%</strong><span class="stat-label">کیفیت</span><span class="stat-caption">توجه به جزئیات در طراحی و اجرا</span></div>
+   </article>
+   <article class="stat-card reveal delay-2">
+    <div class="stat-icon" aria-hidden="true">▤</div>
+    <div class="stat-content"><strong class="stat-value yes">بله</strong><span class="stat-label">دارای دیتابیس</span><span class="stat-caption">امکان اتصال و مدیریت داده‌ها</span></div>
+   </article>
+  </div>
+ </div>
+</section>
 
 <section id="services">
  <div class="wrap">
