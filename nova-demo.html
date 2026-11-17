@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070914"><title>NOVA | جهان ناشناخته</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Vazirmatn,sans-serif;background:#070914;color:white;min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 75% 30%,#172d58 0%,transparent 35%),radial-gradient(circle at 15% 80%,#271449 0%,transparent 35%),#070914}
+.stars{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(2px 2px at 20% 30%,white,transparent),radial-gradient(2px 2px at 70% 60%,#8beaff,transparent),radial-gradient(1px 1px at 40% 80%,white,transparent),radial-gradient(2px 2px at 85% 20%,white,transparent);background-size:250px 250px;animation:stars 18s linear infinite}
+@keyframes stars{to{background-position:250px 250px}}nav{max-width:1100px;margin:auto;padding:25px;display:flex;justify-content:space-between;align-items:center}.logo{font-size:27px;font-weight:900;letter-spacing:4px;color:#70e9ff}nav span{color:#8993ad;font-size:13px}
+main{min-height:78vh;display:flex;align-items:center;justify-content:center;padding:50px 20px}.hero{width:100%;max-width:1000px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px}
+h1{font-size:clamp(48px,8vw,85px);font-weight:900;line-height:1.3}h1 b{color:#70e9ff}.tag{display:inline-block;padding:9px 17px;border:1px solid #3b91ad;border-radius:30px;color:#80eaff;font-size:12px;margin-bottom:22px}
+p{color:#aab4cd;line-height:2.4;font-size:15px;margin:20px 0}button{background:linear-gradient(100deg,#39c9ed,#687aff);border:0;border-radius:12px;padding:15px 27px;color:#06101c;font-family:inherit;font-weight:900;cursor:pointer;transition:.3s}button:hover{transform:translateY(-5px);box-shadow:0 10px 35px #32c9ed55}
+.planet-wrap{display:flex;align-items:center;justify-content:center;min-height:340px;position:relative}.planet{width:min(270px,65vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 25%,#b7f5ff,#3382bd 25%,#17336f 60%,#080b20 90%);box-shadow:inset -30px -20px 50px #020617,0 0 65px #3879ff66,0 0 130px #347cff33;animation:float 5s ease-in-out infinite}
+.ring{position:absolute;width:370px;height:110px;border:2px solid #79eaff88;border-radius:50%;transform:rotate(-23deg);box-shadow:0 0 20px #54dfff44}@keyframes float{50%{transform:translateY(-20px)}}
+.info{max-width:1000px;margin:0 auto 50px;padding:25px;border:1px solid #ffffff16;border-radius:20px;background:#ffffff08;text-align:center}.info strong{color:#70e9ff}footer{text-align:center;padding:25px;color:#65708b;font-size:12px}
+@media(max-width:700px){.hero{grid-template-columns:1fr;text-align:center}.planet-wrap{min-height:300px;grid-row:1}.ring{width:300px}}
+</style></head>
+<body><div class="stars"></div>
+<nav><div class="logo">NOVA ✦</div><span>جهانی فراتر از تصور</span></nav>
+<main><section class="hero"><div><div class="tag">✦ به دنیای ناشناخته خوش آمدید</div><h1>فراتر از<br><b>جهان ما</b></h1>
+<p>نووا پنجره‌ای به سوی ناشناخته‌هاست؛ سفری هیجان‌انگیز به اعماق فضا، جایی که هر ستاره داستانی تازه و هر سیاره رازی پنهان دارد.</p>
+<button onclick="document.getElementById('more').scrollIntoView({behavior:'smooth'})">کشف جهان ✦</button></div>
+<div class="planet-wrap"><div class="ring"></div><div class="planet"></div></div></section></main>
+<section class="info" id="more"><strong>آیا می‌دانستید؟</strong><p>نور خورشید برای رسیدن به زمین حدود ۸ دقیقه و ۲۰ ثانیه زمان نیاز دارد!</p></section>
+<footer>© 2026 NOVA — یک تجربه از جهان ناشناخته</footer></body></html>
