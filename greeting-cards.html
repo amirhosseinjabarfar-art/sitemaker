@@ -89,6 +89,24 @@ h1{animation:heroRise .9s cubic-bezier(.2,.8,.2,1) both}
 @media(max-width:820px){.hero:before{right:2%}.hero:after{left:2%}.cards-art:before{width:205px;height:205px}}
 @media(prefers-reduced-motion:reduce){body:after,.hero:before,.hero:after,.eyebrow,h1,.lead,.cards-art:before,.cards-art:after,.plan,.one-day,.note{animation:none!important}}
 
+
+.greeting-demo{padding:8px 0 76px;text-align:center}
+.greeting-demo .head{margin-bottom:24px}
+.greeting-demo .head small{color:var(--cyan);font:700 11px 'Space Grotesk';letter-spacing:2px}
+.greeting-demo .head h2{font-size:clamp(25px,4vw,38px);margin:8px 0}
+.greeting-demo .head p{color:var(--muted);font-size:13px}
+.greeting-demo-card{position:relative;isolation:isolate;overflow:hidden;width:min(100%,520px);min-height:310px;margin:auto;border:1px solid #eac98a55;border-radius:28px;background:radial-gradient(circle at 50% 15%,#71426e88,transparent 48%),linear-gradient(145deg,#35204f,#17152d);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;box-shadow:0 25px 75px #0005;transition:.35s}
+.greeting-demo-card:before{content:"";position:absolute;inset:13px;border:1px solid #eac98a66;border-radius:18px;pointer-events:none}
+.greeting-demo-card:after{content:"";position:absolute;width:240px;height:240px;border:1px solid #f1c77b33;border-radius:50%;box-shadow:0 0 0 22px #f1c77b08,0 0 0 44px #f1c77b06;z-index:-1}
+.greeting-demo-card:hover{transform:translateY(-6px);box-shadow:0 30px 85px #0008,0 0 35px #d85aff22}
+.greeting-demo-top{position:absolute;top:25px;left:25px;color:#eac98a;font:700 9px 'Space Grotesk';letter-spacing:1.4px}
+.greeting-demo-seal{width:82px;height:82px;border-radius:50%;display:grid;place-items:center;font-size:37px;background:radial-gradient(circle at 30% 25%,#ffdf9b,#b87937 65%,#70401f);border:3px solid #f7d99b;box-shadow:0 0 28px #ffd58a44}
+.greeting-demo-card strong{font-size:clamp(25px,5vw,34px);font-weight:900;color:#fff0bd}
+.greeting-demo-card small{color:#e9cfae;font-size:12px}
+.greeting-demo-button{margin-top:13px;padding:10px 18px;border-radius:99px;background:var(--lime);color:#10140a;font-size:12px;font-weight:900;display:flex;gap:20px;align-items:center}
+.greeting-demo-caption{margin-top:14px;color:var(--muted);font-size:11px}
+@media(max-width:600px){.greeting-demo-card{min-height:280px}.greeting-demo-top{left:20px;top:20px}}
+
 </style>
 </head>
 <body><div class="glow g1"></div><div class="glow g2"></div>
@@ -96,6 +114,19 @@ h1{animation:heroRise .9s cubic-bezier(.2,.8,.2,1) both}
 <main>
 <section class="hero wrap"><span class="eyebrow"><span class="spark">✦</span> یک پیام خاص، یک خاطره ماندگار</span><h1>با سایتکس به دوستت<br><em>تبریک بگو!</em></h1><p class="lead">برای تولد، جشن‌ها، مناسبت‌های خاص و دعوت‌کردن عزیزانت، کارت تبریک و دعوت‌نامه دیجیتالی متفاوت و چشم‌نواز داشته باش. پلن مناسب خودت را انتخاب کن.</p>
 <div class="cards-art" aria-label="نمونه‌های گرافیکی کارت دیجیتال"><div class="mini-card"><b>✿</b><span>یک روز قشنگ</span><small>BEST WISHES</small></div><div class="mini-card"><b>✧</b><span>تولدت مبارک</span><small>HAPPY BIRTHDAY</small></div><div class="mini-card"><b>♡</b><span>دعوتی برای تو</span><small>YOU ARE INVITED</small></div></div></section>
+
+<section class="greeting-demo wrap">
+ <div class="head"><small>DIGITAL GREETING / LIVE SAMPLE</small><h2>یک نمونه واقعی از کارت تبریک</h2><p>کارت را باز کن و پیام تبریک، ملودی و افکت‌های جشن را ببین.</p></div>
+ <a class="greeting-demo-card" href="birthday-card-demo.html" target="_blank" rel="noopener">
+  <span class="greeting-demo-top">BIRTHDAY · SPECIAL MOMENT</span>
+  <span class="greeting-demo-seal">🎁</span>
+  <strong>تولدت مبارک!</strong>
+  <small>یک سورپرایز ویژه ✨</small>
+  <span class="greeting-demo-button">مشاهده و باز کردن کارت <b>↗</b></span>
+ </a>
+ <p class="greeting-demo-caption">این صفحه صرفاً یک نمونه نمایشی است و قالب اصلی سایتکس محسوب نمی‌شود.</p>
+</section>
+
 <section class="plans wrap"><div class="head"><small>DIGITAL GREETINGS / PLANS</small><h2>پلن مناسب جشن تو</h2><p>از یک کارت ساده تا طراحی اختصاصی همراه با تصویر و موسیقی</p></div>
 <div class="grid">
 <article class="plan"><div class="plan-top"><span class="num">PLAN / 01</span><span class="tag">شروع جذاب</span></div><h3>پلن معمولی</h3><p class="desc">برای تبریک‌های دوست‌داشتنی و مناسبت‌های روزمره</p><div class="art">✉</div><ul class="features"><li>ساخت ۵ کارت دیجیتال</li><li>طراحی زیبا و آماده انتشار</li><li>مناسب تبریک و دعوت‌نامه</li></ul><div class="bottom"><div class="price">350,000 <small>تومان</small></div><a class="order" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener"><span>سفارش پلن معمولی</span><b>↗</b></a></div></article>
