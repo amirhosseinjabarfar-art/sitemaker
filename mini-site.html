@@ -36,6 +36,10 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:#748095;font-size:1
 @media(max-width:850px){.plans{grid-template-columns:1fr;max-width:570px;margin:auto;gap:15px}.plan,.plan.featured{min-height:0;transform:none}.plan.featured:hover,.plan:hover{transform:translateY(-5px)}.hero{padding:70px 0 35px}.pricing{padding-top:25px}}
 @media(max-width:520px){.wrap{width:calc(100% - 30px)}.topbar{width:calc(100% - 20px);top:8px;margin-top:8px}.brand{font-size:17px}.brand-mark{width:35px;height:35px}.back{font-size:10px;padding:8px}.hero-copy{font-size:12px}.notice{padding:15px;gap:10px}.notice p{font-size:11px}.plan{padding:23px 19px}.price{font-size:34px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* Mini-site sample gallery */
+.samples{padding:10px 0 88px}.sample-card{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center;padding:22px;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(125deg,rgba(87,230,244,.055),rgba(255,255,255,.02));overflow:hidden}.sample-copy{padding:18px}.sample-copy h3{font-size:clamp(25px,3vw,36px);font-weight:900;margin:10px 0}.sample-copy h3 span{color:#70e9ff}.sample-copy p{font-size:13px;color:var(--muted);line-height:2.2;margin:0 0 20px}.sample-tag{display:inline-flex;padding:6px 11px;border-radius:99px;background:rgba(87,230,244,.08);border:1px solid rgba(87,230,244,.2);color:var(--cyan);font-size:10px}.sample-link{display:inline-flex;gap:24px;align-items:center;padding:12px 17px;border-radius:12px;background:var(--lime);color:#10140a;font-size:12px;font-weight:900;transition:.25s}.sample-link:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(199,255,74,.18)}.sample-preview{position:relative;min-height:260px;border-radius:19px;overflow:hidden;background:radial-gradient(circle at 75% 25%,#172d58,transparent 42%),radial-gradient(circle at 15% 80%,#271449,transparent 42%),#070914;display:grid;place-items:center;border:1px solid rgba(112,233,255,.2)}.sample-preview:before{content:"";position:absolute;inset:0;background-image:radial-gradient(2px 2px at 20% 30%,white,transparent),radial-gradient(2px 2px at 70% 60%,#8beaff,transparent),radial-gradient(1px 1px at 40% 80%,white,transparent);background-size:120px 120px;opacity:.7}.sample-preview .planet{width:145px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 25%,#b7f5ff,#3382bd 25%,#17336f 60%,#080b20 90%);box-shadow:inset -18px -12px 30px #020617,0 0 40px #3879ff88;animation:sampleFloat 5s ease-in-out infinite}.sample-preview .orbit{position:absolute;width:235px;height:72px;border:2px solid #79eaff88;border-radius:50%;transform:rotate(-23deg);box-shadow:0 0 20px #54dfff44}.sample-preview .sample-logo{position:absolute;top:15px;left:18px;color:#70e9ff;font:900 17px Vazirmatn;letter-spacing:3px;direction:ltr}.sample-preview .sample-caption{position:absolute;bottom:16px;right:18px;color:#aab4cd;font-size:10px}.sample-preview .mini-open{position:absolute;top:15px;right:15px;font:10px Vazirmatn;color:#80eaff;border:1px solid #3b91ad;padding:5px 9px;border-radius:30px}@keyframes sampleFloat{50%{transform:translateY(-10px)}}
+@media(max-width:760px){.sample-card{grid-template-columns:1fr;padding:14px}.sample-copy{text-align:center;padding:10px 7px}.sample-preview{min-height:220px;grid-row:1}.samples{padding-bottom:65px}}
 </style>
 </head>
 <body>
@@ -47,6 +51,20 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:#748095;font-size:1
  <h1>ساخت <em>مینی‌سایت اختصاصی</em><br>با سایتکس</h1>
  <p class="hero-copy">مینی‌سایت‌ها یک وب‌سایت کامل برای کسب‌وکار نیستند؛ آن‌ها صفحه‌هایی کوچک، سبک و هدفمند هستند که برای کاربردهایی مثل <strong>منوی رستوران، لینک شبکه‌های اجتماعی، معرفی کوتاه برند</strong> و نمایش اطلاعات ضروری استفاده می‌شوند.</p>
  <div class="notice"><div class="notice-icon">✳</div><div><b>یک حضور دیجیتال جمع‌وجور و کاربردی</b><p>اگر به یک صفحه شیک و اختصاصی برای معرفی سریع اطلاعاتت نیاز داری، مینی‌سایت انتخاب مناسبی است. برای فروشگاه کامل، سایت شرکتی یا سامانه‌های چندصفحه‌ای باید از سرویس طراحی وب‌سایت اختصاصی استفاده کنی.</p></div></div>
+</div></section>
+<section class="samples"><div class="wrap">
+ <div class="section-head"><div class="kicker">MINI SITE SHOWCASE</div><h2>نمونه مینی‌سایت‌ها</h2><p>چند نمونه از سبک‌هایی که می‌توانند برای مینی‌سایت اختصاصی اجرا شوند</p></div>
+ <article class="sample-card">
+  <div class="sample-copy">
+   <span class="sample-tag">نمونه شماره ۰۱ · معرفی خلاقانه</span>
+   <h3>قالب فضایی <span>NOVA</span></h3>
+   <p>یک مینی‌سایت با تم فضایی و پس‌زمینه کهکشانی، سیاره سه‌بعدی‌نما، حلقه نورانی و انیمیشن‌های شناور؛ مناسب معرفی پروژه‌ها، برندهای خلاق و صفحات معرفی متفاوت.</p>
+   <a class="sample-link" href="nova-demo.html" target="_blank" rel="noopener"><span>مشاهده نسخه زنده نمونه</span><span>↗</span></a>
+  </div>
+  <a class="sample-preview" href="nova-demo.html" target="_blank" rel="noopener" aria-label="مشاهده نمونه NOVA">
+   <span class="sample-logo">NOVA ✦</span><span class="mini-open">LIVE DEMO ↗</span><span class="orbit"></span><span class="planet"></span><span class="sample-caption">جهانی فراتر از تصور</span>
+  </a>
+ </article>
 </div></section>
 <section class="pricing"><div class="wrap">
  <div class="section-head"><div class="kicker">SIMPLE PLANS · CLEAR PRICING</div><h2>پلن مناسب مینی‌سایتت را انتخاب کن</h2><p>ظاهر و حس‌وحال پلن‌ها هماهنگ با طراحی اصلی SITEX</p></div>
