@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کارت تبریک تولد 🎂 | نمونه سایتکس</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@400;600;800&display=swap');
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(circle at 20% 20%,#57366f 0,transparent 35%),radial-gradient(circle at 80% 80%,#34245d 0,transparent 35%),linear-gradient(135deg,#100d24,#21153b,#120e27);font-family:Vazirmatn,sans-serif;color:white}
+.glow{position:absolute;width:300px;height:300px;border-radius:50%;background:#d34bff;filter:blur(130px);opacity:.2;animation:glow 5s infinite alternate}
+@keyframes glow{to{transform:translate(100px,-50px) scale(1.3)}}
+.scene{width:min(360px,85vw);height:490px;perspective:1300px;z-index:2}
+.card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform 1.2s cubic-bezier(.2,.8,.2,1);cursor:pointer}
+.card.flipped{transform:rotateY(180deg)}
+.side{position:absolute;inset:0;border-radius:25px;backface-visibility:hidden;overflow:hidden;box-shadow:0 30px 80px #0008,0 0 35px #d85aff22;border:1px solid #ffffff35}
+.back{background:linear-gradient(145deg,#35204f,#1b1636 65%,#442454);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:25px}
+.back:before{content:"";position:absolute;inset:12px;border:1px solid #e9bd7b88;border-radius:17px}
+.back:after{content:"";position:absolute;width:230px;height:230px;border-radius:50%;border:1px solid #f1c77b55;box-shadow:0 0 0 18px #f1c77b0b,0 0 0 38px #f1c77b08}
+.seal{width:110px;height:110px;border-radius:50%;display:grid;place-items:center;font-size:48px;background:radial-gradient(circle at 30% 25%,#ffdf9b,#b87937 65%,#70401f);box-shadow:inset 0 4px 8px #fff8,0 12px 25px #0008;border:4px solid #f7d99b;z-index:1;animation:pulse 2s infinite}
+@keyframes pulse{50%{transform:scale(1.06);box-shadow:0 0 35px #ffd58a88}}
+.back h2{font-family:Lalezar;font-size:31px;font-weight:400;margin:25px 0 5px;z-index:1}
+.back p{color:#e9cfae;z-index:1;margin:0}
+.tap{margin-top:35px;padding:12px 25px;border-radius:30px;background:linear-gradient(120deg,#f3d39b,#b87b42);color:#29162c;font-weight:800;box-shadow:0 8px 25px #0005;z-index:1;animation:float 2s infinite ease-in-out}
+@keyframes float{50%{transform:translateY(-6px)}}
+.front{transform:rotateY(180deg);background:radial-gradient(circle at 50% 0%,#71426e,transparent 50%),linear-gradient(145deg,#332044,#17152d);padding:30px 24px;text-align:center;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.front:before{content:"";position:absolute;inset:12px;border:1px solid #eac98a99;border-radius:17px;pointer-events:none}
+.cake{font-size:65px;filter:drop-shadow(0 10px 15px #0007);animation:float 3s infinite}
+.front h1{font-family:Lalezar;font-size:39px;font-weight:400;margin:12px 0;background:linear-gradient(90deg,#fff0bd,#e9a9d6,#fff0bd);-webkit-background-clip:text;color:transparent}
+.front p{color:#f0dced;line-height:2.2;font-size:15px;margin:5px 0}
+.name{color:#ffd68f;font-family:Lalezar;font-size:25px;margin:12px 0}
+.footer{color:#d5b8d6;font-size:12px;margin-top:20px}
+.hint{position:fixed;bottom:24px;color:#c9b6dd;font-size:12px;opacity:.8}
+.spark{position:fixed;width:6px;height:6px;border-radius:50%;background:#ffe0a0;box-shadow:0 0 12px #ffe0a0;animation:fall linear infinite;pointer-events:none}
+@keyframes fall{from{transform:translateY(-10vh) rotate(0)}to{transform:translateY(110vh) rotate(360deg)}}
+@media(max-height:620px){.scene{height:min(490px,78vh);width:min(340px,82vw)}.front{padding:20px}.front h1{font-size:32px}.cake{font-size:52px}.hint{bottom:8px}}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="scene">
+  <div class="card" id="card" onclick="flipCard()">
+    <div class="side back">
+      <div class="seal">🎁</div>
+      <h2>یک سورپرایز ویژه!</h2>
+      <p>این کارت برای یک روز خاص آماده شده...</p>
+      <div class="tap">باز کردن کارت ✨</div>
+    </div>
+    <div class="side front">
+      <div class="cake">🎂</div>
+      <h1>تولدت مبارک!</h1>
+      <div class="name">دوست عزیزم ❤️</div>
+      <p>امیدوارم سال جدید زندگیت<br>پر از اتفاق‌های قشنگ، لبخندهای واقعی<br>و آرزوهای برآورده‌شده باشه.</p>
+      <p>همیشه بدرخشی و شاد باشی! 🌟</p>
+      <div class="footer">با بهترین آرزوها برای تو 💝</div>
+    </div>
+  </div>
+</div>
+<div class="hint">برای دیدن پیام، روی کارت کلیک کن</div>
+<script>
+let flipped=false,audioContext,musicTimer;
+function flipCard(){const card=document.getElementById('card');flipped=!flipped;card.classList.toggle('flipped',flipped);if(flipped){startMusic();confetti()}else{stopMusic()}}
+function startMusic(){if(musicTimer||audioContext)return;audioContext=new(window.AudioContext||window.webkitAudioContext)();audioContext.resume();const melody=[[392,.35],[392,.35],[440,.7],[392,.7],[523,.7],[494,1.2],[392,.35],[392,.35],[440,.7],[392,.7],[587,.7],[523,1.2],[392,.35],[392,.35],[784,.7],[659,.7],[523,.7],[494,.7],[440,1.2]];let index=0;function playNext(){if(!flipped||!audioContext)return;const[frequency,duration]=melody[index];const oscillator=audioContext.createOscillator(),gain=audioContext.createGain();oscillator.type='sine';oscillator.frequency.value=frequency;gain.gain.setValueAtTime(.0001,audioContext.currentTime);gain.gain.exponentialRampToValueAtTime(.13,audioContext.currentTime+.04);gain.gain.exponentialRampToValueAtTime(.0001,audioContext.currentTime+duration-.03);oscillator.connect(gain);gain.connect(audioContext.destination);oscillator.start();oscillator.stop(audioContext.currentTime+duration);index=(index+1)%melody.length;musicTimer=setTimeout(()=>{musicTimer=null;playNext()},duration*1000)}playNext()}
+function stopMusic(){clearTimeout(musicTimer);musicTimer=null;if(audioContext){audioContext.close();audioContext=null}}
+function confetti(){for(let i=0;i<45;i++){const s=document.createElement('div');s.className='spark';s.style.left=Math.random()*100+'vw';s.style.animationDuration=(3+Math.random()*5)+'s';s.style.animationDelay=Math.random()*2+'s';s.style.opacity=Math.random();document.body.appendChild(s);setTimeout(()=>s.remove(),8000)}}
+</script>
+</body>
+</html>
