@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090b12">
+<meta name="description" content="پلن‌های ساخت مینی‌سایت اختصاصی با SITEX؛ مناسب منوی رستوران، لینک شبکه‌های اجتماعی و معرفی کوتاه برند.">
+<title>ساخت مینی‌سایت اختصاصی | SITEX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#090b12;--bg2:#0e111b;--panel:#121725;--text:#f4f7fb;--muted:#9aa5b7;--line:rgba(255,255,255,.1);--lime:#c7ff4a;--cyan:#57e6f4;--violet:#9b8cff}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:"Estedad",Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(#000,transparent 90%)}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;border:0}.ambient{position:fixed;z-index:-1;width:390px;height:390px;border-radius:50%;filter:blur(110px);opacity:.15;pointer-events:none}.ambient.a{background:#3d69ff;top:-170px;right:-150px}.ambient.b{background:#baff4b;bottom:-190px;left:-150px;opacity:.08}
+.wrap{width:min(1220px,calc(100% - 48px));margin:auto}.topbar{position:sticky;top:14px;z-index:20;width:min(1240px,calc(100% - 32px));margin:14px auto 0;padding:10px 14px;border:1px solid rgba(255,255,255,.11);border-radius:20px;background:rgba(12,15,24,.8);backdrop-filter:blur(22px);box-shadow:0 12px 50px rgba(0,0,0,.22)}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:15px}.brand{display:flex;align-items:center;gap:10px;font:700 20px "Space Grotesk";direction:ltr}.brand-mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:var(--lime);color:#090b12;font:900 22px "Estedad"}
+.back{font-size:12px;color:#c7d0de;padding:9px 13px;border:1px solid var(--line);border-radius:12px;transition:.25s}.back:hover{border-color:var(--lime);color:var(--lime)}
+.hero{padding:92px 0 48px;text-align:center}.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 13px;border:1px solid rgba(199,255,74,.24);border-radius:99px;background:rgba(199,255,74,.055);color:#d8ff8e;font-size:11px;font-weight:700}.pulse{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 6px rgba(199,255,74,.1);animation:pulse 1.8s infinite}@keyframes pulse{50%{box-shadow:0 0 0 11px transparent}}
+h1{font-size:clamp(36px,6vw,70px);line-height:1.35;letter-spacing:-2px;font-weight:900;margin:20px 0 14px}h1 em{font-style:normal;color:var(--lime)}.hero-copy{max-width:800px;margin:auto;color:var(--muted);font-size:15px;line-height:2.2}.hero-copy strong{color:#f4f7fb}
+.notice{max-width:900px;margin:32px auto 0;padding:20px 24px;border:1px solid rgba(87,230,244,.2);border-radius:19px;background:linear-gradient(110deg,rgba(87,230,244,.07),rgba(255,255,255,.018));display:flex;gap:15px;align-items:flex-start;text-align:right}.notice-icon{width:43px;height:43px;flex:none;border-radius:13px;display:grid;place-items:center;background:rgba(87,230,244,.1);color:var(--cyan);font-size:22px}.notice b{display:block;font-size:14px;margin-bottom:3px}.notice p{font-size:12px;color:var(--muted);line-height:2}
+.pricing{padding:42px 0 100px}.section-head{text-align:center;margin-bottom:28px}.kicker{font:600 11px "Space Grotesk";letter-spacing:2px;color:var(--lime);direction:ltr}.section-head h2{font-size:clamp(28px,4vw,43px);font-weight:900;margin:8px 0}.section-head p{color:var(--muted);font-size:13px}
+.billing{display:flex;align-items:center;justify-content:center;gap:12px;margin:28px auto 38px}.billing-label{font-size:12px;color:#9aa5b7;transition:.25s}.billing-label.active{color:var(--text);font-weight:800}.switch{width:66px;height:35px;padding:4px;border:1px solid rgba(199,255,74,.3);border-radius:99px;background:rgba(199,255,74,.1);display:flex;align-items:center;justify-content:flex-start;transition:.3s}.switch i{width:25px;height:25px;border-radius:50%;background:var(--lime);box-shadow:0 0 18px rgba(199,255,74,.35);transition:transform .35s cubic-bezier(.2,.8,.2,1)}.switch[aria-checked="true"]{justify-content:flex-end}.save{font-size:10px;color:var(--lime);padding:4px 8px;border-radius:99px;background:rgba(199,255,74,.09);border:1px solid rgba(199,255,74,.15)}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.plan{--plan-color:var(--cyan);position:relative;min-height:490px;padding:27px 25px 24px;border:1px solid rgba(255,255,255,.12);border-radius:29px;background:linear-gradient(155deg,#171e2d,#0e131f 78%);overflow:hidden;isolation:isolate;display:flex;flex-direction:column;transition:transform .4s,border-color .4s,box-shadow .4s}
+.plan::before{content:"";position:absolute;z-index:-1;width:280px;height:280px;right:-150px;top:-175px;border-radius:50%;background:var(--plan-color);filter:blur(90px);opacity:.17}.plan::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(255,255,255,.2),transparent 40%,var(--plan-color));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.55}
+.plan:hover{transform:translateY(-10px);border-color:var(--plan-color);box-shadow:0 28px 70px rgba(0,0,0,.3),0 0 35px color-mix(in srgb,var(--plan-color) 12%,transparent)}
+.plan.featured{--plan-color:var(--lime);background:linear-gradient(155deg,#202b2a,#101820 76%);border-color:rgba(199,255,74,.42);transform:translateY(-10px);box-shadow:0 22px 65px rgba(199,255,74,.07)}.plan.featured:hover{transform:translateY(-19px)}
+.plan-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.plan-no{font:700 12px "Space Grotesk";letter-spacing:2px;color:var(--plan-color);direction:ltr}.plan-label{font-size:10px;color:#c5ceda;background:rgba(255,255,255,.07);padding:5px 9px;border-radius:99px}
+.plan h3{font-size:27px;font-weight:900;margin-top:25px}.plan-desc{font-size:12px;color:#9aa5b7;min-height:48px;margin-top:5px}
+.plan-visual{height:95px;margin:20px 0 15px;border:1px solid rgba(255,255,255,.07);border-radius:17px;background:rgba(255,255,255,.03);display:grid;place-items:center;position:relative;overflow:hidden}.plan-visual::before{content:"";position:absolute;width:125px;height:125px;border:1px solid color-mix(in srgb,var(--plan-color) 35%,transparent);border-radius:50%;box-shadow:0 0 35px color-mix(in srgb,var(--plan-color) 10%,transparent)}.plan-symbol{position:relative;font:700 42px "Space Grotesk";color:var(--plan-color);text-shadow:0 0 28px color-mix(in srgb,var(--plan-color) 40%,transparent);direction:ltr}
+.price-wrap{margin:3px 0 18px;min-height:83px}.price{font:900 clamp(29px,3vw,38px)/1.4 "Estedad";direction:rtl;display:flex;align-items:baseline;gap:7px;white-space:nowrap}.price .amount{display:inline-block;animation:priceIn .42s both}.price small{font:500 11px "Estedad";color:#9aa5b7}.price-period{font-size:11px;color:#8793a6;margin-top:1px}@keyframes priceIn{from{opacity:0;transform:translateY(9px);filter:blur(4px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+.plan-points{list-style:none;display:grid;gap:10px;margin:4px 0 25px}.plan-points li{font-size:12px;color:#c4ccda;display:flex;gap:9px;align-items:flex-start}.plan-points li::before{content:"↗";font:900 14px Arial;color:var(--plan-color);line-height:1.8}
+.plan-bottom{margin-top:auto}.plan-bottom p{font-size:10px;color:#8793a6;margin-bottom:12px}.plan-btn{width:100%;display:flex;justify-content:space-between;align-items:center;padding:13px 15px;border:1px solid rgba(255,255,255,.13);border-radius:13px;background:rgba(255,255,255,.065);font-size:12px;font-weight:800;transition:.3s}.plan-btn:hover{background:var(--plan-color);border-color:var(--plan-color);color:#0b1110}.featured .plan-btn{background:var(--lime);color:#10140a;border-color:var(--lime)}
+.footnote{text-align:center;color:#768398;font-size:11px;margin-top:25px}
+footer{border-top:1px solid var(--line);padding:25px 0;color:#748095;font-size:11px;text-align:center}.footer-brand{font:700 17px "Space Grotesk";direction:ltr;color:#e9eef6;margin-bottom:4px}
+@media(max-width:850px){.plans{grid-template-columns:1fr;max-width:570px;margin:auto;gap:15px}.plan,.plan.featured{min-height:0;transform:none}.plan.featured:hover,.plan:hover{transform:translateY(-5px)}.hero{padding:70px 0 35px}.pricing{padding-top:25px}}
+@media(max-width:520px){.wrap{width:calc(100% - 30px)}.topbar{width:calc(100% - 20px);top:8px;margin-top:8px}.brand{font-size:17px}.brand-mark{width:35px;height:35px}.back{font-size:10px;padding:8px}.hero-copy{font-size:12px}.notice{padding:15px;gap:10px}.notice p{font-size:11px}.plan{padding:23px 19px}.price{font-size:34px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="ambient a"></div><div class="ambient b"></div>
+<header class="topbar"><nav class="nav wrap"><a class="brand" href="index.html"><span class="brand-mark">A</span><span>SITEX</span></a><a class="back" href="index.html">← بازگشت به سایتکس</a></nav></header>
+<main>
+<section class="hero"><div class="wrap">
+ <div class="eyebrow"><span class="pulse"></span> SITEX / MINI WEB EXPERIENCE</div>
+ <h1>ساخت <em>مینی‌سایت اختصاصی</em><br>با سایتکس</h1>
+ <p class="hero-copy">مینی‌سایت‌ها یک وب‌سایت کامل برای کسب‌وکار نیستند؛ آن‌ها صفحه‌هایی کوچک، سبک و هدفمند هستند که برای کاربردهایی مثل <strong>منوی رستوران، لینک شبکه‌های اجتماعی، معرفی کوتاه برند</strong> و نمایش اطلاعات ضروری استفاده می‌شوند.</p>
+ <div class="notice"><div class="notice-icon">✳</div><div><b>یک حضور دیجیتال جمع‌وجور و کاربردی</b><p>اگر به یک صفحه شیک و اختصاصی برای معرفی سریع اطلاعاتت نیاز داری، مینی‌سایت انتخاب مناسبی است. برای فروشگاه کامل، سایت شرکتی یا سامانه‌های چندصفحه‌ای باید از سرویس طراحی وب‌سایت اختصاصی استفاده کنی.</p></div></div>
+</div></section>
+<section class="pricing"><div class="wrap">
+ <div class="section-head"><div class="kicker">SIMPLE PLANS · CLEAR PRICING</div><h2>پلن مناسب مینی‌سایتت را انتخاب کن</h2><p>ظاهر و حس‌وحال پلن‌ها هماهنگ با طراحی اصلی SITEX</p></div>
+ <div class="billing" aria-label="دوره پرداخت">
+  <span class="billing-label active" id="monthlyLabel">ماهانه</span>
+  <button class="switch" id="billingSwitch" type="button" role="switch" aria-checked="false" aria-label="تغییر به پرداخت سالانه"><i></i></button>
+  <span class="billing-label" id="yearlyLabel">سالانه</span><span class="save">پرداخت سالانه</span>
+ </div>
+ <div class="plans">
+  <article class="plan" style="--plan-color:#57e6f4">
+   <div class="plan-top"><span class="plan-no">PLAN / 01</span><span class="plan-label">شروع ساده</span></div>
+   <h3>مینی‌سایت معمولی</h3><p class="plan-desc">برای معرفی کوتاه، اطلاعات تماس و لینک‌های ضروری</p>
+   <div class="plan-visual"><span class="plan-symbol">MINI.</span></div>
+   <div class="price-wrap"><div class="price"><span class="amount" data-month="100/000" data-year="1/500/000">100/000</span><small>تومان</small></div><div class="price-period">ماهانه</div></div>
+   <ul class="plan-points"><li>یک صفحه جمع‌وجور و اختصاصی</li><li>مناسب معرفی و لینک‌های مهم</li><li>نمایش واکنش‌گرا در موبایل و دسکتاپ</li></ul>
+   <div class="plan-bottom"><p>شروعی ساده برای حضور آنلاین</p><a class="plan-btn" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener"><span>انتخاب پلن معمولی</span><span>↗</span></a></div>
+  </article>
+  <article class="plan featured" style="--plan-color:#c7ff4a">
+   <div class="plan-top"><span class="plan-no">PLAN / 02</span><span class="plan-label">پیشنهاد ویژه</span></div>
+   <h3>مینی‌سایت حرفه‌ای</h3><p class="plan-desc">برای معرفی کامل‌تر خدمات و نمایش مرتب بخش‌های مختلف</p>
+   <div class="plan-visual"><span class="plan-symbol">PRO+</span></div>
+   <div class="price-wrap"><div class="price"><span class="amount" data-month="250/000" data-year="4/000/000">250/000</span><small>تومان</small></div><div class="price-period">ماهانه</div></div>
+   <ul class="plan-points"><li>طراحی حرفه‌ای‌تر و جزئیات بصری بیشتر</li><li>بخش‌بندی منظم برای محتوا و معرفی</li><li>نمایش واکنش‌گرا در موبایل و دسکتاپ</li></ul>
+   <div class="plan-bottom"><p>برای معرفی حرفه‌ای‌تر برند</p><a class="plan-btn" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener"><span>انتخاب پلن حرفه‌ای</span><span>↗</span></a></div>
+  </article>
+  <article class="plan" style="--plan-color:#9b8cff">
+   <div class="plan-top"><span class="plan-no">PLAN / 03</span><span class="plan-label">کاملاً اختصاصی</span></div>
+   <h3>مینی‌سایت کاستوم</h3><p class="plan-desc">طراحی اختصاصی با تم و رنگ هماهنگ با هویت برند شما</p>
+   <div class="plan-visual"><span class="plan-symbol">CUSTOM</span></div>
+   <div class="price-wrap"><div class="price"><span class="amount" data-month="500/000" data-year="7/000/000">500/000</span><small>تومان</small></div><div class="price-period">ماهانه</div></div>
+   <ul class="plan-points"><li>تم و رنگ اختصاصی برند</li><li>طراحی متناسب با سلیقه و هویت بصری</li><li>چیدمان و جزئیات سفارشی</li></ul>
+   <div class="plan-bottom"><p>برای تجربه‌ای با هویت کاملاً منحصربه‌فرد</p><a class="plan-btn" href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener"><span>انتخاب پلن کاستوم</span><span>↗</span></a></div>
+  </article>
+ </div>
+ <p class="footnote">برای بررسی جزئیات و هماهنگی اجرای مینی‌سایت، از طریق روبیکا پیام بده</p>
+</div></section>
+</main>
+<footer><div class="wrap"><div class="footer-brand">SITEX</div><p>طراحی و توسعه مینی‌سایت اختصاصی — امیر حسین جبارفر</p><p>© <span id="year"></span> تمام حقوق محفوظ است</p></div></footer>
+<script>
+(function(){
+ const toggle=document.getElementById("billingSwitch"),monthly=document.getElementById("monthlyLabel"),yearly=document.getElementById("yearlyLabel");
+ const amounts=[...document.querySelectorAll(".amount")],periods=[...document.querySelectorAll(".price-period")];
+ let annual=false;
+ function setBilling(next){
+  if(annual===next)return;annual=next;
+  toggle.setAttribute("aria-checked",String(annual));
+  toggle.setAttribute("aria-label",annual?"تغییر به پرداخت ماهانه":"تغییر به پرداخت سالانه");
+  monthly.classList.toggle("active",!annual);yearly.classList.toggle("active",annual);
+  amounts.forEach((el,i)=>{el.classList.remove("amount");void el.offsetWidth;el.classList.add("amount");el.textContent=annual?el.dataset.year:el.dataset.month;});
+  periods.forEach(el=>el.textContent=annual?"سالانه":"ماهانه");
+ }
+ toggle.addEventListener("click",()=>setBilling(!annual));
+ document.getElementById("year").textContent=new Date().getFullYear();
+})();
+</script>
+</body></html>
