@@ -48,6 +48,16 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:#748095;font-size:1
 .order-callout{position:relative;isolation:isolate;overflow:hidden;max-width:850px;margin:42px auto 0;padding:30px 24px;text-align:center;border:1px solid rgba(199,255,74,.28);border-radius:26px;background:radial-gradient(circle at 50% 0%,rgba(199,255,74,.12),transparent 65%),linear-gradient(135deg,rgba(20,30,43,.96),rgba(12,17,27,.96));box-shadow:0 20px 55px rgba(0,0,0,.2)}
 .order-callout h3{font-size:clamp(20px,3.2vw,30px);font-weight:900;color:#f4f7fb;margin:0 0 17px}.order-callout a{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:180px;padding:13px 25px;border-radius:14px;background:linear-gradient(135deg,#c7ff4a,#a9e52c);color:#11180a;font-weight:900;font-size:15px;text-decoration:none;box-shadow:0 8px 28px rgba(199,255,74,.2);transition:transform .25s,box-shadow .25s}.order-callout a:hover{transform:translateY(-4px);box-shadow:0 14px 35px rgba(199,255,74,.3)}
 @media(max-width:520px){.order-callout{margin-top:30px;padding:25px 16px}.order-callout a{width:100%;max-width:250px}}
+
+/* Birthday greeting card sample preview */
+.birthday-preview{min-height:260px;gap:9px;display:flex;flex-direction:column;justify-content:center;align-items:center;background:radial-gradient(circle at 50% 15%,#71426e88,transparent 48%),linear-gradient(145deg,#35204f,#17152d)!important;border-color:#eac98a55!important}
+.birthday-preview:before{background:radial-gradient(circle at 20% 25%,#ffe0a055 1px,transparent 2px),radial-gradient(circle at 80% 70%,#e9a9d655 1px,transparent 2px)!important;background-size:75px 75px!important}
+.birthday-preview-label{position:absolute;top:16px;left:16px;font:700 9px 'Space Grotesk';letter-spacing:1.4px;color:#eac98a}
+.birthday-preview-seal{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-size:34px;background:radial-gradient(circle at 30% 25%,#ffdf9b,#b87937 65%,#70401f);border:3px solid #f7d99b;box-shadow:0 0 30px #ffd58a44}
+.birthday-preview strong{font-family:Estedad,sans-serif;font-size:25px;color:#fff0bd;text-shadow:0 0 22px #e9a9d655}
+.birthday-preview small{font-size:11px;color:#e9cfae}
+.birthday-preview-live{position:absolute;right:15px;top:15px;padding:5px 9px;border:1px solid #eac98a66;border-radius:30px;color:#ffe0a0;font:10px 'Space Grotesk'}
+
 </style>
 </head>
 <body>
@@ -105,6 +115,23 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:#748095;font-size:1
    <span class="lumi-preview-live">LIVE MENU ↗</span>
   </a>
  </article>
+
+ <article class="sample-card" style="margin-top:20px">
+  <div class="sample-copy">
+   <span class="sample-tag">نمونه شماره ۰۴ · کارت تبریک دیجیتال</span>
+   <h3>کارت تبریک <span>تولد</span></h3>
+   <p>یک کارت تبریک تولد تعاملی با طراحی دوطرفه؛ با کلیک روی کارت برمی‌گردد، پیام تبریک را نمایش می‌دهد و ملودی و افکت‌های جشن اجرا می‌شوند. این کد یک نمونه نمایشی است و قالب اصلی سایتکس محسوب نمی‌شود.</p>
+   <a class="sample-link" href="birthday-card-demo.html" target="_blank" rel="noopener"><span>مشاهده نسخه زنده نمونه</span><span>↗</span></a>
+  </div>
+  <a class="sample-preview birthday-preview" href="birthday-card-demo.html" target="_blank" rel="noopener" aria-label="مشاهده نمونه کارت تبریک تولد">
+   <span class="birthday-preview-label">BIRTHDAY · SPECIAL MOMENT</span>
+   <span class="birthday-preview-seal">🎁</span>
+   <strong>تولدت مبارک!</strong>
+   <small>یک سورپرایز ویژه ✨</small>
+   <span class="birthday-preview-live">LIVE DEMO ↗</span>
+  </a>
+ </article>
+
 </div></section>
 <section class="pricing"><div class="wrap">
  <div class="section-head"><div class="kicker">SIMPLE PLANS · CLEAR PRICING</div><h2>پلن مناسب مینی‌سایتت را انتخاب کن</h2><p>ظاهر و حس‌وحال پلن‌ها هماهنگ با طراحی اصلی SITEX</p></div>
