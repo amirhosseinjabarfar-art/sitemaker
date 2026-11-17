@@ -49,4 +49,4 @@ function closeCart(){document.getElementById("drawer").classList.remove("show");
 function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove("show"),2200)}
 function checkout(){if(!Object.keys(cart).length){showToast("سبد خرید خالی است!");return}showToast("این یک سفارش آزمایشی است! 🎉");cart={};updateCart();setTimeout(closeCart,900)}
 renderMenu();updateCart();
-</script></body></html>
+</script><div style="padding:16px 12px;text-align:center;font-family:inherit;font-size:13px;letter-spacing:.2px;color:#8b96a8;opacity:.9">قدرت گرفته از <strong style="color:inherit;font-weight:800">سایتکس</strong></div></body></html>
