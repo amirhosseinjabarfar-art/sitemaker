@@ -49,4 +49,4 @@ function toast(message){const el=document.getElementById('toast');el.textContent
 function toggleTheme(){document.body.classList.toggle('light');toast('تم سایت تغییر کرد ✨')}
 function demo(e,name){e.preventDefault();toast(name+' | این لینک نمایشی است')}
 function sharePage(){if(navigator.share){navigator.share({title:'صفحه اختصاصی امیر حسین',text:'لینک‌های من در یک صفحه',url:location.href}).catch(()=>{})}else if(navigator.clipboard){navigator.clipboard.writeText(location.href).then(()=>toast('لینک صفحه کپی شد ✓')).catch(()=>toast('امکان کپی وجود ندارد'))}else{toast('اشتراک‌گذاری در دسترس نیست')}}
-</script></body></html>
+</script><div style="padding:16px 12px;text-align:center;font-family:inherit;font-size:13px;letter-spacing:.2px;color:#8b96a8;opacity:.9">قدرت گرفته از <strong style="color:inherit;font-weight:800">سایتکس</strong></div></body></html>
