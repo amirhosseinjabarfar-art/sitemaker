@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090b12">
+<title>نمونه پرسشنامه رضایت مشتری | SITEX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700;800;900&family=Vazirmatn:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080e1c;--panel:rgba(19,31,54,.9);--line:#263b5d;--muted:#91a5c3;--mint:#00dfbd;--blue:#168aff}
+*{box-sizing:border-box}body{margin:0;font-family:Estedad,Vazirmatn,sans-serif;background:var(--bg);color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:25px;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;width:350px;height:350px;border-radius:50%;filter:blur(100px);opacity:.25;z-index:-1;animation:float 8s infinite alternate}body:before{background:#087bff;top:-100px;right:-100px}body:after{background:#00d6b0;bottom:-120px;left:-100px}@keyframes float{to{transform:translate(60px,50px)}}
+.container{width:100%;max-width:650px}.brand{text-align:center;margin-bottom:25px}.logo{font-size:38px;color:var(--mint);text-shadow:0 0 25px #00dfbd88}.brand h2{font:700 13px "Space Grotesk";letter-spacing:2px;color:#8da5c9;margin:5px;direction:ltr}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:28px;padding:30px;box-shadow:0 25px 90px #0008;backdrop-filter:blur(20px);animation:appear .7s ease}
+@keyframes appear{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+h1{font-size:27px;margin:5px 0}.subtitle{color:var(--muted);font-size:13px;line-height:2}.progress{height:7px;background:#293b57;border-radius:20px;margin:25px 0;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--mint),var(--blue));transition:.5s}
+.step{display:none;animation:appear .4s}.step.active{display:block}.question{font-size:17px;font-weight:800;margin:25px 0 17px}
+.option{padding:15px;border:1px solid #334965;border-radius:14px;margin:10px 0;cursor:pointer;transition:.25s;background:#172943}.option:hover{border-color:var(--mint);transform:translateX(-4px)}.option.selected{background:#063f49;border-color:#00e0bd}input[type=radio]{accent-color:var(--mint);margin-left:10px}
+textarea{width:100%;height:110px;background:#14243b;border:1px solid #334965;border-radius:14px;padding:15px;color:white;font:inherit;resize:vertical}.stars{display:flex;gap:10px;flex-wrap:wrap}.star{flex:1;min-width:65px;padding:17px 5px;background:#172943;border:1px solid #334965;border-radius:14px;text-align:center;cursor:pointer;font-size:23px;transition:.25s}.star:hover,.star.selected{background:#234b52;border-color:#00dfbd;transform:scale(1.06)}.star small{display:block;font-size:10px;color:#a7bbd2}
+.buttons{display:flex;gap:12px;margin-top:28px}button{border:0;border-radius:13px;padding:14px 20px;font:700 13px Estedad,sans-serif;cursor:pointer;transition:.25s}.next{background:linear-gradient(120deg,#00d9bc,#087bff);color:white;flex:1}.back{background:#263a57;color:white}button:hover{transform:translateY(-3px);filter:brightness(1.15)}.counter{color:#7893b7;font-size:12px;text-align:left;margin-top:15px}.success{text-align:center;padding:40px 5px;display:none;animation:appear .7s}.success .emoji{font-size:65px}.success h2{color:var(--mint)}.footer{text-align:center;color:#7187a7;font-size:11px;margin-top:20px}.toplink{position:fixed;top:18px;right:20px;color:#a9bdd9;text-decoration:none;font-size:12px;padding:9px 13px;border:1px solid #ffffff22;border-radius:12px;background:#0d1a2caa;backdrop-filter:blur(12px)}.demo-note{text-align:center;color:#8ba1bf;font-size:10px;margin-top:12px}
+@media(max-width:520px){body{padding:76px 14px 20px}.card{padding:22px 17px;border-radius:22px}h1{font-size:24px}.question{font-size:15px}.star{min-width:52px;padding:13px 3px}.toplink{top:12px;right:12px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<a class="toplink" href="quiz.html">← بازگشت به پلن‌ها</a>
+<div class="container">
+ <div class="brand"><div class="logo">✦</div><h2>SITEX QUESTIONNAIRE</h2></div>
+ <div class="card">
+  <div id="survey">
+   <span style="color:#00dfbd;font-size:12px">● نظرسنجی ویژه مشتریان</span>
+   <h1>رضایت مشتری</h1>
+   <p class="subtitle">نظر شما برای ما ارزشمند است! با پاسخ به چند سؤال کوتاه به ما کمک کنید خدمات بهتری ارائه دهیم.</p>
+   <div class="progress"><div class="bar" id="bar"></div></div>
+   <div class="step active"><div class="question">۱. میزان رضایت شما از خدمات ما چقدر است؟</div><div class="stars"><div class="star" data-rate="1">😡<small>ضعیف</small></div><div class="star" data-rate="2">🙁<small>کم</small></div><div class="star" data-rate="3">😐<small>متوسط</small></div><div class="star" data-rate="4">😊<small>خوب</small></div><div class="star" data-rate="5">🤩<small>عالی</small></div></div></div>
+   <div class="step"><div class="question">۲. کیفیت خدمات را چگونه ارزیابی می‌کنید؟</div><div class="option"><input type="radio" name="q2"> عالی</div><div class="option"><input type="radio" name="q2"> خوب</div><div class="option"><input type="radio" name="q2"> متوسط</div><div class="option"><input type="radio" name="q2"> نیازمند بهبود</div></div>
+   <div class="step"><div class="question">۳. آیا خدمات ما مطابق انتظار شما بود؟</div><div class="option"><input type="radio" name="q3"> بله، کاملاً</div><div class="option"><input type="radio" name="q3"> تا حدودی</div><div class="option"><input type="radio" name="q3"> خیر</div></div>
+   <div class="step"><div class="question">۴. احتمال اینکه ما را به دیگران معرفی کنید چقدر است؟</div><div class="option"><input type="radio" name="q4"> حتماً معرفی می‌کنم</div><div class="option"><input type="radio" name="q4"> شاید</div><div class="option"><input type="radio" name="q4"> خیر</div></div>
+   <div class="step"><div class="question">۵. پیشنهاد یا انتقاد شما چیست؟</div><textarea id="comment" placeholder="نظرتان را اینجا بنویسید..."></textarea></div>
+   <div class="buttons"><button class="back" id="back" type="button" style="display:none">قبلی</button><button class="next" id="next" type="button">سؤال بعدی ←</button></div>
+   <div class="counter" id="counter">مرحله ۱ از ۵</div>
+  </div>
+  <div class="success" id="success"><div class="emoji">🎉</div><h2>ممنون از همراهی شما!</h2><p class="subtitle">پاسخ‌های شما با موفقیت ثبت آزمایشی شدند.<br>از اینکه برای بهتر شدن ما وقت گذاشتید سپاسگزاریم.</p><button class="next" id="restart" type="button">ارسال پاسخ جدید</button></div>
+ </div>
+ <div class="footer">طراحی شده با ♥ توسط سایتکس | نسخه نمایشی پرسشنامه</div><div class="demo-note">این نمونه صرفاً نمایشی است و پاسخ‌ها در سرور ذخیره نمی‌شوند.</div>
+</div>
+<script>
+let current=0,selectedRate=false;const steps=[...document.querySelectorAll('.step')],bar=document.getElementById('bar'),back=document.getElementById('back'),next=document.getElementById('next');
+document.querySelectorAll('.star').forEach(star=>star.addEventListener('click',()=>{document.querySelectorAll('.star').forEach(s=>s.classList.remove('selected'));star.classList.add('selected');selectedRate=true;}));
+document.querySelectorAll('.option').forEach(option=>option.addEventListener('click',()=>{const radio=option.querySelector('input');radio.checked=true;option.parentElement.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));option.classList.add('selected');}));
+function render(){steps.forEach((step,i)=>step.classList.toggle('active',i===current));bar.style.width=((current+1)/steps.length*100)+'%';document.getElementById('counter').textContent='مرحله '+(current+1)+' از ۵';back.style.display=current===0?'none':'block';next.textContent=current===steps.length-1?'ثبت نهایی ✓':'سؤال بعدی ←';}
+function move(direction){if(direction===1){if(current===0&&!selectedRate){alert('لطفاً میزان رضایت خود را انتخاب کنید.');return;}if(current>0&&current<4&&!document.querySelector('input[name="q'+(current+1)+'"]:checked')){alert('لطفاً یک گزینه انتخاب کنید.');return;}}if(direction<0&&current===0)return;if(current===steps.length-1&&direction===1){document.getElementById('survey').style.display='none';document.getElementById('success').style.display='block';return;}current=Math.max(0,Math.min(steps.length-1,current+direction));render();}
+next.addEventListener('click',()=>move(1));back.addEventListener('click',()=>move(-1));document.getElementById('restart').addEventListener('click',()=>location.reload());render();
+</script>
+</body></html>
