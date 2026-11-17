@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080c14"><title>لینک من | مینی‌سایت اختصاصی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080c14;--card:rgba(255,255,255,.065);--text:#f8fafc;--muted:#94a3b8;--accent:#38e8a7;--border:rgba(255,255,255,.1)}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Vazirmatn,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;transition:.4s}
+body.light{--bg:#f2f6f8;--card:rgba(255,255,255,.85);--text:#17212d;--muted:#64748b;--border:rgba(0,0,0,.08)}
+body:before{content:"";position:fixed;width:450px;height:450px;background:var(--accent);filter:blur(180px);opacity:.12;top:-200px;right:-100px;pointer-events:none}
+body:after{content:"";position:fixed;width:350px;height:350px;background:#397aff;filter:blur(170px);opacity:.13;bottom:-150px;left:-100px;pointer-events:none}
+button,a{font-family:inherit}button{cursor:pointer}.container{width:min(100% - 32px,480px);margin:auto;padding:25px 0 40px;position:relative;z-index:1}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:35px;animation:down .7s ease both}.logo{font-weight:900;font-size:19px;letter-spacing:-1px}.logo span{color:var(--accent)}.top-actions{display:flex;gap:9px}
+.icon-btn{width:40px;height:40px;border-radius:14px;background:var(--card);border:1px solid var(--border);color:var(--text);font-size:17px;transition:.3s}.icon-btn:hover{transform:translateY(-3px);border-color:var(--accent)}
+.profile{text-align:center;animation:up .8s ease both}.avatar-wrap{width:112px;height:112px;margin:0 auto 18px;padding:4px;border-radius:36px;background:linear-gradient(135deg,var(--accent),#397aff);transform:rotate(-5deg);box-shadow:0 15px 45px #38e8a72b}.avatar{width:100%;height:100%;border-radius:32px;background:linear-gradient(135deg,#172b3a,#284f61);display:grid;place-items:center;font-size:48px;transform:rotate(5deg)}
+.profile h1{font-size:26px;font-weight:900}.verified{color:var(--accent);font-size:17px}.username{color:var(--muted);font-size:13px;margin-top:3px}.bio{color:var(--muted);font-size:13px;line-height:2;max-width:340px;margin:12px auto 20px}
+.stats{display:flex;justify-content:center;gap:35px;margin:20px 0 25px}.stat strong{display:block;font-size:18px}.stat span{font-size:11px;color:var(--muted)}
+.socials{display:flex;justify-content:center;gap:11px;margin-bottom:32px}.social{width:43px;height:43px;border:1px solid var(--border);border-radius:15px;background:var(--card);color:var(--text);display:grid;place-items:center;text-decoration:none;font-size:17px;transition:.3s}.social:hover{background:var(--accent);color:#07140e;transform:translateY(-6px) rotate(-5deg)}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;font-size:14px;font-weight:800}.section-title small{color:var(--muted);font-size:11px;font-weight:400}.links{display:grid;gap:12px}
+.link-card{display:flex;align-items:center;gap:13px;padding:13px;border-radius:19px;border:1px solid var(--border);background:var(--card);color:var(--text);text-decoration:none;transition:.3s;position:relative;overflow:hidden;animation:up .7s ease both}
+.link-card:before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent,rgba(255,255,255,.07),transparent);transform:translateX(100%);transition:.6s}.link-card:hover:before{transform:translateX(-100%)}.link-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 30px #0002}
+.link-icon{width:47px;height:47px;border-radius:15px;display:grid;place-items:center;font-size:22px;background:rgba(56,232,167,.12);flex-shrink:0}.link-info{flex:1}.link-info strong{font-size:13px;display:block}.link-info small{font-size:11px;color:var(--muted)}.arrow{color:var(--muted);font-size:18px}
+.featured{background:linear-gradient(110deg,#123c36,#153b64);border-color:#38e8a755}.featured .link-icon{background:#ffffff19}.featured .link-info small{color:#b9d8d2}
+.footer{text-align:center;color:var(--muted);font-size:11px;margin-top:32px}.footer b{color:var(--accent)}.badge{display:inline-block;background:#38e8a71c;color:var(--accent);border-radius:20px;padding:4px 9px;font-size:10px;margin-bottom:15px}
+.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,100px);background:#1c2931;color:white;border:1px solid #38e8a766;padding:12px 22px;border-radius:14px;font-size:12px;transition:.4s;z-index:10;white-space:nowrap}.toast.show{transform:translate(-50%,0)}
+@keyframes up{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}@keyframes down{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:700px){.container{padding-top:40px}.profile h1{font-size:30px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style></head>
+<body><div class="container">
+<header class="topbar"><div class="logo">LINK<span>ME.</span></div><div class="top-actions"><button class="icon-btn" onclick="toggleTheme()" title="تغییر تم" aria-label="تغییر تم">◐</button><button class="icon-btn" onclick="sharePage()" title="اشتراک‌گذاری" aria-label="اشتراک‌گذاری">↗</button></div></header>
+<main><section class="profile"><div class="avatar-wrap"><div class="avatar">👨🏻‍💻</div></div><div class="badge">✦ صفحه اختصاصی من</div><h1>امیر حسین <span class="verified">✦</span></h1><div class="username">@amirhossein</div><p class="bio">طراح سایت و علاقه‌مند به دنیای برنامه‌نویسی 🚀<br>اینجا می‌تونی تمام لینک‌های من رو یکجا پیدا کنی.</p></section>
+<div class="stats"><div class="stat"><strong>۱۲</strong><span>لینک فعال</span></div><div class="stat"><strong>۲.۴K</strong><span>بازدید نمایشی</span></div><div class="stat"><strong>۰۸</strong><span>پروژه</span></div></div>
+<div class="socials"><a class="social" href="#" onclick="demo(event,'اینستاگرام')">◎</a><a class="social" href="#" onclick="demo(event,'تلگرام')">➤</a><a class="social" href="#" onclick="demo(event,'یوتیوب')">▶</a><a class="social" href="#" onclick="demo(event,'گیت‌هاب')">⌘</a><a class="social" href="#" onclick="demo(event,'روبیکا')">◈</a></div>
+<div class="section-title"><span>لینک‌های من</span><small>همه‌چیز در یک مکان ✨</small></div>
+<div class="links">
+<a href="#" class="link-card featured" onclick="demo(event,'وب‌سایت شخصی')"><div class="link-icon">🌐</div><div class="link-info"><strong>وب‌سایت شخصی من</strong><small>با پروژه‌ها و نمونه‌کارهای من آشنا شو</small></div><span class="arrow">←</span></a>
+<a href="#" class="link-card" onclick="demo(event,'نمونه‌کارها')"><div class="link-icon">🎨</div><div class="link-info"><strong>نمونه‌کارهای طراحی</strong><small>مشاهده پروژه‌های انجام‌شده</small></div><span class="arrow">←</span></a>
+<a href="#" class="link-card" onclick="demo(event,'ارتباط با من')"><div class="link-icon">💬</div><div class="link-info"><strong>ارتباط با من</strong><small>برای همکاری و گفتگو</small></div><span class="arrow">←</span></a>
+<a href="#" class="link-card" onclick="demo(event,'کانال یوتیوب')"><div class="link-icon">▶️</div><div class="link-info"><strong>کانال یوتیوب</strong><small>ویدیوها و محتواهای جدید</small></div><span class="arrow">←</span></a>
+<a href="#" class="link-card" onclick="demo(event,'گیت‌هاب')"><div class="link-icon">💻</div><div class="link-info"><strong>پروژه‌های گیت‌هاب</strong><small>دنیای کدنویسی من</small></div><span class="arrow">←</span></a>
+</div></main>
+<footer class="footer">ساخته شده با <b>♥</b> | قدرت گرفته از LINKME<br><br>نسخه نمایشی · 2026</footer></div>
+<div class="toast" id="toast">پیام</div>
+<script>
+function toast(message){const el=document.getElementById('toast');el.textContent=message;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2400)}
+function toggleTheme(){document.body.classList.toggle('light');toast('تم سایت تغییر کرد ✨')}
+function demo(e,name){e.preventDefault();toast(name+' | این لینک نمایشی است')}
+function sharePage(){if(navigator.share){navigator.share({title:'صفحه اختصاصی امیر حسین',text:'لینک‌های من در یک صفحه',url:location.href}).catch(()=>{})}else if(navigator.clipboard){navigator.clipboard.writeText(location.href).then(()=>toast('لینک صفحه کپی شد ✓')).catch(()=>toast('امکان کپی وجود ندارد'))}else{toast('اشتراک‌گذاری در دسترس نیست')}}
+</script></body></html>
