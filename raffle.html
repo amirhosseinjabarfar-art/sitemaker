@@ -79,11 +79,20 @@ footer{text-align:center;padding:45px 0 35px;color:#738198;font-size:11px}.foote
 @media(max-width:950px){.plans-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.plan.featured{transform:none}.plan.featured:hover{transform:translateY(-12px)}.plan:last-child{grid-column:1/-1;max-width:calc(50% - 9px);width:100%;justify-self:center}}
 @media(max-width:760px){.plan-intro{display:block}.plan-note{max-width:500px;margin-top:17px}.plans-section{padding-top:25px}}
 @media(max-width:650px){.plans-grid{grid-template-columns:1fr}.plan:last-child{grid-column:auto;max-width:none}.plan{min-height:0}.plan.featured{transform:none}.plan.featured:hover{transform:translateY(-8px)}}
+
+.wheel-demo-section{padding:15px 0 42px}.wheel-demo-heading{text-align:center;margin:0 auto 22px}.wheel-demo-heading h2{font-size:clamp(25px,4vw,38px);font-weight:900;margin:13px 0 5px}.wheel-demo-heading h2 em{font-style:normal;color:var(--lime)}.wheel-demo-heading p{font-size:12px;color:var(--muted)}.wheel-demo-frame{overflow:hidden;border:1px solid var(--line);border-radius:25px;background:#f4f6f9;box-shadow:0 25px 70px #0005}.wheel-demo-frame iframe{display:block;width:100%;height:1040px;border:0}.wheel-demo-disclaimer{text-align:center;color:#8390a4;font-size:11px;margin:12px 0 0}@media(max-width:780px){.wheel-demo-frame iframe{height:1320px}}@media(max-width:520px){.wheel-demo-frame iframe{height:1510px}}
 </style></head>
 <body><div class="glow g1"></div><div class="glow g2"></div>
 <header class="top"><a class="brand" href="index.html"><b>A</b><span>SITEX</span></a><a class="back" href="index.html">↩ بازگشت به صفحه اصلی</a></header>
 <main class="wrap">
 <section class="hero"><div class="hero-orbit"></div><div class="tag"><i></i> SITEX — CUSTOM WHEEL STUDIO</div><h1>گردونه شانس،<br><span>با طراحی دلخواه تو</span></h1><p>از یک گردونه ساده و جذاب تا یک تجربه حرفه‌ای و کاملاً هماهنگ با هویت بصری برندت؛ گردونه اختصاصی خودت را سفارش بده.</p></section>
+
+<section class="wheel-demo-section">
+ <div class="wheel-demo-heading"><span class="tag"><i></i> LIVE DEMO / آزمایشی</span><h2>نمونه واقعی <em>گردونه شانس</em></h2><p>گردونه را بچرخان و نتیجه و کد آزمایشی جایزه را ببین.</p></div>
+ <div class="wheel-demo-frame"><iframe src="wheel-demo.html" title="نمونه آزمایشی گردونه شانس" loading="lazy"></iframe></div>
+ <p class="wheel-demo-disclaimer">این نمونه صرفاً جهت نمایش عملکرد است؛ تمام جوایز و کدها آزمایشی هستند و ارزش مالی ندارند.</p>
+</section>
+
 <section class="plans-section" id="plans">
 <div class="wrap">
  <div class="plan-intro">
@@ -121,17 +130,4 @@ footer{text-align:center;padding:45px 0 35px;color:#738198;font-size:11px}.foote
 </section>
 <section class="custom-note"><div class="note-symbol">✧</div><div><h3>ایده‌ای متفاوت در ذهن داری؟</h3><p>برای سفارش گردونه اختصاصی برندت، جزئیات ایده و نیازت را در روبیکا ارسال کن تا درباره طراحی هماهنگ با برندت گفتگو کنیم.</p></div><a href="https://rubika.ir/amirtbpedit" target="_blank" rel="noopener">ارتباط و ثبت سفارش ↗</a></section>
 </main><footer><div class="footer-brand">SITEX</div>ساخت تجربه‌های دیجیتال اختصاصی — امیر حسین جبارفر</footer><div class="toast" id="toast"></div>
-<script>
-(()=>{const $=id=>document.getElementById(id),digits=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);let names=[],rotation=0,busy=false;
-function toast(t){$('toast').textContent=t;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2200)}
-function parse(id){return $(id).value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean)}
-function render(){names=parse('entries').slice(0,24);$('entryCount').textContent=digits(names.length);$('labels').innerHTML='';const count=Math.max(2,names.length),angle=360/count;names.forEach((name,i)=>{const el=document.createElement('div');el.className='wheel-label';el.textContent=name;el.style.transform='rotate('+(i*angle+angle/2-90)+'deg) translateX(0)';el.style.marginTop='-10px';$('labels').appendChild(el)});const palette=['#f7c65b','#3b8fa7','#a18aff','#ef7e91','#64b98b','#4779cb','#e89b4e','#52bfc2'];$('wheel').style.background='conic-gradient('+names.map((_,i)=>palette[i%palette.length]+' '+(i*angle)+'deg '+((i+1)*angle)+'deg').join(',')+')';$('wheel').style.backgroundImage='repeating-conic-gradient(from 0deg,#ffffff35 0deg 1deg,transparent 1deg '+angle+'deg)';$('wheel').style.backgroundColor='#25364d';$('wheel').style.background='conic-gradient('+names.map((_,i)=>palette[i%palette.length]+' '+(i*angle)+'deg '+((i+1)*angle)+'deg').join(',')+')';$('labels').style.display=names.length?'block':'none';}
-$('apply').onclick=()=>{render();toast(names.length>=2?'گردونه به‌روزرسانی شد':'حداقل دو گزینه وارد کن')};$('sample').onclick=()=>{$('entries').value='امیر\nآراد\nمریم\nجایزه ویژه\nکارت هدیه\nشانس دوباره';render();toast('گزینه‌های نمونه اضافه شدند')};$('clear').onclick=()=>{$('entries').value='';render();$('winner').textContent='منتظر انتخاب برنده...'};
-$('spin').onclick=()=>{if(busy)return;render();if(names.length<2){toast('ابتدا حداقل دو گزینه وارد کن');return}busy=true;$('spin').disabled=true;$('winner').textContent='در حال چرخش...';const chosen=Math.floor(Math.random()*names.length),angle=360/names.length;const target=360-chosen*angle-angle/2;rotation+=360*7+((target-rotation%360+360)%360);$('wheel').style.transform='rotate('+rotation+'deg)';setTimeout(()=>{busy=false;$('spin').disabled=false;$('winner').textContent=names[chosen];confetti();},5900)};
-function confetti(){for(let i=0;i<65;i++){const e=document.createElement('i');e.className='confetti';e.style.left=Math.random()*100+'vw';e.style.background=['#c7ff4a','#55e8f4','#ffc96b','#a995ff','#ff7d9d'][i%5];e.style.animationDelay=Math.random()*.6+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),3600)}}
-document.querySelectorAll('.tab').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b===btn));$('wheelMode').classList.toggle('hide',btn.dataset.mode!=='wheel');$('raffleMode').classList.toggle('show',btn.dataset.mode==='raffle')});
-function updateRaffleCount(){$('raffleCount').textContent=digits(parse('raffleEntries').length)}$('raffleEntries').addEventListener('input',updateRaffleCount);$('raffleSample').onclick=()=>{$('raffleEntries').value='امیر حسین\nآراد محمدی\nمریم رضایی\nسارا احمدی\nپارسا کریمی';updateRaffleCount();toast('فهرست نمونه اضافه شد')};
-$('draw').onclick=()=>{const pool=parse('raffleEntries');if(!pool.length){toast('ابتدا فهرست شرکت‌کننده‌ها را وارد کن');return}const n=Math.max(1,Math.min(100,Number($('winnerCount').value)||1));if(n>pool.length){toast('تعداد برنده‌ها از شرکت‌کننده‌ها بیشتر است');return}for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}const selected=pool.slice(0,n);$('winners').innerHTML='';selected.forEach((name,i)=>{const row=document.createElement('div');row.className='winner-item';const b=document.createElement('b');b.textContent=digits(i+1);const span=document.createElement('span');span.textContent=name;row.append(b,span);$('winners').appendChild(row)});confetti();toast('قرعه‌کشی با موفقیت انجام شد')};
-$('entries').value='امیر\nآراد\nمریم\nجایزه ویژه\nکارت هدیه\nشانس دوباره';render();updateRaffleCount();
-})();
-</script></body></html>
+</body></html>
